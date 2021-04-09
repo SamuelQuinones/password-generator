@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .App-logo {
@@ -35,4 +38,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+input:checked ~ .dot {
+  transform: translateX(100%);
+  @apply bg-green-500;
+}
+
+input:checked ~ .sw-line {
+  @apply bg-green-300;
+}
+
+input:focus ~ .sw-line {
+  @apply ring;
 }

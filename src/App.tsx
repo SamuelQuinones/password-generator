@@ -1,25 +1,91 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./styles/App.css";
+import Footer from "components/Footer";
+import Card from "components/Card";
+import Togglebutton from "components/ToggleButton";
+import Button from "components/Button";
+import Slider from "components/Slider";
 
 function App() {
+  const [passwordLength, setPasswordLength] = useState(6);
+
+  const [includeUppercase, setIncludeUppercase] = useState(false);
+  const [includeLowercase, setIncludeLowercase] = useState(true);
+  const [includeNumbers, setIncludeNumbers] = useState(true);
+  const [includeSymbols, setIncludeSymbols] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Version {process.env.REACT_APP_VERSION}</p>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container mx-auto">
+      <div className="grid grid-cols-2 gap-2">
+        <div className="col-span-2 md:col-span-1">
+          <label className="text-left block" htmlFor="characterNum">
+            Length: {passwordLength}
+          </label>
+          <Card>
+            <Slider
+              value={passwordLength}
+              onChange={(e) =>
+                setPasswordLength(parseInt(e.currentTarget.value))
+              }
+              htmlID="characterNum"
+              min={6}
+              max={24}
+              step={1}
+            />
+          </Card>
+          <div className="text-left">Settings</div>
+          <Card>
+            <Togglebutton
+              htmlId="uppercase"
+              label="Include Uppercase"
+              checked={includeUppercase}
+              onChange={() =>
+                setIncludeUppercase((prev) => {
+                  prev === true &&
+                    includeLowercase === false &&
+                    setIncludeLowercase(true);
+                  return !prev;
+                })
+              }
+            />
+          </Card>
+          <Card>
+            <Togglebutton
+              htmlId="lowercase"
+              label="Include Lowercase"
+              checked={includeLowercase}
+              onChange={() =>
+                setIncludeLowercase((prev) => {
+                  prev === true &&
+                    includeUppercase === false &&
+                    setIncludeUppercase(true);
+                  return !prev;
+                })
+              }
+            />
+          </Card>
+          <Card>
+            <Togglebutton
+              htmlId="numbers"
+              label="Include Numbers"
+              checked={includeNumbers}
+              onChange={() => setIncludeNumbers(!includeNumbers)}
+            />
+          </Card>
+          <Card>
+            <Togglebutton
+              htmlId="symbols"
+              label="Include Symbols"
+              checked={includeSymbols}
+              onChange={() => setIncludeSymbols(!includeSymbols)}
+            />
+          </Card>
+        </div>
+
+        <div className="col-span-2 md:col-span-1">d</div>
+      </div>
+      <Button>Generate Password</Button>
+      <Footer />
     </div>
   );
 }
