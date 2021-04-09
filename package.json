@@ -1,8 +1,11 @@
 {
   "name": "password-generator",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": "Samuel Quiñones",
+  "license": "GPL-3.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "6.1.1",
     "@testing-library/jest-dom": "5.11.10",
     "@testing-library/react": "11.2.6",
     "@testing-library/user-event": "12.8.3",
@@ -29,15 +32,15 @@
     "workbox-streams": "5.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "craco start",
     "serve": "serve -s build",
-    "build": "react-scripts build",
+    "build": "craco build",
     "eslint": "eslint --ext js,tx,tsx",
     "lint": "npm run eslint src",
     "lint:fix": "npm run eslint -- --fix src",
     "pretty:check": "prettier --check .",
     "pretty:fix": "prettier --write .",
-    "test": "react-scripts test",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -53,15 +56,22 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/postcss7-compat": "2.1.0",
     "@typescript-eslint/eslint-plugin": "4.21.0",
     "@typescript-eslint/parser": "4.21.0",
+    "autoprefixer": "9.8.6",
     "eslint": "7.23.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-prettier": "3.3.1",
     "eslint-plugin-react": "7.23.1",
     "eslint-plugin-react-hooks": "4.2.0",
+    "postcss": "7.0.35",
     "prettier": "2.2.1",
-    "serve": "11.3.2"
+    "serve": "11.3.2",
+    "stylelint": "13.12.0",
+    "stylelint-config-recommended": "4.0.0",
+    "stylelint-config-standard": "21.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.1.0"
   }
 }
