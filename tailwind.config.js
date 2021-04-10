@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     container: {
       padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
-        md: '4rem',
-        lg: '6rem',
-        xl: '7rem',
-        '2xl': '8rem',
+        DEFAULT: "1rem",
+        sm: "2rem",
+        md: "4rem",
+        lg: "6rem",
+        xl: "7rem",
+        "2xl": "8rem",
       },
     },
   },
