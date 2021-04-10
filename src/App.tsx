@@ -5,6 +5,7 @@ import Card from "components/Card";
 import Togglebutton from "components/ToggleButton";
 import Button from "components/Button";
 import Slider from "components/Slider";
+import DropdownMenu from "components/Dropdown";
 
 function App() {
   const [passwordLength, setPasswordLength] = useState(6);
@@ -18,7 +19,8 @@ function App() {
     <div className="App container mx-auto">
       <div className="grid grid-cols-2 gap-2">
         <div className="col-span-2 md:col-span-1">
-          <label className="text-left block" htmlFor="characterNum">
+          {/* Length */}
+          <label className="block" htmlFor="characterNum">
             Length: {passwordLength}
           </label>
           <Card>
@@ -33,7 +35,8 @@ function App() {
               step={1}
             />
           </Card>
-          <div className="text-left">Settings</div>
+          {/* Additional Settings */}
+          <div>Settings</div>
           <Card>
             <Togglebutton
               htmlId="uppercase"
@@ -80,11 +83,16 @@ function App() {
               onChange={() => setIncludeSymbols(!includeSymbols)}
             />
           </Card>
+          {/* Advanced Settings */}
+          <DropdownMenu label="Advanced Settings">
+            <Card>Test</Card>
+            <Card>Test Two</Card>
+          </DropdownMenu>
         </div>
 
         <div className="col-span-2 md:col-span-1">d</div>
       </div>
-      <Button>Generate Password</Button>
+      <Button className="mt-5">Generate Password</Button>
       <Footer />
     </div>
   );

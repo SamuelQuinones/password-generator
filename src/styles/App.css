@@ -1,54 +1,41 @@
 .App {
-  text-align: center;
   min-height: 100vh;
   display: flex !important;
   flex-direction: column !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input:focus ~ .sw-line {
+  @apply ring;
 }
 
 input:checked ~ .dot {
   transform: translateX(100%);
   @apply bg-green-500;
 }
-
 input:checked ~ .sw-line {
   @apply bg-green-300;
 }
 
-input:focus ~ .sw-line {
-  @apply ring;
+input:disabled ~ .dot {
+  @apply bg-gray-400;
+}
+input:disabled ~ .sw-line {
+  @apply opacity-60;
+}
+input:disabled:checked ~ .dot {
+  @apply bg-green-700;
+}
+
+.Collapsible__trigger {
+  @apply rounded-md my-2 shadow-md p-3 bg-pink-700 transition w-full text-left;
+}
+
+.Collapsible__trigger:hover,
+.Collapsible__trigger:focus,
+.Collapsible__trigger:focus-within {
+  @apply bg-pink-800 ring-1 outline-none;
+}
+
+.Collapsible__contentOuter {
+  @apply bg-pink-500 px-3 rounded-md;
 }
