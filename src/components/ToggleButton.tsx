@@ -6,6 +6,7 @@ type Props = {
   htmlName?: string;
   checked?: boolean;
   type?: "skinny" | "thick";
+  disabled?: boolean;
   onChange: (x: any) => any;
 };
 
@@ -17,6 +18,7 @@ const Togglebutton = React.forwardRef<HTMLInputElement, Props>(
       checked = false,
       type = "skinny",
       htmlName = htmlId,
+      disabled = false,
       onChange,
     },
     ref
@@ -25,11 +27,14 @@ const Togglebutton = React.forwardRef<HTMLInputElement, Props>(
       // <div className="flex items-center justify-between my-1">
       <label
         htmlFor={htmlId}
-        className="flex justify-between items-center cursor-pointer"
+        className={`flex justify-between items-center ${
+          disabled ? "cursor-not-allowed" : "cursor-pointer"
+        }`}
       >
         <div>{label}</div>
         <div className="relative flex items-center">
           <input
+            disabled={disabled}
             ref={ref}
             type="checkbox"
             name={htmlName}

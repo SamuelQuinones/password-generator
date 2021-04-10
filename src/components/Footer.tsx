@@ -4,7 +4,9 @@ const Footer: React.FC = () => {
   return (
     <>
       <main className="flex-auto" />
-      <footer className="footer">This is a footer</footer>
+      <footer className="footer">
+        Version {process.env.REACT_APP_VERSION}
+      </footer>
     </>
   );
 };
