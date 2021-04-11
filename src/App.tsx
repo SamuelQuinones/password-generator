@@ -1,98 +1,59 @@
-import React, { useState } from "react";
 import "./styles/App.css";
+import { useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import Footer from "components/Footer";
-import Card from "components/Card";
-import Togglebutton from "components/ToggleButton";
 import Button from "components/Button";
-import Slider from "components/Slider";
-import DropdownMenu from "components/Dropdown";
+import Form, { FormInput } from "views/Form";
+import Card from "components/Card";
 
 function App() {
-  const [passwordLength, setPasswordLength] = useState(6);
+  const [generatedPW, setGeneratedPW] = useState<string | undefined>();
+  const [copied, setCopied] = useState(false);
 
-  const [includeUppercase, setIncludeUppercase] = useState(false);
-  const [includeLowercase, setIncludeLowercase] = useState(true);
-  const [includeNumbers, setIncludeNumbers] = useState(true);
-  const [includeSymbols, setIncludeSymbols] = useState(false);
+  const createPassword = (args: FormInput) => {
+    console.log(JSON.stringify(args, null, 2));
+  };
 
   return (
     <div className="App container mx-auto">
+      <h1 className="mb-10 text-center">Secure Password Generator</h1>
       <div className="grid grid-cols-2 gap-2">
-        <div className="col-span-2 md:col-span-1">
-          {/* Length */}
-          <label className="block" htmlFor="characterNum">
-            Length: {passwordLength}
-          </label>
+        <Form onSubmit={createPassword} />
+        <div className="col-span-2 md:col-span-1 text-center">
+          <p>Your New Password</p>
           <Card>
-            <Slider
-              value={passwordLength}
-              onChange={(e) =>
-                setPasswordLength(parseInt(e.currentTarget.value))
-              }
-              htmlID="characterNum"
-              min={6}
-              max={24}
-              step={1}
-            />
+            <div className="ring-2 ring-pink-400 p-2 rounded-md">
+              {generatedPW ? <p>{generatedPW}</p> : <h3>Click Generate</h3>}
+            </div>
+            <CopyToClipboard
+              onCopy={() => setCopied(true)}
+              text={generatedPW || ""}
+            >
+              <Button disabled={generatedPW ? false : true} className="mt-4">
+                Copy to Clipboard
+              </Button>
+            </CopyToClipboard>
+            <div>{copied ? "Copied" : ""}&nbsp;</div>
+            <Button
+              onClick={(e) => {
+                setGeneratedPW(undefined);
+                e.currentTarget.blur();
+              }}
+              className="mt-4"
+            >
+              Reset Password
+            </Button>
           </Card>
-          {/* Additional Settings */}
-          <div>Settings</div>
-          <Card>
-            <Togglebutton
-              htmlId="uppercase"
-              label="Include Uppercase"
-              checked={includeUppercase}
-              onChange={() =>
-                setIncludeUppercase((prev) => {
-                  prev === true &&
-                    includeLowercase === false &&
-                    setIncludeLowercase(true);
-                  return !prev;
-                })
-              }
-            />
-          </Card>
-          <Card>
-            <Togglebutton
-              htmlId="lowercase"
-              label="Include Lowercase"
-              checked={includeLowercase}
-              onChange={() =>
-                setIncludeLowercase((prev) => {
-                  prev === true &&
-                    includeUppercase === false &&
-                    setIncludeUppercase(true);
-                  return !prev;
-                })
-              }
-            />
-          </Card>
-          <Card>
-            <Togglebutton
-              htmlId="numbers"
-              label="Include Numbers"
-              checked={includeNumbers}
-              onChange={() => setIncludeNumbers(!includeNumbers)}
-            />
-          </Card>
-          <Card>
-            <Togglebutton
-              htmlId="symbols"
-              label="Include Symbols"
-              checked={includeSymbols}
-              onChange={() => setIncludeSymbols(!includeSymbols)}
-            />
-          </Card>
-          {/* Advanced Settings */}
-          <DropdownMenu label="Advanced Settings">
-            <Card>Test</Card>
-            <Card>Test Two</Card>
-          </DropdownMenu>
         </div>
-
-        <div className="col-span-2 md:col-span-1">d</div>
+        <Button
+          form="password-form"
+          type="submit"
+          className="mt-3 col-span-2 text-lg"
+        >
+          Generate Password
+        </Button>
       </div>
-      <Button className="mt-5">Generate Password</Button>
+
       <Footer />
     </div>
   );

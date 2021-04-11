@@ -3,10 +3,10 @@ import React from "react";
 type Props = {
   label: string;
   htmlId: string;
-  htmlName?: string;
-  checked?: boolean;
+  name?: string;
   type?: "skinny" | "thick";
   disabled?: boolean;
+  value?: any;
   onChange: (x: any) => any;
 };
 
@@ -15,10 +15,10 @@ const Togglebutton = React.forwardRef<HTMLInputElement, Props>(
     {
       label,
       htmlId,
-      checked = false,
       type = "skinny",
-      htmlName = htmlId,
+      name = htmlId,
       disabled = false,
+      value,
       onChange,
     },
     ref
@@ -37,10 +37,10 @@ const Togglebutton = React.forwardRef<HTMLInputElement, Props>(
             disabled={disabled}
             ref={ref}
             type="checkbox"
-            name={htmlName}
+            name={name}
             id={htmlId}
             className="sr-only"
-            checked={checked}
+            value={value}
             onChange={onChange}
           />
           {type === "skinny" ? (

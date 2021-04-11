@@ -1,4 +1,4 @@
-import React from "react";
+import { forwardRef } from "react";
 
 type SliderProps = {
   min: number;
@@ -7,35 +7,29 @@ type SliderProps = {
   htmlID: string;
   name?: string;
   onChange: (x: React.ChangeEvent<HTMLInputElement>) => any;
-  value: number;
 };
 
-const Slider: React.FC<SliderProps> = ({
-  min,
-  max,
-  step,
-  htmlID,
-  name = htmlID,
-  onChange,
-  value,
-}) => {
-  return (
-    <div className="flex">
-      <span className="flex-grow-0 pr-2">{min}</span>
-      <input
-        className="flex-grow focus:outline-none"
-        onChange={onChange}
-        type="range"
-        name={name}
-        id={htmlID}
-        min={min}
-        max={max}
-        value={value}
-        step={step}
-      />
-      <span className="flex-grow-0 pl-2">{max}</span>
-    </div>
-  );
-};
+const Slider = forwardRef<HTMLInputElement, SliderProps>(
+  ({ min, max, step, htmlID, name = htmlID, onChange }, ref) => {
+    return (
+      <div className="flex">
+        <span className="flex-grow-0 pr-2">{min}</span>
+        <input
+          ref={ref}
+          className="flex-grow focus:outline-none"
+          onChange={onChange}
+          type="range"
+          name={name}
+          id={htmlID}
+          min={min}
+          max={max}
+          step={step}
+        />
+        <span className="flex-grow-0 pl-2">{max}</span>
+      </div>
+    );
+  }
+);
 
 export default Slider;
+Slider.displayName = "Slider";

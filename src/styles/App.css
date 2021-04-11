@@ -4,6 +4,26 @@
   flex-direction: column !important;
 }
 
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-lg;
+}
+
+h1,
+h2,
+h3 {
+  @apply leading-tight;
+}
+
+.btn:disabled {
+  @apply opacity-50 bg-pink-400 cursor-not-allowed;
+}
+
 input:focus ~ .sw-line {
   @apply ring;
 }
