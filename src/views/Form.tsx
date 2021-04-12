@@ -4,6 +4,7 @@ import Togglebutton from "components/ToggleButton";
 import Slider from "components/Slider";
 import DropdownMenu from "components/Dropdown";
 import { useForm } from "react-hook-form";
+import NumberInput from "components/NumberInput";
 
 export type FormInput = {
   passwordLength: number;
@@ -89,14 +90,12 @@ const Form: FC<Props> = ({ onSubmit }) => {
       {/* Advanced Settings */}
       <DropdownMenu label="Advanced Settings">
         <Card>
-          <input
-            type="number"
+          <NumberInput
+            label="Max Length"
+            htmlId="maxLengthId"
             max={90}
             min={24}
-            {...register("advancedSettings.maxLength", {
-              min: 24,
-              max: 90,
-            })}
+            {...register("advancedSettings.maxLength", { min: 24, max: 90 })}
           />
         </Card>
       </DropdownMenu>

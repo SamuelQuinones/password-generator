@@ -50,6 +50,7 @@ input:disabled:checked ~ .dot {
   @apply rounded-md my-2 shadow-md p-3 bg-pink-700 transition w-full text-left;
 }
 
+.Collapsible:focus-within > .Collapsible__trigger,
 .Collapsible__trigger:hover,
 .Collapsible__trigger:focus,
 .Collapsible__trigger:focus-within {
@@ -58,4 +59,10 @@ input:disabled:checked ~ .dot {
 
 .Collapsible__contentOuter {
   @apply bg-pink-500 px-3 rounded-md;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
