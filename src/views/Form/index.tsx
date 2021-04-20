@@ -3,37 +3,11 @@ import Card from "components/Card";
 import Togglebutton from "components/ToggleButton";
 import Slider from "components/Slider";
 import DropdownMenu from "components/Dropdown";
-import { useForm } from "react-hook-form";
 import NumberInput from "components/NumberInput";
+import { FormProps, GeneratorSettings } from "./Helper";
 
-export type FormInput = {
-  passwordLength: number;
-  includeUppercase: boolean;
-  includeLowercase: boolean;
-  includeNumbers: boolean;
-  includeSymbols: boolean;
-  advancedSettings: {
-    maxLength: number;
-  };
-};
-
-type Props = {
-  onSubmit: (data: FormInput) => any;
-};
-
-const Form: FC<Props> = ({ onSubmit }) => {
-  const { register, handleSubmit, watch } = useForm<FormInput>({
-    defaultValues: {
-      passwordLength: 6,
-      includeUppercase: false,
-      includeLowercase: true,
-      includeNumbers: true,
-      includeSymbols: false,
-      advancedSettings: {
-        maxLength: 24,
-      },
-    },
-  });
+const Form: FC<FormProps> = ({ onSubmit }) => {
+  const { register, handleSubmit, watch } = GeneratorSettings();
 
   const watched = watch(["advancedSettings.maxLength", "passwordLength"]);
 
