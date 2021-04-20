@@ -24,26 +24,34 @@ h3 {
   @apply opacity-50 bg-pink-400 cursor-not-allowed;
 }
 
-input:focus ~ .sw-line {
-  @apply ring;
-}
-
-input:checked ~ .dot {
-  transform: translateX(100%);
-  @apply bg-green-500;
-}
-input:checked ~ .sw-line {
-  @apply bg-green-300;
-}
-
-input:disabled ~ .dot {
-  @apply bg-gray-400;
-}
-input:disabled ~ .sw-line {
-  @apply opacity-60;
-}
-input:disabled:checked ~ .dot {
-  @apply bg-green-700;
+input {
+  &:focus {
+    ~ .sw-line {
+      @apply ring;
+    }
+  }
+  &:checked {
+    ~ .dot {
+      transform: translateX(100%);
+      @apply bg-green-500;
+    }
+    ~ .sw-line {
+      @apply bg-green-300;
+    }
+  }
+  &:disabled {
+    ~ .dot {
+      @apply bg-gray-400;
+    }
+    ~ .sw-line {
+      @apply opacity-60;
+    }
+    &:checked {
+      ~ .dot {
+        @apply bg-green-700;
+      }
+    }
+  }
 }
 
 .Collapsible__trigger {
