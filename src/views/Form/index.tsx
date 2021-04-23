@@ -18,9 +18,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
       onSubmit={handleSubmit(onSubmit)}
     >
       {/* Length */}
-      <label className="block" htmlFor="characterNum">
-        Length: {watched[1]}
-      </label>
+      <label htmlFor="characterNum">Length: {watched[1]}</label>
       <Card>
         <Slider
           htmlID="characterNum"
@@ -62,6 +60,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
       </Card>
 
       {/* Advanced Settings */}
+      {/* // TODO: make it so you can't tab in when collapsed */}
       <DropdownMenu label="Advanced Settings">
         <Card>
           <NumberInput
