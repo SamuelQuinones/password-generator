@@ -36,14 +36,14 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
         <div>
           <button
             type="button"
-            className="bg-pink-400 rounded-l-md px-1 border btn transition"
+            className="num-input-btn bg-pink-400 rounded-l-md px-1 border btn transition"
             onClick={() => forceChange("stepDown")}
           >
             <Minus title="Lower Max" className="inline-block" />
           </button>
           <input
             ref={ref}
-            className="bg-pink-400 text-center border-t border-b px-1"
+            className="num-input-field bg-pink-400 text-center border-t border-b px-1"
             type="number"
             onChange={onChange}
             id={htmlId}
@@ -53,7 +53,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
           />
           <button
             type="button"
-            className="bg-pink-400 rounded-r-md px-1 border btn transition"
+            className="num-input-btn bg-pink-400 rounded-r-md px-1 border btn transition"
             onClick={() => forceChange("stepUp")}
           >
             <Plus title="Increase Max" className="inline-block" />
