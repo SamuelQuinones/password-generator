@@ -10,7 +10,7 @@ type SliderProps = {
 };
 
 const Slider = forwardRef<HTMLInputElement, SliderProps>(
-  ({ min, max, step, htmlID, name = htmlID, onChange }, ref) => {
+  ({ min, max, step, htmlID, name, onChange }, ref) => {
     return (
       <div className="flex">
         <span className="flex-grow-0 pr-2">{min}</span>

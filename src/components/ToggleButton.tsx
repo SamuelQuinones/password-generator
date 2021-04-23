@@ -12,15 +12,7 @@ type Props = {
 
 const Togglebutton = React.forwardRef<HTMLInputElement, Props>(
   (
-    {
-      label,
-      htmlId,
-      type = "skinny",
-      name = htmlId,
-      disabled = false,
-      value,
-      onChange,
-    },
+    { label, htmlId, type = "skinny", name, disabled = false, value, onChange },
     ref
   ) => {
     return (
