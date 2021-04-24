@@ -12,7 +12,7 @@ const Output = () => {
     <div className="col-span-2 md:col-span-1 text-center">
       <p>Your New Password</p>
       <Card>
-        <div className="border-2 border-pink-400 p-2 rounded-md">
+        <div className="click-gen-header border-2 p-2 rounded-md">
           {generatedPW ? <p>{generatedPW}</p> : <h3>Click Generate</h3>}
         </div>
         <CopyToClipboard

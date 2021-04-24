@@ -8,11 +8,25 @@ type Props = {
   min: number;
   max: number;
   label: string;
+  leftDisabled?: boolean;
+  rightDisabled?: boolean;
   onChange: (x: React.ChangeEvent<HTMLInputElement>) => any;
 };
 
 const NumberInput = forwardRef<HTMLInputElement, Props>(
-  ({ htmlId, name, max, min, onChange, label }, ref) => {
+  (
+    {
+      htmlId,
+      name,
+      max,
+      min,
+      onChange,
+      label,
+      rightDisabled = false,
+      leftDisabled = false,
+    },
+    ref
+  ) => {
     /**
      * Based on the value of the input, the value of the number will decrease or increase.
      *
@@ -35,15 +49,16 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
         {label}
         <div>
           <button
+            disabled={leftDisabled}
             type="button"
-            className="num-input-btn bg-pink-400 rounded-l-md px-1 border btn transition"
+            className="relative num-input-btn rounded-l-md px-1 border btn btn-theme"
             onClick={() => forceChange("stepDown")}
           >
             <Minus title="Lower Max" className="inline-block" />
           </button>
           <input
             ref={ref}
-            className="num-input-field bg-pink-400 text-center border-t border-b px-1"
+            className="num-input-field text-center border-t border-b px-1"
             type="number"
             onChange={onChange}
             id={htmlId}
@@ -52,8 +67,9 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
             min={min}
           />
           <button
+            disabled={rightDisabled}
             type="button"
-            className="num-input-btn bg-pink-400 rounded-r-md px-1 border btn transition"
+            className="relative num-input-btn rounded-r-md px-1 border btn btn-theme"
             onClick={() => forceChange("stepUp")}
           >
             <Plus title="Increase Max" className="inline-block" />

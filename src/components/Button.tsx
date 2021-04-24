@@ -9,7 +9,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={`${
           className ? className : ""
-        } btn w-full rounded-md p-2 transition bg-pink-400 hover:bg-pink-500 focus:outline-none focus:bg-pink-500 focus:ring focus:ring-pink-300 focus:ring-opacity-60`}
+        } btn btn-theme w-full rounded-md p-2 focus:outline-none focus:ring focus:ring-opacity-60`}
         {...rest}
       >
         {children}

@@ -1,0 +1,38 @@
+body.blue {
+  @apply bg-blue-900;
+  .click-gen-header {
+    @apply border-blue-400;
+  }
+  .btn-theme {
+    @apply bg-blue-400 hover:bg-blue-500 focus:bg-blue-500 focus-within:bg-blue-500 focus:ring-blue-300;
+    &:disabled {
+      @apply bg-blue-400;
+    }
+  }
+
+  .card-theme {
+    @apply bg-blue-700;
+  }
+
+  .num-input {
+    &-btn,
+    &-field {
+      @apply bg-blue-400;
+    }
+  }
+
+  .Collapsible__trigger {
+    @apply rounded-md my-2 shadow-md p-3 bg-blue-700 w-full text-left;
+  }
+  
+  .Collapsible:focus-within > .Collapsible__trigger,
+  .Collapsible__trigger:hover,
+  .Collapsible__trigger:focus,
+  .Collapsible__trigger:focus-within {
+    @apply bg-blue-800 ring-1 outline-none;
+  }
+  
+  .Collapsible__contentOuter {
+    @apply bg-blue-500 px-3 rounded-md;
+  }
+}

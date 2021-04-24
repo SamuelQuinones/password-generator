@@ -1,4 +1,3 @@
-import "./styles/App.scss";
 import { useState } from "react";
 
 import type { FormInput } from "views/Form/Helper";
@@ -8,6 +7,7 @@ import Footer from "components/Footer";
 import Button from "components/Button";
 import Output from "views/Output";
 import { GeneratorContext } from "views/Output/Helper";
+import ThemeSwitcher from "components/ThemeSwitcher";
 
 function App() {
   const [generatedPW, setGeneratedPW] = useState<string | undefined>();
@@ -31,6 +31,7 @@ function App() {
             Generate Password
           </Button>
         </div>
+        <ThemeSwitcher />
 
         <Footer />
       </div>

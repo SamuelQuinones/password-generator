@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "themes/all";
+
+// Input Styles
+@import "input";
+
+.App {
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.animate-class {
+  transition: background-color 0.5s ease-in-out, color 0.75s ease-in-out;
+}
+
+.btn,
+.card,
+.Collapsible__trigger {
+  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
+    border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+body {
+  color: white;
+}
+
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-lg;
+}
+
+h1,
+h2,
+h3 {
+  @apply leading-tight;
+}
+
+.btn:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}

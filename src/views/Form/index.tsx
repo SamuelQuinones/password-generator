@@ -64,6 +64,8 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
       <DropdownMenu label="Advanced Settings">
         <Card>
           <NumberInput
+            leftDisabled={watched[0].toString() === "24"}
+            rightDisabled={watched[0].toString() === "90"}
             label="Max Length"
             htmlId="maxLengthId"
             max={90}
