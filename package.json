@@ -2,8 +2,16 @@
   "name": "password-generator",
   "version": "1.0.0",
   "author": "Samuel Quiñones",
+  "description": "Generate secure, hard to guess passwords with the click of a button!",
   "license": "GPL-3.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SamuelQuinones/password-generator"
+  },
+  "bugs": {
+    "url": "https://github.com/SamuelQuinones/password-generator/issues"
+  },
   "dependencies": {
     "@craco/craco": "6.1.1",
     "@testing-library/jest-dom": "5.11.10",
@@ -39,10 +47,12 @@
     "start": "craco start",
     "serve": "serve -s build",
     "build": "craco build",
+    "build:snap": "npm run build && react-snap",
     "eslint": "eslint --ext js,tx,tsx",
+    "stylelint": "stylelint \"src/styles/**/*.{css,scss,sass}\"",
     "checkTs": "tsc --noEmit",
-    "lint": "npm run eslint src",
-    "lint:fix": "npm run eslint -- --fix src",
+    "lint": "npm run eslint src && npm run stylelint",
+    "lint:fix": "npm run eslint -- --fix src npm run stylelint -- --fix",
     "pretty:check": "prettier --check .",
     "pretty:fix": "prettier --write .",
     "test": "craco test",
@@ -74,6 +84,7 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "postcss": "7.0.35",
     "prettier": "2.2.1",
+    "react-snap": "1.23.0",
     "serve": "11.3.2",
     "stylelint": "13.12.0",
     "stylelint-config-recommended": "4.0.0",
