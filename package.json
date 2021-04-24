@@ -71,13 +71,13 @@
     ]
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "2.1.0",
+    "@tailwindcss/postcss7-compat": "2.1.2",
     "@types/react-copy-to-clipboard": "5.0.0",
     "@typescript-eslint/eslint-plugin": "4.22.0",
     "@typescript-eslint/parser": "4.22.0",
     "autoprefixer": "9.8.6",
-    "eslint": "7.24.0",
-    "eslint-config-prettier": "8.2.0",
+    "eslint": "7.25.0",
+    "eslint-config-prettier": "8.3.0",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.23.2",
@@ -86,9 +86,9 @@
     "prettier": "2.2.1",
     "react-snap": "1.23.0",
     "serve": "11.3.2",
-    "stylelint": "13.12.0",
-    "stylelint-config-recommended": "4.0.0",
-    "stylelint-config-standard": "21.0.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.1.0"
+    "stylelint": "13.13.0",
+    "stylelint-config-recommended": "5.0.0",
+    "stylelint-config-standard": "22.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.1.2"
   }
 }
