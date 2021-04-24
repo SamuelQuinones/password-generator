@@ -1,14 +1,18 @@
-//TODO: make it so that at least one of the form values has to be checked
+//TODO: Make it so that at least one of the form values has to be checked
+//TODO: Add text styling / fonts
+//TODO: Look into improving the generation of passwords
+//TODO: Look into allowing the user to save their settings
+//TODO: Add Password Strength Indicator
 
 import { useState } from "react";
 
 import { generateRandomPW } from "generate-pw";
 
 import Form from "views/Form";
+import Output from "views/Output";
 import { GeneratorContext } from "views/Output/Helper";
 import Footer from "components/Footer";
 import Button from "components/Button";
-import Output from "views/Output";
 import ThemeSwitcher from "components/ThemeSwitcher";
 
 function App() {
