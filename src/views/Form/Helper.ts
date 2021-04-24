@@ -8,6 +8,7 @@ export type FormInput = {
   includeSymbols: boolean;
   advancedSettings: {
     maxLength: number;
+    includeSimilarSymbols: boolean;
   };
 };
 
@@ -25,6 +26,7 @@ export const GeneratorSettings = () => {
       includeSymbols: false,
       advancedSettings: {
         maxLength: 24,
+        includeSimilarSymbols: false,
       },
     },
   });

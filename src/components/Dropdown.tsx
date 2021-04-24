@@ -9,10 +9,13 @@ type Props = {
 
 const DropdownMenu: FC<Props> = ({ children, label }) => {
   const [open, setOpen] = useState(false);
+  const [showChildren, setShowChildren] = useState(false);
 
   return (
     <Collapsible
       open={open}
+      onOpening={() => setShowChildren(true)}
+      onClose={() => setShowChildren(false)}
       transitionTime={300}
       handleTriggerClick={() => setOpen(!open)}
       triggerTagName="button"
@@ -27,7 +30,7 @@ const DropdownMenu: FC<Props> = ({ children, label }) => {
         </>
       }
     >
-      {children}
+      {showChildren && children}
     </Collapsible>
   );
 };

@@ -60,7 +60,6 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
       </Card>
 
       {/* Advanced Settings */}
-      {/* // TODO: make it so you can't tab in when collapsed */}
       <DropdownMenu label="Advanced Settings">
         <Card>
           <NumberInput
@@ -72,6 +71,14 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             min={24}
             {...register("advancedSettings.maxLength", { min: 24, max: 90 })}
           />
+        </Card>
+        <Card>
+          <Togglebutton
+            htmlId="similarSymbols"
+            label="Include Similar Symbols"
+            {...register("advancedSettings.includeSimilarSymbols")}
+          />
+          <small>( e.g. i, l, 1, L, o, 0, O )</small>
         </Card>
       </DropdownMenu>
     </form>
