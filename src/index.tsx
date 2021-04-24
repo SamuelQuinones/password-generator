@@ -1,16 +1,36 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from "react"; //? is this import still needed?
+import { render, hydrate } from "react-dom";
 import "./styles/globals.scss";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+const rootElement = document.getElementById("root") as HTMLElement;
+
+//* https://github.com/stereobooster/react-snap#basic-usage-with-create-react-app
+if (rootElement.hasChildNodes()) {
+  hydrate(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    rootElement
+  );
+} else {
+  render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    rootElement
+  );
+}
+
+//* Old code pre react-snap install
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
