@@ -28,6 +28,7 @@ const Output = () => {
           onClick={(e) => {
             setGeneratedPW(undefined);
             e.currentTarget.blur();
+            setCopied(false);
           }}
           className="mt-4"
         >

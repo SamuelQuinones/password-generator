@@ -1,27 +1,25 @@
+//TODO: make it so that at least one of the form values has to be checked
+
 import { useState } from "react";
 
-import type { FormInput } from "views/Form/Helper";
-import Form from "views/Form";
+import { generateRandomPW } from "generate-pw";
 
+import Form from "views/Form";
+import { GeneratorContext } from "views/Output/Helper";
 import Footer from "components/Footer";
 import Button from "components/Button";
 import Output from "views/Output";
-import { GeneratorContext } from "views/Output/Helper";
 import ThemeSwitcher from "components/ThemeSwitcher";
 
 function App() {
   const [generatedPW, setGeneratedPW] = useState<string | undefined>();
-
-  const createPassword = (args: FormInput) => {
-    console.log(JSON.stringify(args, null, 2));
-  };
 
   return (
     <GeneratorContext.Provider value={{ generatedPW, setGeneratedPW }}>
       <div className="App container mx-auto">
         <h1 className="mb-10 text-center">Secure Password Generator</h1>
         <div className="grid grid-cols-2 gap-2">
-          <Form onSubmit={createPassword} />
+          <Form onSubmit={(data) => setGeneratedPW(generateRandomPW(data))} />
           <Output />
           <Button
             form="password-form"
