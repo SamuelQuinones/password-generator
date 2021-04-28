@@ -1,6 +1,6 @@
-import { FC, useEffect, useState } from "react";
+import { ChangeEvent, FC, useEffect, useState } from "react";
 import { Themes, checkTheme } from "./Helper";
-import { ReactComponent as Palette } from "../../assets/palette-fill.svg";
+import ActiveIcon from "./ActiveIcon";
 
 /**
  * Produces buttons that will change the theme class to match the corresponding color.
@@ -9,6 +9,7 @@ import { ReactComponent as Palette } from "../../assets/palette-fill.svg";
  */
 const ThemeSwitcher: FC = () => {
   const [theme, setTheme] = useState<Themes>("pink");
+  const [containsTransition, setContainsTransition] = useState(false);
 
   /** Runs on first mount to get the initial theme */
   useEffect(() => {
@@ -26,9 +27,10 @@ const ThemeSwitcher: FC = () => {
    * this state will be sued to remove the currnet theme after changing it to the input
    * before setting the state to the new value.
    *
-   * @param newTheme one of the available themes that we will change to
+   * @param e change event target, how we get the value from the radio
    */
-  const changeTheme = (newTheme: Themes) => {
+  const changeTheme = (e: ChangeEvent<HTMLInputElement>) => {
+    const newTheme = checkTheme(e.currentTarget.value);
     //* just in case the theme were "changing" to is the same theme
     if (newTheme === theme) return;
 
@@ -37,7 +39,10 @@ const ThemeSwitcher: FC = () => {
     const LS_KEY = "color-theme";
     //* for some reason, animations on page load causes an odd flash
     //* this block here will add an animation class on the first theme change
-    if (!docBody.contains("animate-class")) docBody.add("animate-class");
+    if (!containsTransition) {
+      docBody.add("animate-class");
+      setContainsTransition(true);
+    }
 
     docBody.add(newTheme);
     docBody.remove(theme);
@@ -46,28 +51,24 @@ const ThemeSwitcher: FC = () => {
   };
 
   return (
-    <div className="fixed bottom-2 right-2">
-      <button
-        className="theme-changer-pink"
-        disabled={theme === "pink"}
-        onClick={() => changeTheme("pink")}
-      >
-        <Palette className="inline-block" />
-      </button>
-      <button
-        className="theme-changer-red"
-        disabled={theme === "red"}
-        onClick={() => changeTheme("red")}
-      >
-        <Palette className="inline-block" />
-      </button>
-      <button
-        className="theme-changer-blue"
-        disabled={theme === "blue"}
-        onClick={() => changeTheme("blue")}
-      >
-        <Palette className="inline-block" />
-      </button>
+    <div className="fixed bottom-2 right-2 theme-changer-master">
+      {["pink", "red", "blue"].map((color, idx) => {
+        return (
+          <label key={idx} htmlFor={`radio-${color}`}>
+            <input
+              className={`theme-changer-${color} sr-only`}
+              id={`radio-${color}`}
+              name="theme"
+              type="radio"
+              value={color}
+              onChange={changeTheme}
+            />
+            <div className="flex items-center justify-center changer-wrapper text-center">
+              <ActiveIcon usingTheme={theme === color} />
+            </div>
+          </label>
+        );
+      })}
     </div>
   );
 };

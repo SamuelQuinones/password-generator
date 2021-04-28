@@ -2,52 +2,86 @@
 @import "blue";
 @import "red";
 
-.theme-changer {
-  &-red,
-  &-blue,
-  &-pink {
-    transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
-      border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-    @apply rounded-full mx-1 w-8 h-8 border-2;
-    &:focus {
-      outline: none;
-      @apply ring ring-opacity-60;
-    }
-    &:disabled {
-      @apply opacity-50 cursor-not-allowed;
-    }
+.theme-changer-master {
+  label {
+    display: inline-block;
   }
-
-  &-pink {
-    @apply bg-pink-500 border-pink-300;
-    &:hover,
-    &:focus {
-      @apply bg-pink-700;
-    }
-    &:disabled {
-      @apply bg-pink-500;
-    }
-  }
-
-  &-red {
-    @apply bg-red-500 border-red-300;
-    &:hover,
-    &:focus {
-      @apply bg-red-700;
-    }
-    &:disabled {
-      @apply bg-red-500;
-    }
-  }
-
-  &-blue {
-    @apply bg-blue-500 border-blue-300;
-    &:hover,
-    &:focus {
-      @apply bg-blue-700;
-    }
-    &:disabled {
-      @apply bg-blue-500;
+  input {
+    &.theme-changer {
+      &-red,
+      &-blue,
+      &-pink {
+        ~ .changer-wrapper {
+          transition: color 0.25s ease-in-out,
+            background-color 0.25s ease-in-out, border-color 0.25s ease-in-out,
+            box-shadow 0.25s ease-in-out;
+          @apply rounded-full mx-1 w-9 h-9 border-2 shadow-lg;
+        }
+        &:not(:checked) {
+          ~ .changer-wrapper {
+            cursor: pointer;
+          }
+        }
+        &:hover,
+        &:focus,
+        &:focus-within {
+          ~ .changer-wrapper {
+            outline: none;
+            @apply ring ring-opacity-60;
+          }
+        }
+      }
+      &-pink {
+        ~ .changer-wrapper {
+          @apply bg-pink-500 border-pink-300;
+        }
+        &:hover,
+        &:focus,
+        &:focus-within {
+          ~ .changer-wrapper {
+            @apply bg-pink-600;
+          }
+        }
+        &:checked {
+          ~ .changer-wrapper {
+            @apply bg-pink-700;
+          }
+        }
+      }
+      &-red {
+        ~ .changer-wrapper {
+          @apply bg-red-500 border-red-300;
+        }
+        &:hover,
+        &:focus,
+        &:focus-within {
+          ~ .changer-wrapper {
+            @apply bg-red-600;
+          }
+        }
+        &:checked {
+          ~ .changer-wrapper {
+            @apply bg-red-700;
+          }
+        }
+      }
+      &-blue {
+        ~ .changer-wrapper {
+          @apply bg-blue-500 border-blue-300;
+        }
+        &:hover,
+        &:focus,
+        &:focus-within {
+          ~ .changer-wrapper {
+            @apply bg-blue-600;
+          }
+        }
+        &:checked {
+          ~ .changer-wrapper {
+            @apply bg-blue-700;
+          }
+        }
+      }
     }
   }
 }
