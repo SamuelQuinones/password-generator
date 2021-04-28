@@ -8,7 +8,7 @@ const arrayFromLowToHigh = (low: number, high: number) => {
   return array;
 };
 
-const similarityTest = (
+const removalTest = (
   baseArr: number[],
   similarArr: number[],
   bool: boolean
@@ -24,6 +24,28 @@ const LIKE_CHARACTERS_UPPER = [73, 76, 79];
 const LIKE_CHARACTERS_LOWER = [105, 108, 111];
 //* 0, 1
 const LIKE_NUMBERS = [48, 49];
+//* ( { } [ ] ( ) / \\ ' \" ` ~ , | ; : . < > )
+const AMBIGUOUS_SYMBOLS = [
+  34,
+  39,
+  40,
+  41,
+  44,
+  46,
+  47,
+  58,
+  59,
+  60,
+  62,
+  91,
+  92,
+  93,
+  96,
+  123,
+  124,
+  125,
+  126,
+];
 
 // https://www.w3schools.com/charsets/ref_html_ascii.asp
 /** 65 and 90 are the character codes for the uppercase letters */
@@ -50,27 +72,33 @@ export const generateRandomPW = (data: FormInput) => {
 
   let charCodes: number[] = [];
   //* First we check to see if we should include similar looking characters or not
-  const newLowerCase = similarityTest(
+  const newLowerCase = removalTest(
     LOWERCASE_LETTERS,
     LIKE_CHARACTERS_LOWER,
-    advancedSettings.includeSimilarSymbols
+    advancedSettings.includeSimilarCharacters
   );
-  const newUpperCase = similarityTest(
+  const newUpperCase = removalTest(
     UPPERCASE_LETTERS,
     LIKE_CHARACTERS_UPPER,
-    advancedSettings.includeSimilarSymbols
+    advancedSettings.includeSimilarCharacters
   );
-  const newNumbers = similarityTest(
+  const newNumbers = removalTest(
     NUMBERS,
     LIKE_NUMBERS,
-    advancedSettings.includeSimilarSymbols
+    advancedSettings.includeSimilarCharacters
+  );
+
+  const newSymbols = removalTest(
+    SYMBOLS,
+    AMBIGUOUS_SYMBOLS,
+    advancedSettings.includeAmbiguousSymbols
   );
 
   //* what types of characters are we using?
   if (includeLowercase) charCodes = charCodes.concat(newLowerCase);
   if (includeUppercase) charCodes = charCodes.concat(newUpperCase);
   if (includeNumbers) charCodes = charCodes.concat(newNumbers);
-  if (includeSymbols) charCodes = charCodes.concat(SYMBOLS);
+  if (includeSymbols) charCodes = charCodes.concat(newSymbols);
 
   //* randomly generated characters will go here
   const pwCharacters: string[] = [];
