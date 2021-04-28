@@ -74,11 +74,19 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
         </Card>
         <Card>
           <Togglebutton
-            htmlId="similarSymbols"
+            htmlId="similarChars"
             label="Include Similar Symbols"
-            {...register("advancedSettings.includeSimilarSymbols")}
+            {...register("advancedSettings.includeSimilarCharacters")}
           />
           <small>( e.g. i, l, 1, L, o, 0, O )</small>
+        </Card>
+        <Card>
+          <Togglebutton
+            htmlId="ambiguousSymbols"
+            label="Include Ambiguous Symbols"
+            {...register("advancedSettings.includeAmbiguousSymbols")}
+          />
+          <small>{"( { } [ ] ( ) / \\ ' \" ` ~ , | ; : . < > )"}</small>
         </Card>
       </DropdownMenu>
     </form>
