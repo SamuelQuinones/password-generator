@@ -21,18 +21,18 @@ body.red {
     }
   }
 
-  .Collapsible__trigger {
+  .dropdown-trigger {
     @apply rounded-md my-2 shadow-md p-3 bg-red-700 w-full text-left;
   }
 
-  .Collapsible:focus-within > .Collapsible__trigger,
-  .Collapsible__trigger:hover,
-  .Collapsible__trigger:focus,
-  .Collapsible__trigger:focus-within {
+  .dropdown-trigger.open,
+  .dropdown-trigger:hover,
+  .dropdown-trigger:focus,
+  .dropdown-trigger:focus-within {
     @apply bg-red-800 ring-1 outline-none;
   }
 
-  .Collapsible__contentOuter {
-    @apply bg-red-500 px-3 rounded-md;
+  .ReactCollapse--content {
+    @apply bg-red-500;
   }
 }

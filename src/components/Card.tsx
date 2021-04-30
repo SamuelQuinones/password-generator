@@ -5,7 +5,7 @@ const Card: React.FC<{ className?: string }> = ({ children, className }) => {
     <div
       className={`${
         className ? className : ""
-      } card card-theme rounded-md my-2 shadow-md p-3`}
+      } card card-theme rounded-md shadow-md p-3`}
     >
       {children}
     </div>

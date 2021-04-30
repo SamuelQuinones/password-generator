@@ -19,7 +19,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
     >
       {/* Length */}
       <label htmlFor="characterNum">Length: {watched[1]}</label>
-      <Card>
+      <Card className="my-2">
         <Slider
           htmlID="characterNum"
           min={6}
@@ -30,28 +30,28 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
       </Card>
       {/* Additional Settings */}
       <div>Settings</div>
-      <Card>
+      <Card className="my-2">
         <Togglebutton
           htmlId="uppercase"
           label="Include Uppercase"
           {...register("includeUppercase")}
         />
       </Card>
-      <Card>
+      <Card className="my-2">
         <Togglebutton
           htmlId="lowercase"
           label="Include Lowercase"
           {...register("includeLowercase")}
         />
       </Card>
-      <Card>
+      <Card className="my-2">
         <Togglebutton
           htmlId="numbers"
           label="Include Numbers"
           {...register("includeNumbers")}
         />
       </Card>
-      <Card>
+      <Card className="my-2">
         <Togglebutton
           htmlId="symbols"
           label="Include Symbols"
@@ -61,33 +61,39 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
 
       {/* Advanced Settings */}
       <DropdownMenu label="Advanced Settings">
-        <Card>
-          <NumberInput
-            leftDisabled={watched[0].toString() === "24"}
-            rightDisabled={watched[0].toString() === "90"}
-            label="Max Length"
-            htmlId="maxLengthId"
-            max={90}
-            min={24}
-            {...register("advancedSettings.maxLength", { min: 24, max: 90 })}
-          />
-        </Card>
-        <Card>
-          <Togglebutton
-            htmlId="similarChars"
-            label="Include Similar Symbols"
-            {...register("advancedSettings.includeSimilarCharacters")}
-          />
-          <small>( e.g. i, l, 1, L, o, 0, O )</small>
-        </Card>
-        <Card>
-          <Togglebutton
-            htmlId="ambiguousSymbols"
-            label="Include Ambiguous Symbols"
-            {...register("advancedSettings.includeAmbiguousSymbols")}
-          />
-          <small>{"( { } [ ] ( ) / \\ ' \" ` ~ , | ; : . < > )"}</small>
-        </Card>
+        <div>
+          <Card>
+            <NumberInput
+              leftDisabled={watched[0].toString() === "24"}
+              rightDisabled={watched[0].toString() === "90"}
+              label="Max Length"
+              htmlId="maxLengthId"
+              max={90}
+              min={24}
+              {...register("advancedSettings.maxLength", { min: 24, max: 90 })}
+            />
+          </Card>
+        </div>
+        <div>
+          <Card>
+            <Togglebutton
+              htmlId="similarChars"
+              label="Include Similar Symbols"
+              {...register("advancedSettings.includeSimilarCharacters")}
+            />
+            <small>( e.g. i, l, 1, L, o, 0, O )</small>
+          </Card>
+        </div>
+        <div>
+          <Card>
+            <Togglebutton
+              htmlId="ambiguousSymbols"
+              label="Include Ambiguous Symbols"
+              {...register("advancedSettings.includeAmbiguousSymbols")}
+            />
+            <small>{"( { } [ ] ( ) / \\ ' \" ` ~ , | ; : . < > )"}</small>
+          </Card>
+        </div>
       </DropdownMenu>
     </form>
   );

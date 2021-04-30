@@ -1,7 +1,8 @@
 import { FC, useState } from "react";
-import Collapsible from "react-collapsible";
+import { UnmountClosed } from "react-collapse";
 import { ReactComponent as CaretRight } from "../assets/caret-right-fill.svg";
 import { ReactComponent as CaretDown } from "../assets/caret-down-fill.svg";
+import Button from "./Button";
 
 type Props = {
   label: string;
@@ -9,29 +10,42 @@ type Props = {
 
 const DropdownMenu: FC<Props> = ({ children, label }) => {
   const [open, setOpen] = useState(false);
-  const [showChildren, setShowChildren] = useState(false);
 
   return (
-    <Collapsible
-      open={open}
-      onOpening={() => setShowChildren(true)}
-      onClose={() => setShowChildren(false)}
-      transitionTime={300}
-      handleTriggerClick={() => setOpen(!open)}
-      triggerTagName="button"
-      trigger={
-        <>
-          {open ? (
-            <CaretDown className="inline-block mr-3" />
-          ) : (
-            <CaretRight className="inline-block mr-3" />
-          )}
-          {label}
-        </>
-      }
-    >
-      {showChildren && children}
-    </Collapsible>
+    // <Collapsible
+    //   open={open}
+    //   onOpening={() => setShowChildren(true)}
+    //   onClose={() => setShowChildren(false)}
+    //   transitionTime={200}
+    //   handleTriggerClick={() => setOpen(!open)}
+    //   triggerTagName="button"
+    //   trigger={
+    //     <>
+    //       {open ? (
+    //         <CaretDown className="inline-block mr-3" />
+    //       ) : (
+    //         <CaretRight className="inline-block mr-3" />
+    //       )}
+    //       {label}
+    //     </>
+    //   }
+    // >
+    //   {showChildren && children}
+    // </Collapsible>
+    <>
+      <Button
+        className={`dropdown-trigger ${open ? "open" : "closed"}`}
+        onClick={() => setOpen(!open)}
+      >
+        {open ? (
+          <CaretDown className="inline-block mr-3" />
+        ) : (
+          <CaretRight className="inline-block mr-3" />
+        )}
+        {label}
+      </Button>
+      <UnmountClosed isOpened={open}>{children}</UnmountClosed>
+    </>
   );
 };
 
