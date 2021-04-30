@@ -31,7 +31,7 @@ const Togglebutton = React.forwardRef<HTMLInputElement, Props>(
             type="checkbox"
             name={name}
             id={htmlId}
-            className="sr-only"
+            className="sr-only pwg-toggle"
             value={value}
             onChange={onChange}
           />

@@ -4,7 +4,17 @@ body.red {
     @apply border-red-400;
   }
   .btn-theme {
-    @apply bg-red-400 hover:bg-red-500 focus:bg-red-500 focus-within:bg-red-500 focus:ring-red-300;
+    @apply bg-red-400;
+    &:focus,
+    &:focus-within,
+    &:hover {
+      @apply bg-red-500;
+    }
+    &:focus {
+      &:not(.dropdown-trigger) {
+        @apply ring-red-300;
+      }
+    }
     &:disabled {
       @apply bg-red-400;
     }
@@ -22,17 +32,37 @@ body.red {
   }
 
   .dropdown-trigger {
-    @apply rounded-md my-2 shadow-md p-3 bg-red-700 w-full text-left;
+    @apply bg-red-700;
   }
 
   .dropdown-trigger.open,
   .dropdown-trigger:hover,
   .dropdown-trigger:focus,
   .dropdown-trigger:focus-within {
-    @apply bg-red-800 ring-1 outline-none;
+    @apply bg-red-800;
   }
 
   .ReactCollapse--content {
     @apply bg-red-500;
+  }
+}
+
+.theme-changer-master {
+  input.theme-changer-red {
+    ~ .changer-wrapper {
+      @apply bg-red-500 border-red-300;
+    }
+    &:hover,
+    &:focus,
+    &:focus-within {
+      ~ .changer-wrapper {
+        @apply bg-red-600;
+      }
+    }
+    &:checked {
+      ~ .changer-wrapper {
+        @apply bg-red-700;
+      }
+    }
   }
 }

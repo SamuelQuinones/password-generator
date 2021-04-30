@@ -36,6 +36,7 @@ const DropdownMenu: FC<Props> = ({ children, label }) => {
       <Button
         className={`dropdown-trigger ${open ? "open" : "closed"}`}
         onClick={() => setOpen(!open)}
+        type="button"
       >
         {open ? (
           <CaretDown className="inline-block mr-3" />

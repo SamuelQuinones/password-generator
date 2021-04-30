@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "themes/all";
-
-// Input Styles
-@import "input";
+@import "themes";
+// Component Styles
+@import "components";
 
 .App {
   min-height: 100vh;
@@ -18,8 +17,7 @@
 }
 
 .btn,
-.card,
-.Collapsible__trigger {
+.card {
   transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
     border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 }
@@ -42,26 +40,4 @@ h1,
 h2,
 h3 {
   @apply leading-tight;
-}
-
-.btn:disabled {
-  @apply opacity-50 cursor-not-allowed;
-}
-
-.ReactCollapse {
-  &--collapse {
-    transition: height 300ms;
-  }
-  &--content {
-    @apply p-3 rounded-md;
-    > div:not(:first-child):not(:last-child) {
-      @apply py-1;
-    }
-    > div:first-child {
-      @apply pb-1;
-    }
-    > div:last-child {
-      @apply pt-1;
-    }
-  }
 }
