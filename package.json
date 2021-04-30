@@ -13,7 +13,7 @@
     "url": "https://github.com/SamuelQuinones/password-generator/issues"
   },
   "dependencies": {
-    "@craco/craco": "6.1.1",
+    "@craco/craco": "6.1.2",
     "@testing-library/jest-dom": "5.12.0",
     "@testing-library/react": "11.2.6",
     "@testing-library/user-event": "13.1.5",
@@ -23,10 +23,10 @@
     "@types/react-dom": "16.9.12",
     "node-sass": "5.0.0",
     "react": "17.0.2",
-    "react-collapsible": "2.8.3",
+    "react-collapse": "5.1.0",
     "react-copy-to-clipboard": "5.0.3",
     "react-dom": "17.0.2",
-    "react-hook-form": "7.3.4",
+    "react-hook-form": "7.3.6",
     "react-scripts": "4.0.3",
     "typescript": "4.2.4",
     "web-vitals": "0.2.4",
@@ -72,6 +72,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "2.1.2",
+    "@types/react-collapse": "5.0.0",
     "@types/react-copy-to-clipboard": "5.0.0",
     "@typescript-eslint/eslint-plugin": "4.22.0",
     "@typescript-eslint/parser": "4.22.0",
