@@ -1,12 +1,27 @@
 import { FC } from "react";
 import { ReactComponent as Palette } from "../../assets/palette-fill.svg";
-import { ReactComponent as CheckAll } from "../../assets/check2-circle.svg";
+import { ReactComponent as CheckCircle } from "../../assets/check2-circle.svg";
 
-const ActiveIcon: FC<{ usingTheme: boolean }> = ({ usingTheme }) => {
+type ActiveIconProps = {
+  usingTheme: boolean;
+  theme: string;
+};
+
+const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
   return usingTheme ? (
-    <CheckAll width={20} height={20} className="inline-block" />
+    <CheckCircle
+      title={`Using ${theme} Theme`}
+      width={20}
+      height={20}
+      className="inline-block"
+    />
   ) : (
-    <Palette width={20} height={20} className="inline-block" />
+    <Palette
+      title={`Switch to ${theme} Theme`}
+      width={20}
+      height={20}
+      className="inline-block"
+    />
   );
 };
 

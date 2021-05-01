@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, useEffect, useState } from "react";
-import { Themes, checkTheme } from "./Helper";
+import { Themes, checkTheme, ThemesArr } from "./Helper";
 import ActiveIcon from "./ActiveIcon";
+import { UnmountClosed } from "react-collapse";
 
 /**
  * Produces buttons that will change the theme class to match the corresponding color.
@@ -8,6 +9,7 @@ import ActiveIcon from "./ActiveIcon";
  * Buttons are circular, and stick to the bottom right
  */
 const ThemeSwitcher: FC = () => {
+  const [showThemeButtons, setShowThemeButtons] = useState(false);
   const [theme, setTheme] = useState<Themes>("pink");
   const [containsTransition, setContainsTransition] = useState(false);
 
@@ -52,23 +54,34 @@ const ThemeSwitcher: FC = () => {
 
   return (
     <div className="fixed bottom-2 right-2 theme-changer-master">
-      {["pink", "red", "blue"].map((color, idx) => {
-        return (
-          <label key={idx} htmlFor={`radio-${color}`}>
-            <input
-              className={`theme-changer-${color} sr-only`}
-              id={`radio-${color}`}
-              name="theme"
-              type="radio"
-              value={color}
-              onChange={changeTheme}
-            />
-            <div className="flex items-center justify-center changer-wrapper text-center">
-              <ActiveIcon usingTheme={theme === color} />
-            </div>
-          </label>
-        );
-      })}
+      <button
+        className={`theme-toggle-button block ml-auto ${
+          showThemeButtons ? "open" : "closed"
+        }`}
+        onClick={() => setShowThemeButtons(!showThemeButtons)}
+      >
+        Change theme
+      </button>
+      <UnmountClosed isOpened={showThemeButtons}>
+        {ThemesArr.map((color, idx) => {
+          return (
+            <label key={idx} htmlFor={`radio-${color}`}>
+              <input
+                className={`theme-changer-${color} sr-only`}
+                id={`radio-${color}`}
+                name="theme"
+                type="radio"
+                value={color}
+                onChange={changeTheme}
+                checked={theme === color}
+              />
+              <div className="flex items-center justify-center changer-wrapper text-center">
+                <ActiveIcon theme={color} usingTheme={theme === color} />
+              </div>
+            </label>
+          );
+        })}
+      </UnmountClosed>
     </div>
   );
 };
