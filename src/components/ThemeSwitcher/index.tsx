@@ -60,7 +60,7 @@ const ThemeSwitcher: FC = () => {
         }`}
         onClick={() => setShowThemeButtons(!showThemeButtons)}
       >
-        Change theme
+        Select Theme
       </button>
       <UnmountClosed isOpened={showThemeButtons}>
         {ThemesArr.map((color, idx) => {

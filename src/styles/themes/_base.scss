@@ -49,11 +49,12 @@
     .ReactCollapse--content {
       @apply bg-#{$color}-500;
     }
+  
     .theme-toggle-button {
       transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
         border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
       color: $btnText;
-      @apply p-1.5 rounded-md bg-#{$color}-300 shadow-inner;
+      @apply p-1.5 rounded-md bg-#{$color}-400 shadow-inner;
       &:focus,
       &:focus-within,
       &:hover {
@@ -105,33 +106,22 @@
   }
 }
 
-@mixin OverrideToggle($theme, $color) {
+@mixin OverrideToggle($theme, $checkedColor) {
   body.#{$theme} {
     input.pwg-toggle {
-      &:focus {
-        ~ .sw-line {
-          @apply ring;
-        }
-      }
       &:checked {
         ~ .dot {
           transform: translateX(100%);
-          @apply bg-#{$color}-500;
+          @apply bg-#{$checkedColor}-500;
         }
         ~ .sw-line {
-          @apply bg-#{$color}-300;
+          @apply bg-#{$checkedColor}-300;
         }
       }
       &:disabled {
-        ~ .dot {
-          @apply bg-gray-400;
-        }
-        ~ .sw-line {
-          @apply opacity-60;
-        }
         &:checked {
           ~ .dot {
-            @apply bg-#{$color}-700;
+            @apply bg-#{$checkedColor}-700;
           }
         }
       }

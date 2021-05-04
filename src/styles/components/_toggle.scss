@@ -1,6 +1,7 @@
 input.pwg-toggle {
   &:focus {
-    ~ .sw-line {
+    ~ .sw-line,
+    ~ .dot {
       @apply ring;
     }
   }
