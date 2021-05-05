@@ -3,6 +3,7 @@
 //TODO: Add "About" - preferably in a modal
 //TODO: Add Password Strength Indicator
 //TODO: Make a Logo
+//TODO: Look into using redux
 //TODO: Look into improving the generation of passwords
 //TODO: Look into allowing the user to save their settings
 

@@ -4,34 +4,10 @@ import { ReactComponent as CaretRight } from "../assets/caret-right-fill.svg";
 import { ReactComponent as CaretDown } from "../assets/caret-down-fill.svg";
 import Button from "./Button";
 
-type Props = {
-  label: string;
-};
-
-const DropdownMenu: FC<Props> = ({ children, label }) => {
+const DropdownMenu: FC<{ label: string }> = ({ children, label }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    // <Collapsible
-    //   open={open}
-    //   onOpening={() => setShowChildren(true)}
-    //   onClose={() => setShowChildren(false)}
-    //   transitionTime={200}
-    //   handleTriggerClick={() => setOpen(!open)}
-    //   triggerTagName="button"
-    //   trigger={
-    //     <>
-    //       {open ? (
-    //         <CaretDown className="inline-block mr-3" />
-    //       ) : (
-    //         <CaretRight className="inline-block mr-3" />
-    //       )}
-    //       {label}
-    //     </>
-    //   }
-    // >
-    //   {showChildren && children}
-    // </Collapsible>
     <>
       <Button
         className={`dropdown-trigger ${open ? "open" : "closed"}`}
