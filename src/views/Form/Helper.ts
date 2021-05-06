@@ -13,10 +13,6 @@ export type FormInput = {
   };
 };
 
-export type FormProps = {
-  onSubmit: (data: FormInput) => any;
-};
-
 export const GeneratorSettings = () => {
   return useForm<FormInput>({
     defaultValues: {

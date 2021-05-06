@@ -1,12 +1,19 @@
+//* Core
 import { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Card from "components/Card";
 import Button from "components/Button";
-import { useGeneratorContext } from "./Helper";
+//* REDUX
+import { useAppDispatch, useAppSelector } from "store/hooks";
+import { getGeneratedPW } from "store/selectors";
+import { userActions } from "store/userSlice";
 
 const Output = () => {
+  //* Core
   const [copied, setCopied] = useState(false);
-  const { generatedPW, setGeneratedPW } = useGeneratorContext();
+  //* REDUX
+  const dispatch = useAppDispatch();
+  const generatedPW = useAppSelector(getGeneratedPW);
 
   return (
     <div className="col-span-2 md:col-span-1 text-center">
@@ -26,7 +33,7 @@ const Output = () => {
         <div>{copied ? "Copied" : ""}&nbsp;</div>
         <Button
           onClick={(e) => {
-            setGeneratedPW(undefined);
+            dispatch(userActions.resetGeneratedPW());
             e.currentTarget.blur();
             setCopied(false);
           }}

@@ -1,7 +1,12 @@
+//* Core
 import { ChangeEvent, FC, useEffect, useState } from "react";
-import { Themes, checkTheme, ThemesArr } from "./Helper";
+import { checkTheme, ThemesArr } from "./Helper";
 import ActiveIcon from "./ActiveIcon";
 import { UnmountClosed } from "react-collapse";
+//* REDUX
+import { useAppDispatch, useAppSelector } from "store/hooks";
+import { getTheme } from "store/selectors";
+import { userActions } from "store/userSlice";
 
 /**
  * Produces buttons that will change the theme class to match the corresponding color.
@@ -9,18 +14,20 @@ import { UnmountClosed } from "react-collapse";
  * Buttons are circular, and stick to the bottom right
  */
 const ThemeSwitcher: FC = () => {
+  //* Core
   const [showThemeButtons, setShowThemeButtons] = useState(false);
-  const [theme, setTheme] = useState<Themes>("pink");
   const [containsTransition, setContainsTransition] = useState(false);
+  //* REDUX
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector(getTheme);
 
   /** Runs on first mount to get the initial theme */
   useEffect(() => {
     const LS_KEY = "color-theme";
     const storedTheme = localStorage.getItem(LS_KEY);
     const _theme = checkTheme(storedTheme);
-
-    setTheme(_theme);
-  }, []);
+    dispatch(userActions.setTheme(_theme));
+  }, [dispatch]);
 
   /**
    * changes the theme / dom class-list
@@ -48,7 +55,8 @@ const ThemeSwitcher: FC = () => {
 
     docBody.add(newTheme);
     docBody.remove(theme);
-    setTheme(newTheme);
+    dispatch(userActions.setTheme(newTheme));
+
     localStorage.setItem(LS_KEY, newTheme);
   };
 

@@ -1,15 +1,28 @@
+//* Core
 import { FC } from "react";
 import Card from "components/Card";
 import Togglebutton from "components/ToggleButton";
 import Slider from "components/Slider";
 import DropdownMenu from "components/Dropdown";
 import NumberInput from "components/NumberInput";
-import { FormProps, GeneratorSettings } from "./Helper";
+import { FormInput, GeneratorSettings } from "./Helper";
+//* REDUX
+import { useAppDispatch } from "store/hooks";
+import { userActions } from "store/userSlice";
+//* Utility
+import { generateRandomPW } from "util/generate-pw";
 
-const Form: FC<FormProps> = ({ onSubmit }) => {
+const Form: FC = () => {
+  //* REDUX
+  const dispatch = useAppDispatch();
+  //* React Hook Form
   const { register, handleSubmit, watch } = GeneratorSettings();
 
   const watched = watch(["advancedSettings.maxLength", "passwordLength"]);
+
+  const onSubmit = (data: FormInput) => {
+    dispatch(userActions.setGeneratedPW(generateRandomPW(data)));
+  };
 
   return (
     <form

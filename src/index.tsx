@@ -1,27 +1,27 @@
 import React from "react"; //? is this import still needed?
 import { render, hydrate } from "react-dom";
 import "./styles/globals.scss";
+import { Provider } from "react-redux";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
+import { store } from "store";
 
 const rootElement = document.getElementById("root") as HTMLElement;
 
+const MyApp = (
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>
+);
+
 //* https://github.com/stereobooster/react-snap#basic-usage-with-create-react-app
 if (rootElement.hasChildNodes()) {
-  hydrate(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    rootElement
-  );
+  hydrate(MyApp, rootElement);
 } else {
-  render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    rootElement
-  );
+  render(MyApp, rootElement);
 }
 
 //* Old code pre react-snap install
