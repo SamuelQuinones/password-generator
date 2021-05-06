@@ -32,6 +32,13 @@
         @apply bg-#{$color}-400;
         color: $btnText;
       }
+      &-field {
+        &:focus,
+        &:focus-within,
+        &:active {
+          @apply bg-#{$color}-500 ring-#{$color}-300;
+        }
+      }
     }
 
     .dropdown-trigger {
@@ -49,7 +56,7 @@
     .ReactCollapse--content {
       @apply bg-#{$color}-500;
     }
-  
+
     .theme-toggle-button {
       transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
         border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
