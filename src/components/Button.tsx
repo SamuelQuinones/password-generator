@@ -9,7 +9,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={`${
           className ? className : ""
-        } btn btn-theme w-full rounded-md p-2 `}
+        } btn btn-theme rounded-md p-2 `}
         {...rest}
       >
         {children}

@@ -10,7 +10,7 @@ const DropdownMenu: FC<{ label: string }> = ({ children, label }) => {
   return (
     <>
       <Button
-        className={`dropdown-trigger ${open ? "open" : "closed"}`}
+        className={`dropdown-trigger w-full ${open ? "open" : "closed"}`}
         onClick={() => setOpen(!open)}
         type="button"
       >
