@@ -5,8 +5,9 @@ import Card from "components/Card";
 import Button from "components/Button";
 //* REDUX
 import { useAppDispatch, useAppSelector } from "store/hooks";
-import { getGeneratedPW } from "store/selectors";
+import { getGeneratedPW, getSettingsSaved } from "store/selectors";
 import { userActions } from "store/userSlice";
+import SavedSettingsCard from "./SavedSettingsCard";
 
 const Output: FC = () => {
   //* Core
@@ -14,6 +15,7 @@ const Output: FC = () => {
   //* REDUX
   const dispatch = useAppDispatch();
   const generatedPW = useAppSelector(getGeneratedPW);
+  const settingsSaved = useAppSelector(getSettingsSaved);
 
   return (
     <div className="col-span-2 md:col-span-1 text-center">
@@ -26,7 +28,7 @@ const Output: FC = () => {
           onCopy={() => setCopied(true)}
           text={generatedPW || ""}
         >
-          <Button disabled={generatedPW ? false : true} className="mt-4">
+          <Button disabled={generatedPW ? false : true} className="mt-4 w-full">
             Copy to Clipboard
           </Button>
         </CopyToClipboard>
@@ -37,11 +39,12 @@ const Output: FC = () => {
             e.currentTarget.blur();
             setCopied(false);
           }}
-          className="mt-4"
+          className="mt-4 w-full"
         >
           Reset Password
         </Button>
       </Card>
+      <SavedSettingsCard visible={settingsSaved} />
     </div>
   );
 };

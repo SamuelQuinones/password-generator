@@ -1,11 +1,16 @@
 //* Core
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Card from "components/Card";
 import Togglebutton from "components/ToggleButton";
 import Slider from "components/Slider";
 import DropdownMenu from "components/Dropdown";
 import NumberInput from "components/NumberInput";
-import { FormInput, GeneratorSettings } from "./Helper";
+import {
+  checkStoredValue,
+  FormInput,
+  GeneratorSettings,
+  saveFormValues,
+} from "./Helper";
 //* REDUX
 import { useAppDispatch } from "store/hooks";
 import { userActions } from "store/userSlice";
@@ -16,12 +21,23 @@ const Form: FC = () => {
   //* REDUX
   const dispatch = useAppDispatch();
   //* React Hook Form
-  const { register, handleSubmit, watch } = GeneratorSettings();
+  const { register, handleSubmit, watch, reset } = GeneratorSettings();
+
+  useEffect(() => {
+    const savedSettings = localStorage.getItem("savedSettings");
+    if (!savedSettings) return;
+    reset(checkStoredValue(savedSettings));
+    dispatch(userActions.setSettingsSaved(true));
+  }, [reset, dispatch]);
 
   const watched = watch(["advancedSettings.maxLength", "passwordLength"]);
 
   const onSubmit = (data: FormInput) => {
     dispatch(userActions.setGeneratedPW(generateRandomPW(data)));
+    if (data.advancedSettings.saveForNextTime) {
+      saveFormValues(data);
+      dispatch(userActions.setSettingsSaved(true));
+    }
   };
 
   return (
@@ -105,6 +121,15 @@ const Form: FC = () => {
               {...register("advancedSettings.includeAmbiguousSymbols")}
             />
             <small>{"( { } [ ] ( ) / \\ ' \" ` ~ , | ; : . < > )"}</small>
+          </Card>
+        </div>
+        <div>
+          <Card>
+            <Togglebutton
+              htmlId="saveForNextTime"
+              label="Save These Settings"
+              {...register("advancedSettings.saveForNextTime")}
+            />
           </Card>
         </div>
       </DropdownMenu>
