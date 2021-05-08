@@ -5,7 +5,7 @@
 //TODO: Add Password Strength Indicator
 //TODO: Make a Logo
 //TODO: Look into improving the generation of passwords
-//TODO: Look into allowing the user to save their settings
+//TODO: See if it is possible to build a collapse component using react transition group
 
 //* Core
 //* Views
