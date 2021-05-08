@@ -3,11 +3,11 @@ import { FC, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Card from "components/Card";
 import Button from "components/Button";
+import SavedSettingsCard from "./SavedSettingsCard";
 //* REDUX
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { getGeneratedPW, getSettingsSaved } from "store/selectors";
 import { userActions } from "store/userSlice";
-import SavedSettingsCard from "./SavedSettingsCard";
 
 const Output: FC = () => {
   //* Core
