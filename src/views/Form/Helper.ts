@@ -85,7 +85,7 @@ export const unSaveFormValues = () => {
  * - has try/catch in the event the string can't be turned into an object
  * - uses a class with default values in the event that the object doesn't match the exact shape
  *
- * @param localStorageValue nont-null value obtained from `localStorage`
+ * @param localStorageValue not-null value obtained from `localStorage`
  * @returns an object that matches the `FormInput` shape
  */
 export const checkStoredValue = (localStorageValue: string): FormInput => {
