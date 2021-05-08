@@ -1,5 +1,5 @@
 //* Core
-import { useState } from "react";
+import { FC, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Card from "components/Card";
 import Button from "components/Button";
@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from "store/hooks";
 import { getGeneratedPW } from "store/selectors";
 import { userActions } from "store/userSlice";
 
-const Output = () => {
+const Output: FC = () => {
   //* Core
   const [copied, setCopied] = useState(false);
   //* REDUX

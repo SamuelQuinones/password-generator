@@ -1,4 +1,5 @@
 //TODO: Make it so that at least one of the form values has to be checked
+//TODO: Find a way to remove body class from snap builds
 //TODO: Add text styling / fonts
 //TODO: Add "About" - preferably in a modal
 //TODO: Add Password Strength Indicator
@@ -7,8 +8,10 @@
 //TODO: Look into allowing the user to save their settings
 
 //* Core
+//* Views
 import Form from "views/Form";
 import Output from "views/Output";
+//* Components
 import Footer from "components/Footer";
 import Button from "components/Button";
 import ThemeSwitcher from "components/ThemeSwitcher";

@@ -1,5 +1,11 @@
-@mixin MakeTheme($color, $btnText: white, $dropdownText: white) {
+@mixin MakeTheme(
+  $color,
+  $bodyText: white,
+  $btnText: white,
+  $dropdownText: white
+) {
   body.#{$color} {
+    color: $bodyText;
     @apply bg-#{$color}-900;
     .click-gen-header {
       @apply border-#{$color}-400;

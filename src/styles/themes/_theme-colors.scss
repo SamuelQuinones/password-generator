@@ -1,1 +1,9 @@
-$theme-colors: ("pink"), ("red"), ("blue"), ("teal", black), ("cyan", black);
+$theme-colors: ("pink"), ("red"), ("blue"),
+  (
+    "color": "teal",
+    "btnText": black,
+  ),
+  (
+    "color": "cyan",
+    "btnText": black,
+  );
