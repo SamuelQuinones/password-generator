@@ -6,8 +6,9 @@
 //TODO: Make a Logo
 //TODO: Look into improving the generation of passwords
 //TODO: See if it is possible to build a collapse component using react transition group
+//TODO: Add transitions to theme select buttons
 
-//* Core
+/** Core */
 //* Views
 import Form from "views/Form";
 import Output from "views/Output";
