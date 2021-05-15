@@ -1,4 +1,5 @@
-import { forwardRef, useEffect, useState } from "react";
+import { ChangeEvent, forwardRef } from "react";
+import { useRenderOnMount } from "util/render-on-mount";
 
 type Props = {
   label: string;
@@ -7,7 +8,7 @@ type Props = {
   type?: "skinny" | "thick";
   disabled?: boolean;
   value?: any;
-  onChange: (x: any) => any;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => any;
 };
 
 const Togglebutton = forwardRef<HTMLInputElement, Props>(
@@ -15,10 +16,11 @@ const Togglebutton = forwardRef<HTMLInputElement, Props>(
     { label, htmlId, type = "skinny", name, disabled = false, value, onChange },
     ref
   ) => {
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => {
-      setMounted(true);
-    }, []);
+    // const [mounted, setMounted] = useState(false);
+    // useEffect(() => {
+    //   setMounted(true);
+    // }, []);
+    const mounted = useRenderOnMount();
     return (
       // <div className="flex items-center justify-between my-1">
       <label

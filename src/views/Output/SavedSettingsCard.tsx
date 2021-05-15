@@ -1,5 +1,5 @@
 //* Core
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import Card from "components/Card";
 import Button from "components/Button";
@@ -8,15 +8,16 @@ import { unSaveFormValues } from "views/Form/Helper";
 //* REDUX
 import { useAppDispatch } from "store/hooks";
 import { userActions } from "store/userSlice";
+import { useRenderOnMount } from "util/render-on-mount";
 
 const SavedSettingsCard: FC<{ visible: boolean }> = ({ visible }) => {
   //* Core
   const divRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // const [mounted, setMounted] = useState(false);
+  // useEffect(() => {
+  //   setMounted(true);
+  // }, []);
+  const mounted = useRenderOnMount();
 
   //* REDUX
   const dispatch = useAppDispatch();
