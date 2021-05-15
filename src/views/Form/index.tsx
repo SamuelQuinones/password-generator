@@ -127,7 +127,7 @@ const Form: FC = () => {
           <Card>
             <Togglebutton
               htmlId="saveForNextTime"
-              label="Save These Settings"
+              label="Save All Settings"
               {...register("advancedSettings.saveForNextTime")}
             />
           </Card>

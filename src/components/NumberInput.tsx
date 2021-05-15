@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, ChangeEvent } from "react";
 import { ReactComponent as Minus } from "../assets/dash.svg";
 import { ReactComponent as Plus } from "../assets/plus.svg";
 
@@ -10,7 +10,7 @@ type Props = {
   label: string;
   leftDisabled?: boolean;
   rightDisabled?: boolean;
-  onChange: (x: React.ChangeEvent<HTMLInputElement>) => any;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => any;
 };
 
 const NumberInput = forwardRef<HTMLInputElement, Props>(

@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, ChangeEvent } from "react";
 
 type SliderProps = {
   min: number;
@@ -6,7 +6,7 @@ type SliderProps = {
   step: number;
   htmlID: string;
   name?: string;
-  onChange: (x: React.ChangeEvent<HTMLInputElement>) => any;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => any;
 };
 
 const Slider = forwardRef<HTMLInputElement, SliderProps>(

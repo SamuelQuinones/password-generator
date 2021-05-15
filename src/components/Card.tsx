@@ -1,6 +1,6 @@
-import React from "react";
+import { FC } from "react";
 
-const Card: React.FC<{ className?: string }> = ({ children, className }) => {
+const Card: FC<{ className?: string }> = ({ children, className }) => {
   return (
     <div
       className={`${

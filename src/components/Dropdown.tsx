@@ -7,6 +7,15 @@ import Button from "./Button";
 const DropdownMenu: FC<{ label: string }> = ({ children, label }) => {
   const [open, setOpen] = useState(false);
 
+  //* to be called onRest
+  // const scrollToBottom = (condition: boolean) => {
+  //   condition &&
+  //     window.scrollTo({
+  //       top: document.body.scrollHeight,
+  //       behavior: "smooth",
+  //     });
+  // };
+
   return (
     <>
       <Button
