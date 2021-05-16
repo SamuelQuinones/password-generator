@@ -6,6 +6,8 @@
 @import "themes";
 // Component Styles
 @import "components";
+// font face
+@import "font-face";
 
 .App {
   min-height: 100vh;
@@ -24,8 +26,13 @@
     border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 }
 
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
 h1 {
-  @apply text-3xl;
+  font-family: "Viga", sans-serif;
+  @apply text-5xl;
 }
 h2 {
   @apply text-2xl;
@@ -38,4 +45,15 @@ h1,
 h2,
 h3 {
   @apply leading-tight;
+}
+
+a {
+  font-weight: bold;
+  @apply text-lightBlue-400;
+  &:focus,
+  &:focus-within,
+  &:hover,
+  &:active {
+    @apply text-lightBlue-500;
+  }
 }
