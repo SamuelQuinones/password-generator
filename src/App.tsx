@@ -1,7 +1,6 @@
 //TODO: Make it so that at least one of the form values has to be checked
-//TODO: Find a way to remove body class from snap builds
-//TODO: Add text styling / fonts
 //TODO: Add "About" - preferably in a modal
+//TODO: Add a "security" section that oulines the info from security.md
 //TODO: Add Password Strength Indicator
 //TODO: Make a Logo
 //TODO: Look into improving the generation of passwords
