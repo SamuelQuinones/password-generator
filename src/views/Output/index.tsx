@@ -17,6 +17,11 @@ const Output: FC = () => {
   const generatedPW = useAppSelector(getGeneratedPW);
   const settingsSaved = useAppSelector(getSettingsSaved);
 
+  const onCopyText = () => {
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="col-span-2 md:col-span-1 text-center">
       <p>Your New Password</p>
@@ -24,10 +29,7 @@ const Output: FC = () => {
         <div className="click-gen-header border-2 p-2 rounded-md">
           {generatedPW ? <p>{generatedPW}</p> : <h3>Click Generate</h3>}
         </div>
-        <CopyToClipboard
-          onCopy={() => setCopied(true)}
-          text={generatedPW || ""}
-        >
+        <CopyToClipboard onCopy={() => onCopyText()} text={generatedPW || ""}>
           <Button disabled={generatedPW ? false : true} className="mt-4 w-full">
             Copy to Clipboard
           </Button>
