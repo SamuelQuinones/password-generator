@@ -1,6 +1,6 @@
 import { forwardRef, ChangeEvent } from "react";
-import { ReactComponent as Minus } from "../assets/dash.svg";
-import { ReactComponent as Plus } from "../assets/plus.svg";
+import { ReactComponent as Minus } from "../assets/dash-lg.svg";
+import { ReactComponent as Plus } from "../assets/plus-lg.svg";
 
 type Props = {
   htmlId: string;
@@ -54,7 +54,13 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
             className="relative num-input-btn rounded-l-md px-1 border btn btn-theme"
             onClick={() => forceChange("stepDown")}
           >
-            <Minus title="Lower Max" className="inline-block" />
+            <Minus
+              style={{ verticalAlign: "-.125em" }}
+              height={14}
+              width={14}
+              title="Lower Max"
+              className="inline-block"
+            />
           </button>
           <input
             ref={ref}
@@ -72,7 +78,13 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
             className="relative num-input-btn rounded-r-md px-1 border btn btn-theme"
             onClick={() => forceChange("stepUp")}
           >
-            <Plus title="Increase Max" className="inline-block" />
+            <Plus
+              style={{ verticalAlign: "-.125em" }}
+              height={14}
+              width={14}
+              title="Increase Max"
+              className="inline-block"
+            />
           </button>
         </div>
       </label>
