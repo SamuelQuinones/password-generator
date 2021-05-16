@@ -1,7 +1,10 @@
 @import "themes/base"; // Mixin to create theme class
+@import "themes/override-toggle";
+@import "themes/override-anchor";
 @import "themes/theme-colors"; // all theme colors
 
 @each $arr in $theme-colors {
   @include MakeTheme($arr...);
 }
 @include OverrideToggle("teal", "amber");
+@include OverrideAnchor("blue", "emerald")

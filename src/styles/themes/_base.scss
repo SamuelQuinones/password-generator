@@ -64,6 +64,7 @@
     }
 
     .theme-toggle-button {
+      font-weight: 500;
       transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
         border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
       color: $btnText;
@@ -113,29 +114,6 @@
       &:checked {
         ~ .changer-wrapper {
           @apply bg-#{$color}-700;
-        }
-      }
-    }
-  }
-}
-
-@mixin OverrideToggle($theme, $checkedColor) {
-  body.#{$theme} {
-    input.pwg-toggle {
-      &:checked {
-        ~ .dot {
-          transform: translateX(100%);
-          @apply bg-#{$checkedColor}-500;
-        }
-        ~ .sw-line {
-          @apply bg-#{$checkedColor}-300;
-        }
-      }
-      &:disabled {
-        &:checked {
-          ~ .dot {
-            @apply bg-#{$checkedColor}-700;
-          }
         }
       }
     }

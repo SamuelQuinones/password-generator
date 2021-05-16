@@ -1,0 +1,14 @@
+@mixin OverrideAnchor($theme, $anchorColor) {
+  body.#{$theme} {
+    a {
+      font-weight: bold;
+      @apply text-#{$anchorColor}-400;
+      &:focus,
+      &:focus-within,
+      &:hover,
+      &:active {
+        @apply text-#{$anchorColor}-500;
+      }
+    }
+  }
+}

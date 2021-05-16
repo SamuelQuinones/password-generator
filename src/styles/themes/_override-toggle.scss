@@ -1,0 +1,22 @@
+@mixin OverrideToggle($theme, $checkedColor) {
+  body.#{$theme} {
+    input.pwg-toggle {
+      &:checked {
+        ~ .dot {
+          transform: translateX(100%);
+          @apply bg-#{$checkedColor}-500;
+        }
+        ~ .sw-line {
+          @apply bg-#{$checkedColor}-300;
+        }
+      }
+      &:disabled {
+        &:checked {
+          ~ .dot {
+            @apply bg-#{$checkedColor}-700;
+          }
+        }
+      }
+    }
+  }
+}
