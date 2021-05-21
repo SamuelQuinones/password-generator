@@ -35,7 +35,7 @@ const SavedSettingsCard: FC<{ visible: boolean }> = ({ visible }) => {
           <div className="flex justify-between items-center">
             <h3>Using Saved Settings</h3>
             <Button
-              className="ml-1 w-28 md:36 lg:w-48"
+              className="ml-1 w-24 lg:w-48"
               onClick={() => {
                 dispatch(userActions.setSettingsSaved(false));
                 unSaveFormValues();
