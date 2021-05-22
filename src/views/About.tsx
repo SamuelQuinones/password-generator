@@ -13,8 +13,9 @@ const AboutModal: FC = () => {
         contentLabel="About This App"
         onRequestClose={toggleModal}
         isOpen={modalOpen}
+        header={<h2 className="text-center w-full">About This App</h2>}
       >
-        <h2 className="text-center">About This App</h2>
+        <p>Eventually a short summary will go here</p>
       </Modal>
     </div>
   );
