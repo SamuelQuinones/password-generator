@@ -49,7 +49,7 @@
     "serve": "serve -s build",
     "build": "craco build",
     "snap": "react-snap",
-    "remove-class": "node ./removeClassname.js",
+    "remove-class": "node ./removeBodyClass.js",
     "build:snap": "npm run build && npm run snap && npm run remove-class",
     "eslint": "eslint --ext js,tx,tsx",
     "stylelint": "stylelint \"src/styles/**/*.{css,scss,sass}\"",
