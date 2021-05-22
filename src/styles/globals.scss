@@ -33,10 +33,11 @@ body {
 h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  @apply text-5xl;
+  @apply text-4xl md:text-5xl;
 }
 h2 {
-  @apply text-2xl;
+  font-family: "Roboto", sans-serif;
+  @apply text-3xl md:text-4xl;
 }
 h3 {
   @apply text-lg;
@@ -57,4 +58,10 @@ a {
   &:active {
     @apply text-lightBlue-500;
   }
+}
+
+code {
+  padding: .2em .4em;
+  border-radius: 6px;
+  font-size: 90%;
 }

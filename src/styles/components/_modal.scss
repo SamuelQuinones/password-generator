@@ -1,0 +1,64 @@
+.MyModal {
+  &__Overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    // inset: 0px; // default
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  &__Content {
+    position: absolute;
+    inset: 40px;
+    // border: 1px solid rgb(204, 204, 204);
+    // background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+  }
+  &__Close {
+    @apply focus:outline-none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.25rem;
+  }
+  &__Trigger {
+    font-weight: bold;
+    @apply text-lightBlue-400;
+    &:focus,
+    &:focus-within,
+    &:hover,
+    &:active {
+      @apply text-lightBlue-500 outline-none;
+    }
+  }
+}
+
+.ReactModal {
+  &__Overlay {
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+    &--after-open {
+      opacity: 1;
+    }
+    &--before-close {
+      opacity: 0;
+    }
+  }
+  &__Content {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+    &--after-open {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    &--before-close {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+}

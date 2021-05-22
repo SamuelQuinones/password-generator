@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { ReactComponent as Github } from "../assets/github.svg";
+import AboutModal from "views/About";
+import SecurityModal from "views/Security";
 
 const Footer: FC = () => {
   return (
@@ -19,10 +21,13 @@ const Footer: FC = () => {
               View The Source Code <Github className="inline-block" />
             </a>
           </div>
-          <div>About</div>
+          <AboutModal />
         </div>
-        Copytight &copy; 2021, all rights reserved. Any password generated on
-        this site is <strong>NOT</strong> stored in any capacity.
+        <p className="mb-1">
+          Copytight &copy; 2021, all rights reserved. Any password generated on
+          this site is <strong>NOT</strong> stored in any capacity.
+        </p>
+        For more information about security, please click <SecurityModal />.
       </footer>
     </>
   );

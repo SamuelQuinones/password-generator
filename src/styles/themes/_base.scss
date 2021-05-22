@@ -86,6 +86,17 @@
         }
       }
     }
+
+    .MyModal {
+      &__Content {
+        color: $bodyText;
+        @apply border border-#{$color}-800 bg-#{$color}-900;
+      }
+    }
+
+    code {
+      @apply bg-#{$color}-600;
+    }
   }
 
   .theme-changer-master {
