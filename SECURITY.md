@@ -16,7 +16,7 @@ This app's code is _Open Source_, meaning it is available for anyone to see, con
 
 The above claims only hold true for the **official version** and I can not make the same claims for those who steal the code and redistribute it without my knowledge.
 
-If you do see that someone is hosting this app on another domain, please open an issue and let me know so that it can be dealth with.
+If you do see that someone is hosting this app on another domain, please open an issue and let me know so that it can be dealt with.
 
 ### *Settings*
 
