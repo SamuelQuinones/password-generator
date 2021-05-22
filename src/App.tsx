@@ -1,6 +1,5 @@
 //TODO: Make it so that at least one of the form values has to be checked
 //TODO: Add "About" - preferably in a modal
-//TODO: Add a "security" section that oulines the info from security.md
 //TODO: Add Password Strength Indicator
 //TODO: Make a Logo
 //TODO: Look into improving the generation of passwords
