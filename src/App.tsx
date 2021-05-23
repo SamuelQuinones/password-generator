@@ -1,12 +1,11 @@
-//TODO: Make it so that at least one of the form values has to be checked
-//TODO: Add "About" - preferably in a modal
-//TODO: Add Password Strength Indicator
 //TODO: Make a Logo
+//TODO: Add "About" - preferably in a modal
+//TODO: Make it so that at least one of the form values has to be checked
+//TODO: Add Password Strength Indicator
 //TODO: Look into improving the generation of passwords
-//TODO: See if it is possible to build a collapse component using react transition group
-//TODO: Add transitions to theme select buttons
 
 /** Core */
+import { useEffect } from "react";
 //* Views
 import Form from "views/Form";
 import Output from "views/Output";
@@ -16,6 +15,9 @@ import Button from "components/Button";
 import ThemeSwitcher from "components/ThemeSwitcher";
 
 function App() {
+  useEffect(() => {
+    document.body.classList.add("animate-class");
+  }, []);
   return (
     <div className="App container mx-auto">
       <h1 className="mb-10 text-center">Secure Password Generator</h1>
