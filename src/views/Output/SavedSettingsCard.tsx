@@ -13,10 +13,6 @@ import { useRenderOnMount } from "util/render-on-mount";
 const SavedSettingsCard: FC<{ visible: boolean }> = ({ visible }) => {
   //* Core
   const divRef = useRef<HTMLDivElement>(null);
-  // const [mounted, setMounted] = useState(false);
-  // useEffect(() => {
-  //   setMounted(true);
-  // }, []);
   const mounted = useRenderOnMount();
 
   //* REDUX
