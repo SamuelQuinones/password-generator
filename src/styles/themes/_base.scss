@@ -79,6 +79,8 @@
       }
       ~ .ReactCollapse--collapse {
         > .ReactCollapse--content {
+          display: flex;
+          flex-direction: row;
           @apply rounded-tr-none;
           transition: color 0.25s ease-in-out,
             background-color 0.25s ease-in-out, border-color 0.25s ease-in-out,
@@ -100,9 +102,9 @@
   }
 
   .theme-changer-master {
-    label {
-      display: inline-block;
-    }
+    // label {
+    //   display: inline-block;
+    // }
     input.theme-changer-#{$color} {
       ~ .changer-wrapper {
         transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,

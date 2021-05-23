@@ -16,10 +16,6 @@ const Togglebutton = forwardRef<HTMLInputElement, Props>(
     { label, htmlId, type = "skinny", name, disabled = false, value, onChange },
     ref
   ) => {
-    // const [mounted, setMounted] = useState(false);
-    // useEffect(() => {
-    //   setMounted(true);
-    // }, []);
     const mounted = useRenderOnMount();
     return (
       // <div className="flex items-center justify-between my-1">

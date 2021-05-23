@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 /**
  * Available Theme Colors
  *
@@ -31,4 +33,44 @@ export const checkTheme = (input: string | null): Themes => {
     default:
       return "pink";
   }
+};
+
+/**
+ * changes the theme / dom class-list
+ *
+ * There is a `theme` state that holds the current theme,
+ * this state will be sued to remove the currnet theme after changing it to the input
+ * before setting the state to the new value.
+ *
+ * @param e change event target, how we get the value from the radio
+ * @param theme the currently active theme
+ * @returns the theme to be passed into the store
+ */
+export const changeTheme = (
+  e: ChangeEvent<HTMLInputElement>,
+  theme: Themes
+) => {
+  const newTheme = checkTheme(e.currentTarget.value);
+  //* just in case the theme were "changing" to is the same theme
+  if (newTheme === theme) return theme;
+
+  //* store values
+  const docBody = document.body.classList;
+  const LS_KEY = "color-theme";
+
+  docBody.add(newTheme);
+  docBody.remove(theme);
+
+  localStorage.setItem(LS_KEY, newTheme);
+
+  return newTheme;
+};
+
+export const doesWrapperHaveFocus = (
+  ev: MouseEvent,
+  wrapper: HTMLElement | null
+) => {
+  if (!wrapper) return false;
+  const myTarget = ev.target as HTMLElement;
+  return wrapper.contains(myTarget);
 };
