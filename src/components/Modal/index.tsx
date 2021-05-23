@@ -1,17 +1,9 @@
-import { FC, ReactNode, useEffect } from "react";
+import { FC } from "react";
 import ReactModal from "react-modal";
-import { ReactComponent as CloseBtn } from "../assets/x-lg.svg";
+import { ReactComponent as CloseBtn } from "../../assets/x-lg.svg";
+import { ModalProps, useMaintainScrollbarWidth } from "./Helper";
 
 ReactModal.setAppElement("#root");
-
-type ModalProps = {
-  isOpen: boolean;
-  contentLabel?: string;
-  header?: ReactNode;
-  overlayRef?: (instance: HTMLDivElement) => void;
-  contentRef?: (instance: HTMLDivElement) => void;
-  onRequestClose?(event: React.MouseEvent | React.KeyboardEvent): void;
-};
 
 const Modal: FC<ModalProps> = ({
   isOpen,
@@ -22,16 +14,7 @@ const Modal: FC<ModalProps> = ({
   contentRef,
   onRequestClose,
 }) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
+  useMaintainScrollbarWidth(isOpen);
 
   return (
     <ReactModal
