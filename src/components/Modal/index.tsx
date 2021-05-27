@@ -30,10 +30,10 @@ const Modal: FC<ModalProps> = ({
       <div className="flex MyModal__Header relative">
         {header}
         <button className="MyModal__Close my-auto" onClick={onRequestClose}>
-          <CloseBtn title="Close This Modal" />
+          <CloseBtn title="Close This Modal" height={18} width={18} />
         </button>
       </div>
-      <div className="relative MyModal__Body overflow-y-auto flex-auto">
+      <div className="MyModal__Body relative overflow-y-auto flex-auto">
         {children}
       </div>
     </ReactModal>

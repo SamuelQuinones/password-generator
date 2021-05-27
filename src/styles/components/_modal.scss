@@ -29,7 +29,7 @@
   }
   &__Body {
     padding: 20px;
-    @apply md:px-8 lg:px-16
+    @apply md:px-8 lg:px-16;
   }
   &__Close {
     @apply focus:outline-none;
@@ -37,7 +37,12 @@
     top: calc(0rem + 0.5rem);
     right: calc(0rem + 1rem);
     bottom: calc(0rem + 0.5rem);
+    transition: transform 250ms;
     // padding-top: 1rem;
+    &:hover {
+      transition: transform 250ms;
+      transform: rotate(90deg);
+    }
   }
   &__Trigger {
     font-weight: bold;
