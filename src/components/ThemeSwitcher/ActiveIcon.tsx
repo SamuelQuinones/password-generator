@@ -12,15 +12,15 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
   const check = useRef<HTMLDivElement>(null);
   const palette = useRef<HTMLDivElement>(null);
 
+  const commonProps = {
+    classNames: usingTheme ? "slide-down" : "slide-up",
+    timeout: 250,
+    unmountOnExit: true,
+  };
+
   return (
     <>
-      <CSSTransition
-        nodeRef={check}
-        classNames="slide"
-        in={usingTheme}
-        timeout={250}
-        unmountOnExit
-      >
+      <CSSTransition nodeRef={check} in={usingTheme} {...commonProps}>
         <div className="absolute" ref={check}>
           <CheckCircle
             title={`Using ${theme} Theme`}
@@ -30,13 +30,7 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
           />
         </div>
       </CSSTransition>
-      <CSSTransition
-        nodeRef={palette}
-        classNames="slide"
-        in={!usingTheme}
-        timeout={250}
-        unmountOnExit
-      >
+      <CSSTransition nodeRef={palette} in={!usingTheme} {...commonProps}>
         <div className="absolute" ref={palette}>
           <Palette
             title={`Switch to ${theme} Theme`}
