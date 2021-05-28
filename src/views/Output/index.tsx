@@ -4,6 +4,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Card from "components/Card";
 import Button from "components/Button";
 import SavedSettingsCard from "./SavedSettingsCard";
+import { unSaveFormValues } from "views/Form/Helper";
 //* REDUX
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { getGeneratedPW, getSettingsSaved } from "store/selectors";
@@ -20,6 +21,11 @@ const Output: FC = () => {
   const onCopyText = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const resetSavedSettings = () => {
+    dispatch(userActions.setSettingsSaved(false));
+    unSaveFormValues();
   };
 
   return (
@@ -46,7 +52,10 @@ const Output: FC = () => {
           Reset Password
         </Button>
       </Card>
-      <SavedSettingsCard visible={settingsSaved} />
+      <SavedSettingsCard
+        visible={settingsSaved}
+        hideCardFunc={resetSavedSettings}
+      />
     </div>
   );
 };
