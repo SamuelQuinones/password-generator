@@ -9,6 +9,7 @@ export type ModalProps = {
   isOpen: boolean;
   contentLabel?: string;
   header?: ReactNode;
+  wipeUrlHash?: boolean;
   overlayRef?: (instance: HTMLDivElement) => void;
   contentRef?: (instance: HTMLDivElement) => void;
   onRequestClose?: (event: ReactMouseEvent | ReactKeyboardEvent) => void;

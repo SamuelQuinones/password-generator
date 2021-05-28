@@ -10,6 +10,7 @@ const SecurityModal: FC = () => {
         here
       </button>
       <Modal
+        wipeUrlHash
         contentLabel="Security and This App"
         onRequestClose={toggleModal}
         isOpen={modalOpen}

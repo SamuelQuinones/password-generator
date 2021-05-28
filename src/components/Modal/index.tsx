@@ -10,6 +10,7 @@ const Modal: FC<ModalProps> = ({
   children,
   contentLabel,
   header,
+  wipeUrlHash = false,
   overlayRef,
   contentRef,
   onRequestClose,
@@ -29,7 +30,13 @@ const Modal: FC<ModalProps> = ({
     >
       <div className="flex MyModal__Header relative">
         {header}
-        <button className="MyModal__Close my-auto" onClick={onRequestClose}>
+        <button
+          className="MyModal__Close my-auto"
+          onClick={(e) => {
+            onRequestClose && onRequestClose(e);
+            wipeUrlHash && window.history.replaceState(null, "", " ");
+          }}
+        >
           <CloseBtn title="Close This Modal" height={18} width={18} />
         </button>
       </div>
