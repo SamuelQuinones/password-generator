@@ -82,9 +82,8 @@ const ThemeSwitcher: FC = () => {
                 }}
                 checked={theme === color}
               />
-              <div className="flex flex-col items-center justify-center changer-wrapper text-center overflow-hidden relative">
-                <ActiveIcon theme={color} usingTheme={theme === color} />
-              </div>
+
+              <ActiveIcon theme={color} usingTheme={theme === color} />
             </label>
           );
         })}

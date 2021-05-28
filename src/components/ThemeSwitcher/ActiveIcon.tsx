@@ -19,7 +19,7 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
   };
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center changer-wrapper text-center overflow-hidden relative">
       <CSSTransition nodeRef={check} in={usingTheme} {...commonProps}>
         <div className="absolute" ref={check}>
           <CheckCircle
@@ -40,7 +40,7 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
           />
         </div>
       </CSSTransition>
-    </>
+    </div>
   );
 };
 
