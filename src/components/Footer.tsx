@@ -8,7 +8,7 @@ const Footer: FC = () => {
     <>
       <main className="flex-auto" />
       <footer className="footer p-3 text-center text-sm">
-        <div className="grid grid-cols-1 md:grid-cols-3 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 mb-2">
           <div>
             Version <strong>{process.env.REACT_APP_VERSION}</strong>
           </div>
