@@ -4,6 +4,11 @@ import {
   KeyboardEvent as ReactKeyboardEvent,
   useEffect,
 } from "react";
+import {
+  getWidth,
+  resetElementStyles,
+  setElementStyles,
+} from "util/dom-helper";
 
 export type ModalProps = {
   isOpen: boolean;
@@ -15,32 +20,29 @@ export type ModalProps = {
   onRequestClose?: (event: ReactMouseEvent | ReactKeyboardEvent) => void;
 };
 
-const removeBodyStyles = (element: HTMLDivElement) => {
+const removeOverlayStyles = () => {
   document.body.style.overflow = "";
-  document.body.style.paddingRight = "";
-  element.style.right = "";
+  resetElementStyles("body", "paddingRight");
+  resetElementStyles(".fixed", "paddingRight");
 };
 
-const addBodyStyles = (element: HTMLDivElement, scrollBarDif: number) => {
+const addOverlayStyles = (scrollBarDif: number) => {
   document.body.style.overflow = "hidden";
   if (scrollBarDif > 0) {
-    document.body.style.paddingRight = `${scrollBarDif}px`;
-    element.style.right = `calc(0.5rem + ${scrollBarDif}px)`;
+    setElementStyles("body", "paddingRight", (calc) => calc + scrollBarDif);
+    setElementStyles(".fixed", "paddingRight", (calc) => calc + scrollBarDif);
   }
 };
 
 export const useMaintainScrollbarWidth = (isOpen: boolean) => {
   useEffect(() => {
-    const PR = window.innerWidth - document.documentElement.clientWidth;
-    const TSM = document.querySelector(
-      ".theme-changer-master"
-    ) as HTMLDivElement;
+    const PR = getWidth();
 
     if (isOpen) {
-      addBodyStyles(TSM, PR);
+      addOverlayStyles(PR);
     } else {
-      removeBodyStyles(TSM);
+      removeOverlayStyles();
     }
-    return () => removeBodyStyles(TSM);
+    return () => removeOverlayStyles();
   }, [isOpen]);
 };
