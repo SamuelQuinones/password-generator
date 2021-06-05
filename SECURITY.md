@@ -12,7 +12,7 @@ This app uses different colored themes to make the experience more 'fun' and cus
 
 This app's code is _Open Source_, meaning it is available for anyone to see, contribute to, and somewhat unfortunately directly steal or copy.
 
-**Please note that the only official version of this app will only ever be hosted at [DOMAIN-TO-GO-HERE]**
+**Please note that the only official version of this app will only ever be hosted at [passwordgenerator.samtheq.com](https://passwordgenerator.samtheq.com)**
 
 The above claims only hold true for the **official version** and I can not make the same claims for those who steal the code and redistribute it without my knowledge.
 

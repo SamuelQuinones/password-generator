@@ -61,7 +61,7 @@ const SecurityModal: FC = () => {
         <p className="mb-4">
           <strong>
             Please note that the only official version of this app will only
-            ever be hosted at [DOMAIN-TO-GO-HERE]
+            ever be hosted at <u>passwordgenerator.samtheq.com</u>
           </strong>
         </p>
         <p className="mb-4">

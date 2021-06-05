@@ -1,5 +1,5 @@
 //* Core
-import { FC, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { UnmountClosed } from "react-collapse";
 import ActiveIcon from "./ActiveIcon";
 import { ReactComponent as Bucket } from "../../assets/paint-bucket.svg";
@@ -41,7 +41,8 @@ const ThemeSwitcher: FC = () => {
   }, []);
 
   /** Runs on first mount to get the initial theme */
-  useLayoutEffect(() => {
+  //? Should this be useLayoutEffect
+  useEffect(() => {
     const LS_KEY = "color-theme";
     const storedTheme = localStorage.getItem(LS_KEY);
     const _theme = checkTheme(storedTheme);

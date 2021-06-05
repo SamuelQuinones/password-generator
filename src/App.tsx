@@ -1,9 +1,3 @@
-//TODO: Make a Logo
-//TODO: Add "About" - preferably in a modal
-//TODO: Make it so that at least one of the form values has to be checked
-//TODO: Add Password Strength Indicator
-//TODO: Look into improving the generation of passwords
-
 /** Core */
 import { useEffect } from "react";
 //* Views
