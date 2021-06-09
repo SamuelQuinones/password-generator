@@ -1,7 +1,7 @@
 import { FC } from "react";
 import ReactModal from "react-modal";
-import { ReactComponent as CloseBtn } from "../../assets/x-lg.svg";
 import { ModalProps, useMaintainScrollbarWidth } from "./Helper";
+import { CloseBtn } from "components/SVG-Icons";
 
 ReactModal.setAppElement("#root");
 

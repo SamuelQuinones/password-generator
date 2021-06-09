@@ -1,8 +1,7 @@
 import { FC, useState } from "react";
 import { UnmountClosed } from "react-collapse";
-import { ReactComponent as CaretRight } from "../assets/caret-right-fill.svg";
-import { ReactComponent as CaretDown } from "../assets/caret-down-fill.svg";
 import Button from "./Button";
+import { CaretDown, CaretRight } from "./SVG-Icons";
 
 const DropdownMenu: FC<{ label: string }> = ({ children, label }) => {
   const [open, setOpen] = useState(false);
@@ -23,12 +22,8 @@ const DropdownMenu: FC<{ label: string }> = ({ children, label }) => {
         onClick={() => setOpen(!open)}
         type="button"
       >
-        {open ? (
-          <CaretDown className="inline-block mr-3" />
-        ) : (
-          <CaretRight className="inline-block mr-3" />
-        )}
-        {label}
+        {open ? <CaretDown /> : <CaretRight />}
+        <span className="ml-3">{label}</span>
       </Button>
       <UnmountClosed isOpened={open}>{children}</UnmountClosed>
     </>

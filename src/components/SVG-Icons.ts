@@ -1,0 +1,9 @@
+export { ReactComponent as CaretRight } from "../assets/caret-right-fill.svg";
+export { ReactComponent as CaretDown } from "../assets/caret-down-fill.svg";
+export { ReactComponent as Github } from "../assets/github.svg";
+export { ReactComponent as Minus } from "../assets/dash-lg.svg";
+export { ReactComponent as Plus } from "../assets/plus-lg.svg";
+export { ReactComponent as CloseBtn } from "../assets/x-lg.svg";
+export { ReactComponent as Palette } from "../assets/palette-fill.svg";
+export { ReactComponent as CheckCircle } from "../assets/check2-circle.svg";
+export { ReactComponent as Bucket } from "../assets/paint-bucket.svg";

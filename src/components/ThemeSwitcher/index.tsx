@@ -2,7 +2,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { UnmountClosed } from "react-collapse";
 import ActiveIcon from "./ActiveIcon";
-import { ReactComponent as Bucket } from "../../assets/paint-bucket.svg";
+import { Bucket } from "components/SVG-Icons";
 import {
   checkTheme,
   ThemesArr,
@@ -50,7 +50,7 @@ const ThemeSwitcher: FC = () => {
   }, [dispatch]);
 
   return (
-    <div ref={wrapper} className="fixed bottom-2 right-2 theme-changer-master">
+    <div ref={wrapper} className="fixed right-2 bottom-2 theme-changer-master">
       <button
         className={`theme-toggle-button block ml-auto ${
           showThemeButtons ? "open" : "closed"
@@ -59,12 +59,7 @@ const ThemeSwitcher: FC = () => {
       >
         <span className="hidden md:inline-block">Select Theme</span>
         <span className="inline-block md:hidden">
-          <Bucket
-            title="Select Theme"
-            height={20}
-            width={20}
-            className="inline-block"
-          />
+          <Bucket title="Select Theme" height={20} width={20} />
         </span>
       </button>
       <UnmountClosed isOpened={showThemeButtons}>

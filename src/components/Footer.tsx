@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { ReactComponent as Github } from "../assets/github.svg";
 import AboutModal from "views/About";
 import SecurityModal from "views/Security";
+import { Github } from "./SVG-Icons";
 
 const Footer: FC = () => {
   return (
@@ -18,7 +18,7 @@ const Footer: FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View The Source Code <Github className="inline-block" />
+              View The Source Code <Github />
             </a>
           </div>
           <AboutModal />
