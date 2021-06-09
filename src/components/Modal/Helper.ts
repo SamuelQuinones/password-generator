@@ -20,17 +20,24 @@ export type ModalProps = {
   onRequestClose?: (event: ReactMouseEvent | ReactKeyboardEvent) => void;
 };
 
+/** Used to find items that are fixed and positioned to the right */
+const FixedRightSelector = "[class*='right-'].fixed";
+
 const removeOverlayStyles = () => {
   document.body.style.overflow = "";
   resetElementStyles("body", "paddingRight");
-  resetElementStyles(".fixed", "paddingRight");
+  resetElementStyles(FixedRightSelector, "paddingRight");
 };
 
 const addOverlayStyles = (scrollBarDif: number) => {
   document.body.style.overflow = "hidden";
   if (scrollBarDif > 0) {
     setElementStyles("body", "paddingRight", (calc) => calc + scrollBarDif);
-    setElementStyles(".fixed", "paddingRight", (calc) => calc + scrollBarDif);
+    setElementStyles(
+      FixedRightSelector,
+      "paddingRight",
+      (calc) => calc + scrollBarDif
+    );
   }
 };
 
