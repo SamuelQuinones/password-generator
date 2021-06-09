@@ -1,3 +1,5 @@
+name: Move Issues Across Board
+
 on:
   issues:
     types: [labeled]
