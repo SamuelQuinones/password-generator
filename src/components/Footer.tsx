@@ -2,15 +2,20 @@ import { FC } from "react";
 import AboutModal from "views/About";
 import SecurityModal from "views/Security";
 import { Github } from "./SVG-Icons";
+//* Translation
+import { useTranslation } from "react-i18next";
 
 const Footer: FC = () => {
+  //* Translation
+  const { t } = useTranslation();
   return (
     <>
       <main className="flex-auto" />
       <footer className="footer p-3 text-center text-sm">
         <div className="grid grid-cols-1 md:grid-cols-3 mb-2">
           <div>
-            Version <strong>{process.env.REACT_APP_VERSION}</strong>
+            {t("footer.version")}{" "}
+            <strong>{process.env.REACT_APP_VERSION}</strong>
           </div>
           <div>
             <a
@@ -18,7 +23,7 @@ const Footer: FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View The Source Code <Github />
+              {t("footer.view_source")} <Github />
             </a>
           </div>
           <AboutModal />
@@ -27,7 +32,7 @@ const Footer: FC = () => {
           Copytight &copy; 2021, all rights reserved. Any password generated on
           this site is <strong>NOT</strong> stored in any capacity.
         </p>
-        For more information about security, please click <SecurityModal />.
+        {t("footer.more_security")} <SecurityModal />.
       </footer>
     </>
   );

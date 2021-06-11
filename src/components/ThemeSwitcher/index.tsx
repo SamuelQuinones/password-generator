@@ -13,6 +13,8 @@ import {
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { getTheme } from "store/selectors";
 import { userActions } from "store/userSlice";
+//* Translation
+import { useTranslation } from "react-i18next";
 
 /**
  * Produces buttons that will change the theme class to match the corresponding color.
@@ -20,12 +22,14 @@ import { userActions } from "store/userSlice";
  * Buttons are circular, and stick to the bottom right
  */
 const ThemeSwitcher: FC = () => {
-  //* Core
-  const [showThemeButtons, setShowThemeButtons] = useState(false);
-  const wrapper = useRef<HTMLDivElement>(null);
   //* REDUX
   const dispatch = useAppDispatch();
   const theme = useAppSelector(getTheme);
+  //* Translation
+  const { t } = useTranslation();
+  //* Core
+  const [showThemeButtons, setShowThemeButtons] = useState(false);
+  const wrapper = useRef<HTMLDivElement>(null);
 
   const handleFocus = (e: MouseEvent) => {
     const hasFocus = doesWrapperHaveFocus(e, wrapper.current);
@@ -57,9 +61,9 @@ const ThemeSwitcher: FC = () => {
         }`}
         onClick={() => setShowThemeButtons(!showThemeButtons)}
       >
-        <span className="hidden md:inline-block">Select Theme</span>
+        <span className="hidden md:inline-block">{t("select_theme")}</span>
         <span className="inline-block md:hidden">
-          <Bucket title="Select Theme" height={20} width={20} />
+          <Bucket title={t("select_theme")} height={20} width={20} />
         </span>
       </button>
       <UnmountClosed isOpened={showThemeButtons}>

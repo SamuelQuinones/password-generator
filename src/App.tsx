@@ -7,14 +7,17 @@ import Output from "views/Output";
 import Footer from "components/Footer";
 import Button from "components/Button";
 import ThemeSwitcher from "components/ThemeSwitcher";
+//* Translation
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { t } = useTranslation();
   useEffect(() => {
     document.body.classList.add("animate-class");
   }, []);
   return (
     <div className="App container mx-auto">
-      <h1 className="mb-10 text-center">Secure Password Generator</h1>
+      <h1 className="mb-10 text-center">{t("app_title")}</h1>
       <div className="grid grid-cols-2 gap-2">
         <Form />
         <Output />
@@ -23,7 +26,7 @@ function App() {
           type="submit"
           className="mt-3 col-span-2 text-lg"
         >
-          Generate Password
+          {t("generate_password")}
         </Button>
       </div>
       <ThemeSwitcher />

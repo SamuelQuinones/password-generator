@@ -4,6 +4,8 @@ import { CSSTransition } from "react-transition-group";
 import Card from "components/Card";
 import Button from "components/Button";
 import { useRenderOnMount } from "util/render-on-mount";
+//* Translation
+import { useTranslation } from "react-i18next";
 
 type SettingsProps = {
   visible: boolean;
@@ -14,6 +16,8 @@ const SavedSettingsCard: FC<SettingsProps> = ({ visible, hideCardFunc }) => {
   //* Core
   const divRef = useRef<HTMLDivElement>(null);
   const mounted = useRenderOnMount();
+  //* Translation
+  const { t } = useTranslation();
 
   return mounted ? (
     <CSSTransition
@@ -26,9 +30,9 @@ const SavedSettingsCard: FC<SettingsProps> = ({ visible, hideCardFunc }) => {
       <div ref={divRef}>
         <Card>
           <div className="flex justify-between items-center">
-            <h3>Using Saved Settings</h3>
+            <h3>{t("output.saved_settings_card.heading")}</h3>
             <Button className="ml-1 w-24 lg:w-48" onClick={hideCardFunc}>
-              Reset
+              {t("output.saved_settings_card.reset")}
             </Button>
           </div>
         </Card>

@@ -1,0 +1,60 @@
+{
+  "app_title": "Secure Password Generator",
+  "generate_password": "Generate Password",
+  "select_theme": "Select Theme",
+  "form": {
+    "password_length": "Length",
+    "settings_label": "Settings",
+    "include_uppercase": "Include Uppercase",
+    "include_lowercase": "Include Lowercase",
+    "include_numbers": "Include Numbers",
+    "include_symbols": "Include Symbols",
+    "advanced_settings": {
+      "title": "Advanced Settings",
+      "max_length": "Max Length",
+      "similar_symbols": "Include Similar Symbols",
+      "ambiguous_symbols": "Include Ambiguous Symbols",
+      "save_for_next_time": "Save All Settings"
+    }
+  },
+  "output": {
+    "title": "Your New Password",
+    "click_prompt": "Click Generate",
+    "copy_to_clipboard": "Copy to Clipboard",
+    "copied": "Copied",
+    "reset_prompt": "Reset Password",
+    "saved_settings_card": {
+      "heading": "Using Saved Settings",
+      "reset": "Reset"
+    }
+  },
+  "about": {
+    "modal_title": "About This App",
+    "p_1": "With the click of a button you can generate complex, secure, near impossible to guess passwords!",
+    "p_2": "For notes about security, please close this modal, scroll to the bottom and follow the instructions to open the security modal.",
+    "p_3": "For information about contributing to this project, please visit <a>the project's GitHub</a> and view <strong>CONTRIBUTING.md</strong>",
+    "general_info": "General Info",
+    "how_it_works": "How It Works"
+  },
+  "security": {
+    "click_trigger": "here",
+    "modal_title": "About Security",
+    "content_label": "Security and This App",
+    "p_1": "Everything about this app happens localized in your browser, on your device, during that session.",
+    "p_2": "None of passwords generated are transmitted any way. None of the <a>settings</a> with which you use to generate passwords are transmitted in any way. The color theme you use is not transmitted in any way.",
+    "p_3": "None of the passwords generated are saved in any way, to the device, to the browser, or otherwise.",
+    "p_4": "The <a>settings</a> you use to generate a password <strong><em>CAN</em></strong> be saved to the browser's <code>localStorage</code> <strong><em>PROVIDED THE USER OPTS IN TO THAT BEHAVIOR</em></strong> and <strong><em>CAN BE RESET / REMOVED AT ANY TIME</em></strong>",
+    "p_5": "This app uses different colored themes to make the experience more 'fun' and customizable. In order to remember the theme chosen by the user the value of the theme is stored in the browser's <code>localStorage</code>.",
+    "p_6": "This app's code is <strong><em>Open Source</em></strong>, meaning it is available for anyone to see, contribute to, and somewhat unfortunately directly steal or copy.",
+    "p_7": "<strong>Please note that the only official version of this app will only ever be hosted at <u>passwordgenerator.samtheq.com</u></strong>",
+    "p_8": "The above claims only hold true for the <strong>official version</strong> and I can not make the same claims for those who steal the code and redistribute it without my knowledge.",
+    "p_9": "If you do see that someone is hosting this app on another domain, please open an issue and let me know so that it can be dealt with.",
+    "settings": "Settings",
+    "clarify": "Settings refers to the configurable options on the app; which types of characters to include, password length, etc."
+  },
+  "footer": {
+    "version": "Version",
+    "view_source": "View The Source Code",
+    "more_security": "For more information about security, please click"
+  }
+}

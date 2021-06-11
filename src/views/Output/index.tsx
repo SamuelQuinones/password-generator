@@ -9,6 +9,8 @@ import { unSaveFormValues } from "views/Form/Helper";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { getGeneratedPW, getSettingsSaved } from "store/selectors";
 import { userActions } from "store/userSlice";
+//* Translation
+import { useTranslation } from "react-i18next";
 
 const Output: FC = () => {
   //* Core
@@ -17,6 +19,8 @@ const Output: FC = () => {
   const dispatch = useAppDispatch();
   const generatedPW = useAppSelector(getGeneratedPW);
   const settingsSaved = useAppSelector(getSettingsSaved);
+  //* Translation
+  const { t } = useTranslation();
 
   const onCopyText = () => {
     setCopied(true);
@@ -30,17 +34,21 @@ const Output: FC = () => {
 
   return (
     <div className="col-span-2 md:col-span-1 text-center">
-      <p>Your New Password</p>
+      <p>{t("output.title")}</p>
       <Card className="my-2">
         <div className="click-gen-header border-2 p-2 rounded-md">
-          {generatedPW ? <p>{generatedPW}</p> : <h3>Click Generate</h3>}
+          {generatedPW ? (
+            <p>{generatedPW}</p>
+          ) : (
+            <h3>{t("output.click_prompt")}</h3>
+          )}
         </div>
         <CopyToClipboard onCopy={() => onCopyText()} text={generatedPW || ""}>
           <Button disabled={generatedPW ? false : true} className="mt-4 w-full">
-            Copy to Clipboard
+            {t("output.copy_to_clipboard")}
           </Button>
         </CopyToClipboard>
-        <div>{copied ? "Copied" : ""}&nbsp;</div>
+        <div>{copied ? t("output.copied") : ""}&nbsp;</div>
         <Button
           onClick={(e) => {
             dispatch(userActions.resetGeneratedPW());
@@ -49,7 +57,7 @@ const Output: FC = () => {
           }}
           className="mt-4 w-full"
         >
-          Reset Password
+          {t("output.reset_prompt")}
         </Button>
       </Card>
       <SavedSettingsCard

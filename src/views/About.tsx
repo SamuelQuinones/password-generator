@@ -1,47 +1,52 @@
 import { FC, useState } from "react";
 import Modal from "components/Modal";
+//* Translation
+import { useTranslation, Trans } from "react-i18next";
 
 const AboutModal: FC = () => {
+  //* Core
   const [modalOpen, setModalOpen] = useState(false);
   const toggleModal = () => setModalOpen(!modalOpen);
+  //* Translation
+  const { t } = useTranslation();
   return (
     <div>
       <button className="MyModal__Trigger" onClick={toggleModal}>
         About
       </button>
       <Modal
-        contentLabel="About This App"
+        contentLabel={t("about.modal_title")}
         onRequestClose={toggleModal}
         isOpen={modalOpen}
-        header={<h2 className="text-center w-full">About This App</h2>}
+        header={
+          <h2 className="text-center w-full">{t("about.modal_title")}</h2>
+        }
       >
-        <p className="mb-4">
-          With the click of a button you can generate complex, secure, near
-          impossible to guess passwords!
-        </p>
-        <p className="mb-4">
-          For notes about security, please close this modal, scroll to the
-          bottom and follow the instructions to open the security modal.
-        </p>
+        <p className="mb-4">{t("about.p_1")}</p>
+        <p className="mb-4">{t("about.p_2")}</p>
         <p className="mb-8">
-          For information about contributing to this project, please visit{" "}
-          <a
-            href="https://github.com/SamuelQuinones/password-generator"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            the project's GitHub
-          </a>{" "}
-          and view <strong>CONTRIBUTING.md</strong>
+          <Trans
+            i18nKey="about.p_3"
+            components={{
+              a: (
+                // eslint-disable-next-line jsx-a11y/anchor-has-content
+                <a
+                  href="https://github.com/SamuelQuinones/password-generator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              ),
+            }}
+          />
         </p>
         {/* General Info */}
         <h2 className="mb-4">
-          <em>General Info</em>
+          <em>{t("about.general_info")}</em>
         </h2>
         <p className="mb-8">More info coming soon...</p>
         {/* How It works */}
         <h2 className="mb-4">
-          <em>How It Works</em>
+          <em>{t("about.how_it_works")}</em>
         </h2>
         <p className="mb-4">More info coming soon...</p>
       </Modal>

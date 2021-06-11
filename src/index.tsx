@@ -1,11 +1,16 @@
+//* Core
 import React from "react"; //? is this import still needed?
 import { render, hydrate } from "react-dom";
 import "./styles/globals.scss";
-import { Provider } from "react-redux";
 import App from "./App";
+//* PWA
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
+//* REDUX
+import { Provider } from "react-redux";
 import { store } from "store";
+//* Translation
+import "./lang/i18n";
 
 const rootElement = document.getElementById("root") as HTMLElement;
 

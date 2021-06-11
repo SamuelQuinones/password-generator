@@ -16,12 +16,16 @@ import { useAppDispatch } from "store/hooks";
 import { userActions } from "store/userSlice";
 //* Utility
 import { generateRandomPW } from "util/generate-pw";
+//* Translation
+import { useTranslation } from "react-i18next";
 
 const Form: FC = () => {
   //* REDUX
   const dispatch = useAppDispatch();
   //* React Hook Form
   const { register, handleSubmit, watch, reset } = GeneratorSettings();
+  //* Translation
+  const { t } = useTranslation();
 
   useEffect(() => {
     const savedSettings = localStorage.getItem("savedSettings");
@@ -47,7 +51,9 @@ const Form: FC = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       {/* Length */}
-      <label htmlFor="characterNum">Length: {watched[1]}</label>
+      <label htmlFor="characterNum">
+        {t("form.password_length")}: {watched[1]}
+      </label>
       <Card className="my-2">
         <Slider
           htmlID="characterNum"
@@ -58,44 +64,44 @@ const Form: FC = () => {
         />
       </Card>
       {/* Additional Settings */}
-      <div>Settings</div>
+      <div>{t("form.settings_label")}</div>
       <Card className="my-2">
         <Togglebutton
           htmlId="uppercase"
-          label="Include Uppercase"
+          label={t("form.include_uppercase")}
           {...register("includeUppercase")}
         />
       </Card>
       <Card className="my-2">
         <Togglebutton
           htmlId="lowercase"
-          label="Include Lowercase"
+          label={t("form.include_lowercase")}
           {...register("includeLowercase")}
         />
       </Card>
       <Card className="my-2">
         <Togglebutton
           htmlId="numbers"
-          label="Include Numbers"
+          label={t("form.include_numbers")}
           {...register("includeNumbers")}
         />
       </Card>
       <Card className="my-2">
         <Togglebutton
           htmlId="symbols"
-          label="Include Symbols"
+          label={t("form.include_symbols")}
           {...register("includeSymbols")}
         />
       </Card>
 
       {/* Advanced Settings */}
-      <DropdownMenu label="Advanced Settings">
+      <DropdownMenu label={t("form.advanced_settings.title")}>
         <div>
           <Card>
             <NumberInput
               leftDisabled={watched[0].toString() === "24"}
               rightDisabled={watched[0].toString() === "90"}
-              label="Max Length"
+              label={t("form.advanced_settings.max_length")}
               htmlId="maxLengthId"
               max={90}
               min={24}
@@ -107,7 +113,7 @@ const Form: FC = () => {
           <Card>
             <Togglebutton
               htmlId="similarChars"
-              label="Include Similar Symbols"
+              label={t("form.advanced_settings.similar_symbols")}
               {...register("advancedSettings.includeSimilarCharacters")}
             />
             <small>( e.g. i, l, 1, L, o, 0, O )</small>
@@ -117,7 +123,7 @@ const Form: FC = () => {
           <Card>
             <Togglebutton
               htmlId="ambiguousSymbols"
-              label="Include Ambiguous Symbols"
+              label={t("form.advanced_settings.ambiguous_symbols")}
               {...register("advancedSettings.includeAmbiguousSymbols")}
             />
             <small>{"( { } [ ] ( ) / \\ ' \" ` ~ , | ; : . < > )"}</small>
@@ -127,7 +133,7 @@ const Form: FC = () => {
           <Card>
             <Togglebutton
               htmlId="saveForNextTime"
-              label="Save All Settings"
+              label={t("form.advanced_settings.save_for_next_time")}
               {...register("advancedSettings.saveForNextTime")}
             />
           </Card>
