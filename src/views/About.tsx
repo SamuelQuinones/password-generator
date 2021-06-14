@@ -12,7 +12,7 @@ const AboutModal: FC = () => {
   return (
     <div>
       <button className="MyModal__Trigger" onClick={toggleModal}>
-        About
+        {t("about.click_trigger")}
       </button>
       <Modal
         contentLabel={t("about.modal_title")}
