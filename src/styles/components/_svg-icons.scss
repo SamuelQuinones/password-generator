@@ -1,4 +1,7 @@
 svg.bi {
   display: inline-block;
-  vertical-align: -.125em;
+  vertical-align: -0.125em;
+  &-no-va {
+    display: inline-block;
+  }
 }

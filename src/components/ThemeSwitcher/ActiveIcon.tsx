@@ -21,12 +21,22 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
     <div className="flex flex-col items-center justify-center changer-wrapper text-center overflow-hidden relative">
       <CSSTransition nodeRef={check} in={usingTheme} {...commonProps}>
         <div className="absolute" ref={check}>
-          <CheckCircle title={`Using ${theme} Theme`} width={20} height={20} />
+          <CheckCircle
+            className="bi-no-va"
+            title={`Using ${theme} Theme`}
+            width={20}
+            height={20}
+          />
         </div>
       </CSSTransition>
       <CSSTransition nodeRef={palette} in={!usingTheme} {...commonProps}>
         <div className="absolute" ref={palette}>
-          <Palette title={`Switch to ${theme} Theme`} width={20} height={20} />
+          <Palette
+            className="bi-no-va"
+            title={`Switch to ${theme} Theme`}
+            width={20}
+            height={20}
+          />
         </div>
       </CSSTransition>
     </div>
