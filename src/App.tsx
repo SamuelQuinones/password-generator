@@ -11,10 +11,13 @@ import ThemeSwitcher from "components/ThemeSwitcher";
 import { useTranslation } from "react-i18next";
 
 function App() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   useEffect(() => {
     document.body.classList.add("animate-class");
   }, []);
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
   return (
     <div className="App container mx-auto">
       <h1 className="mb-10 text-center">{t("app_title")}</h1>

@@ -1,7 +1,21 @@
 {
   "app_title": "Secure Password Generator",
   "generate_password": "Generate Password",
+  "footer": {
+    "version": "Version",
+    "view_source": "View The Source Code",
+    "more_security": "For more information about security, please click"
+  },
   "select_theme": "Select Theme",
+  "about": {
+    "click_trigger": "About",
+    "modal_title": "About This App",
+    "p_1": "With the click of a button you can generate complex, secure, near impossible to guess passwords!",
+    "p_2": "For notes about security, please close this modal, scroll to the bottom and follow the instructions to open the security modal.",
+    "p_3": "For information about contributing to this project, please visit <a>the project's GitHub</a> and view <strong>CONTRIBUTING.md</strong>",
+    "general_info": "General Info",
+    "how_it_works": "How It Works"
+  },
   "form": {
     "password_length": "Length",
     "settings_label": "Settings",
@@ -28,19 +42,10 @@
       "reset": "Reset"
     }
   },
-  "about": {
-    "click_trigger": "About",
-    "modal_title": "About This App",
-    "p_1": "With the click of a button you can generate complex, secure, near impossible to guess passwords!",
-    "p_2": "For notes about security, please close this modal, scroll to the bottom and follow the instructions to open the security modal.",
-    "p_3": "For information about contributing to this project, please visit <a>the project's GitHub</a> and view <strong>CONTRIBUTING.md</strong>",
-    "general_info": "General Info",
-    "how_it_works": "How It Works"
-  },
   "security": {
     "click_trigger": "here",
-    "modal_title": "About Security",
     "content_label": "Security and This App",
+    "modal_title": "About Security",
     "p_1": "Everything about this app happens localized in your browser, on your device, during that session.",
     "p_2": "None of passwords generated are transmitted any way. None of the <a>settings</a> with which you use to generate passwords are transmitted in any way. The color theme you use is not transmitted in any way.",
     "p_3": "None of the passwords generated are saved in any way, to the device, to the browser, or otherwise.",
@@ -52,10 +57,5 @@
     "p_9": "If you do see that someone is hosting this app on another domain, please open an issue and let me know so that it can be dealt with.",
     "settings": "Settings",
     "clarify": "Settings refers to the configurable options on the app; which types of characters to include, password length, etc."
-  },
-  "footer": {
-    "version": "Version",
-    "view_source": "View The Source Code",
-    "more_security": "For more information about security, please click"
   }
 }

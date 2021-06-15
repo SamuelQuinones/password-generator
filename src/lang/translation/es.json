@@ -1,0 +1,61 @@
+{
+  "app_title": "Generador de contraseñas seguras",
+  "generate_password": "Creas Contraseña",
+  "footer": {
+    "version": "Versión",
+    "view_source": "Ver el Código del Programa",
+    "more_security": "Para obtener información sobre seguridad, haga clic en"
+  },
+  "select_theme": "Elegiste Color",
+  "about": {
+    "click_trigger": "Acerca de",
+    "modal_title": "Acerca de esta Aplicación",
+    "p_1": "¡Con solo presionar un botón, puede crear contraseñas complejas, secretas y difíciles de adivinar!",
+    "p_2": "",
+    "p_3": "",
+    "general_info": "",
+    "how_it_works": ""
+  },
+  "form": {
+    "password_length": "",
+    "settings_label": "",
+    "include_uppercase": "",
+    "include_lowercase": "",
+    "include_numbers": "",
+    "include_symbols": "",
+    "advanced_settings": {
+      "title": "",
+      "max_length": "",
+      "similar_symbols": "",
+      "ambiguous_symbols": "",
+      "save_for_next_time": ""
+    }
+  },
+  "output": {
+    "title": "Tu Nueva Contraseña",
+    "click_prompt": "Haga clic en Crear",
+    "copy_to_clipboard": "Copiar al Portapapeles",
+    "copied": "Esta Copiado",
+    "reset_prompt": "Restablecer la Contraseña",
+    "saved_settings_card": {
+      "heading": "Usando la configuración guardada",
+      "reset": "Reiniciar"
+    }
+  },
+  "security": {
+    "click_trigger": "aquí",
+    "content_label": "La seguridad de esta Aplicación",
+    "modal_title": "",
+    "p_1": "",
+    "p_2": "",
+    "p_3": "",
+    "p_4": "",
+    "p_5": "",
+    "p_6": "",
+    "p_7": "",
+    "p_8": "",
+    "p_9": "",
+    "settings": "",
+    "clarify": ""
+  }
+}
