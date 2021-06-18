@@ -46,12 +46,12 @@
   }
   &__Trigger {
     font-weight: bold;
-    @apply text-lightBlue-400;
+    @apply text-sky-400;
     &:focus,
     &:focus-within,
     &:hover,
     &:active {
-      @apply text-lightBlue-500 outline-none;
+      @apply text-sky-500 outline-none;
     }
   }
 }

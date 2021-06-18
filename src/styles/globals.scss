@@ -51,12 +51,12 @@ h3 {
 
 a {
   font-weight: bold;
-  @apply text-lightBlue-400;
+  @apply text-sky-400;
   &:focus,
   &:focus-within,
   &:hover,
   &:active {
-    @apply text-lightBlue-500;
+    @apply text-sky-500;
   }
 }
 
