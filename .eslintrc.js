@@ -34,9 +34,6 @@ module.exports = {
     // No need to import React when using Next.js
     "react/react-in-jsx-scope": "off",
 
-    // This rule is not compatible with Next.js's <Link /> components
-    "jsx-a11y/anchor-is-valid": "off",
-
     "prettier/prettier": ["warn", {}, { usePrettierrc: true }], // Includes .prettierrc rules
   },
   overrides: [
