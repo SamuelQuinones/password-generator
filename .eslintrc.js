@@ -59,6 +59,9 @@ module.exports = {
         // should probably allow this ... but we wont for now
         "@typescript-eslint/no-non-null-assertion": "off",
 
+        // turn off default rule
+        "no-unused-vars": "off",
+
         // Why would you want unused vars?
         "@typescript-eslint/no-unused-vars": ["warn"],
 
