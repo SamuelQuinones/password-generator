@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/password-generator/static/css/main.531bd2b7.chunk.css",
-    "main.js": "/password-generator/static/js/main.cfd12c65.chunk.js",
-    "runtime-main.js": "/password-generator/static/js/runtime-main.4a818129.js",
-    "static/js/2.1d686e95.chunk.js": "/password-generator/static/js/2.1d686e95.chunk.js",
-    "static/js/3.220117a3.chunk.js": "/password-generator/static/js/3.220117a3.chunk.js",
-    "index.html": "/password-generator/index.html",
-    "service-worker.js": "/password-generator/service-worker.js",
-    "static/js/2.1d686e95.chunk.js.LICENSE.txt": "/password-generator/static/js/2.1d686e95.chunk.js.LICENSE.txt",
-    "static/media/globals.scss": "/password-generator/static/media/Roboto-Regular.03523cf5.ttf",
-    "static/media/caret-down-fill.27c49128.svg": "/password-generator/static/media/caret-down-fill.27c49128.svg",
-    "static/media/caret-right-fill.b6547834.svg": "/password-generator/static/media/caret-right-fill.b6547834.svg",
-    "static/media/check2-circle.001ff82b.svg": "/password-generator/static/media/check2-circle.001ff82b.svg",
-    "static/media/dash-lg.5429bd9f.svg": "/password-generator/static/media/dash-lg.5429bd9f.svg",
-    "static/media/github.22e65707.svg": "/password-generator/static/media/github.22e65707.svg",
-    "static/media/paint-bucket.a789fbf3.svg": "/password-generator/static/media/paint-bucket.a789fbf3.svg",
-    "static/media/palette-fill.83fd1f2d.svg": "/password-generator/static/media/palette-fill.83fd1f2d.svg",
-    "static/media/plus-lg.fee1cace.svg": "/password-generator/static/media/plus-lg.fee1cace.svg",
-    "static/media/x-lg.3ad82eb6.svg": "/password-generator/static/media/x-lg.3ad82eb6.svg"
+    "main.css": "/static/css/main.8685cfb0.chunk.css",
+    "main.js": "/static/js/main.2e5c8027.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.cd3e68b8.js",
+    "static/js/2.1d686e95.chunk.js": "/static/js/2.1d686e95.chunk.js",
+    "static/js/3.220117a3.chunk.js": "/static/js/3.220117a3.chunk.js",
+    "index.html": "/index.html",
+    "service-worker.js": "/service-worker.js",
+    "static/js/2.1d686e95.chunk.js.LICENSE.txt": "/static/js/2.1d686e95.chunk.js.LICENSE.txt",
+    "static/media/globals.scss": "/static/media/Roboto-Regular.03523cf5.ttf",
+    "static/media/caret-down-fill.27c49128.svg": "/static/media/caret-down-fill.27c49128.svg",
+    "static/media/caret-right-fill.b6547834.svg": "/static/media/caret-right-fill.b6547834.svg",
+    "static/media/check2-circle.001ff82b.svg": "/static/media/check2-circle.001ff82b.svg",
+    "static/media/dash-lg.5429bd9f.svg": "/static/media/dash-lg.5429bd9f.svg",
+    "static/media/github.22e65707.svg": "/static/media/github.22e65707.svg",
+    "static/media/paint-bucket.a789fbf3.svg": "/static/media/paint-bucket.a789fbf3.svg",
+    "static/media/palette-fill.83fd1f2d.svg": "/static/media/palette-fill.83fd1f2d.svg",
+    "static/media/plus-lg.fee1cace.svg": "/static/media/plus-lg.fee1cace.svg",
+    "static/media/x-lg.3ad82eb6.svg": "/static/media/x-lg.3ad82eb6.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4a818129.js",
+    "static/js/runtime-main.cd3e68b8.js",
     "static/js/2.1d686e95.chunk.js",
-    "static/css/main.531bd2b7.chunk.css",
-    "static/js/main.cfd12c65.chunk.js"
+    "static/css/main.8685cfb0.chunk.css",
+    "static/js/main.2e5c8027.chunk.js"
   ]
 }
