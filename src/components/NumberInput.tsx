@@ -53,7 +53,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
             className="relative num-input-btn rounded-l-md px-1 border btn btn-theme"
             onClick={() => forceChange("stepDown")}
           >
-            <Minus height={14} width={14} title="Lower Max" />
+            <Minus height={14} width={14} title="Decrease" />
           </button>
           <input
             ref={ref}
@@ -71,7 +71,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
             className="relative num-input-btn rounded-r-md px-1 border btn btn-theme"
             onClick={() => forceChange("stepUp")}
           >
-            <Plus height={14} width={14} title="Increase Max" />
+            <Plus height={14} width={14} title="Increase" />
           </button>
         </div>
       </label>
