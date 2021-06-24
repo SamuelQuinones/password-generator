@@ -1,6 +1,6 @@
 {
   "name": "password-generator",
-  "homepage": "https://samuelquinones.github.io/password-generator",
+  "homepage": "https://passwordgenerator.samtheq.com",
   "version": "1.0.0",
   "author": "Samuel Quiñones",
   "description": "Generate secure, hard to guess passwords with the click of a button!",
@@ -54,7 +54,7 @@
     "snap": "react-snap",
     "remove-extra": "node ./removeBuildData.js",
     "build:snap": "npm run build && npm run snap && npm run remove-extra && rimraf ./build/200.html",
-    "extract": "i18next --config ./src/lang/i18next-parser.config.js 'src/**/*.{ts,tsx}' && prettier --write ./src/lang",
+    "extract": "i18next --config ./src/lang/i18next-parser.config.js 'src/**/*.{ts,tsx}' && prettier --write ./src/lang/translation",
     "eslint": "eslint --ext js,ts,tsx",
     "stylelint": "stylelint \"src/styles/**/*.{css,scss,sass}\"",
     "checkTs": "tsc --noEmit",
