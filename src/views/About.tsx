@@ -4,6 +4,11 @@ import Modal from "components/Modal";
 import { useTranslation, Trans } from "react-i18next";
 
 const AboutModal: FC = () => {
+  const relTarget = {
+    target: "_blank",
+    rel: "noopener noreferrer",
+  };
+
   //* Core
   const [modalOpen, setModalOpen] = useState(false);
   const toggleModal = () => setModalOpen(!modalOpen);
@@ -24,7 +29,7 @@ const AboutModal: FC = () => {
       >
         <p className="mb-4">{t("about.p_1")}</p>
         <p className="mb-4">{t("about.p_2")}</p>
-        <p className="mb-8">
+        <p className="mb-4">
           <Trans
             i18nKey="about.p_3"
             components={{
@@ -32,8 +37,22 @@ const AboutModal: FC = () => {
                 // eslint-disable-next-line jsx-a11y/anchor-has-content
                 <a
                   href="https://github.com/SamuelQuinones/password-generator"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...relTarget}
+                />
+              ),
+            }}
+          />
+        </p>
+
+        <p className="mb-8">
+          <Trans
+            i18nKey="about.p_4"
+            components={{
+              a: (
+                // eslint-disable-next-line jsx-a11y/anchor-has-content
+                <a
+                  href="https://www.instagram.com/em_enchanted_emporium/"
+                  {...relTarget}
                 />
               ),
             }}
