@@ -57,7 +57,10 @@ const SecurityModal: FC = () => {
         <p className="mb-4">
           <Trans
             i18nKey="security.p_7"
-            components={{ u: <u />, ...commonComponents }}
+            components={{
+              u: <u style={{ overflowWrap: "break-word" }} />,
+              ...commonComponents,
+            }}
           />
         </p>
         <p className="mb-4">

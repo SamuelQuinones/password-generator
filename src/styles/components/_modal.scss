@@ -10,7 +10,7 @@
   }
   &__Content {
     position: absolute;
-    inset: 40px;
+    inset: 0px;
     max-height: 100%;
     // border: 1px solid rgb(204, 204, 204);
     // background: rgb(255, 255, 255);
@@ -20,6 +20,12 @@
     // padding: 20px;
     display: flex;
     flex-direction: column;
+    @media (min-width: 576px) {
+      inset: 15px;
+    }
+    @media (min-width: 768px) {
+      inset: 40px;
+    }
   }
   &__Header {
     flex-shrink: 0;
@@ -28,8 +34,7 @@
     padding: 0.5rem 0.5rem;
   }
   &__Body {
-    padding: 20px;
-    @apply md:px-8 lg:px-16;
+    @apply py-4 px-4 md:px-8 lg:px-16;
   }
   &__Close {
     @apply focus:outline-none;
