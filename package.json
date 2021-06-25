@@ -62,7 +62,7 @@
     "lint:fix": "npm run eslint -- --fix src npm run stylelint -- --fix",
     "pretty:check": "prettier --check .",
     "pretty:fix": "prettier --write .",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:snap",
     "deploy": "gh-pages -d build",
     "test": "craco test",
     "eject": "react-scripts eject"
