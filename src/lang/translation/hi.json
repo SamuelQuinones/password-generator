@@ -4,6 +4,8 @@
   "footer": {
     "version": "वर्शन ",
     "view_source": "कोड दिखाए",
+    "copyright_1": "",
+    "copyright_2": "",
     "more_security": "सुरक्षा सम्बंधित अधिक जानकारी के लिए, यह क्लिक"
   },
   "select_theme": "थीम चुने",

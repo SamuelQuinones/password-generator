@@ -8,11 +8,11 @@ const SecurityModal: FC = () => {
   const toggleModal = () => setModalOpen(!modalOpen);
   //* Translation
   const { t } = useTranslation();
-  const commonComponents = {
-    strong: <strong />,
-    em: <em />,
-    code: <code />,
-  };
+  // const commonComponents = {
+  //   strong: <strong />,
+  //   em: <em />,
+  //   code: <code />,
+  // };
   return (
     <div className="inline-block">
       <button className="MyModal__Trigger" onClick={toggleModal}>
@@ -44,27 +44,25 @@ const SecurityModal: FC = () => {
             components={{
               // eslint-disable-next-line jsx-a11y/anchor-has-content
               a: <a href="#settings" />,
-              ...commonComponents,
             }}
           />
         </p>
         <p className="mb-4">
-          <Trans i18nKey="security.p_5" components={commonComponents} />
+          <Trans i18nKey="security.p_5" />
         </p>
         <p className="mb-4">
-          <Trans i18nKey="security.p_6" components={commonComponents} />
+          <Trans i18nKey="security.p_6" />
         </p>
         <p className="mb-4">
           <Trans
             i18nKey="security.p_7"
             components={{
               u: <u style={{ overflowWrap: "break-word" }} />,
-              ...commonComponents,
             }}
           />
         </p>
         <p className="mb-4">
-          <Trans i18nKey="security.p_8" components={commonComponents} />
+          <Trans i18nKey="security.p_8" />
         </p>
         <p className="mb-8">{t("security.p_9")}</p>
         <h2 id="settings" className="mb-4">

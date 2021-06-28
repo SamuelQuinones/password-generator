@@ -3,7 +3,7 @@ import AboutModal from "views/About";
 import SecurityModal from "views/Security";
 import { Github } from "./SVG-Icons";
 //* Translation
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 const Footer: FC = () => {
   //* Translation
@@ -29,8 +29,8 @@ const Footer: FC = () => {
           <AboutModal />
         </div>
         <p className="mb-1">
-          Copytight &copy; 2021, all rights reserved. Any password generated on
-          this site is <strong>NOT</strong> stored in any capacity.
+          {t("footer.copyright_1")} &copy;{" "}
+          <Trans i18nKey="footer.copyright_2" />
         </p>
         {t("footer.more_security")} <SecurityModal />.
       </footer>

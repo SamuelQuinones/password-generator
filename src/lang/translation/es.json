@@ -4,6 +4,8 @@
   "footer": {
     "version": "Versión",
     "view_source": "Ver el Código del Programa",
+    "copyright_1": "",
+    "copyright_2": "",
     "more_security": "Para obtener información sobre seguridad, haga clic en"
   },
   "select_theme": "Elegiste Color",

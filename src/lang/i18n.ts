@@ -18,6 +18,8 @@ export const resources = {
   },
 };
 
+const supportedLngs = Object.keys(resources);
+
 i18n
   //* detect user language
   .use(LanguageDetector)
@@ -26,8 +28,15 @@ i18n
   //* init i18next
   //* for all options read: https://www.i18next.com/overview/configuration-options
   .init({
+    react: {
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ["em", "u", "strong", "code"],
+    },
     debug: process.env.NODE_ENV !== "production",
     fallbackLng: "en",
+    load: "languageOnly",
+    supportedLngs,
+    nonExplicitSupportedLngs: true,
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
