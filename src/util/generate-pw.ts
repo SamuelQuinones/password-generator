@@ -43,6 +43,28 @@ const SYMBOLS = arrayFromLowToHigh(33, 47)
   .concat(arrayFromLowToHigh(91, 96))
   .concat(arrayFromLowToHigh(123, 126));
 
+/**
+ * uses the more secure `crypto.getRandomValues` to generate a random number with rejection sampling
+ *
+ * @param min minimum number in range (inclusive)
+ * @param max maximum numbrt in range (inclusive)
+ * @returns a random number from the range (min, max)
+ */
+const getRandomInteger = (min: number, max: number): number => {
+  //* Create a single random number
+  const byteArr = new Uint8Array(1);
+  window.crypto.getRandomValues(byteArr);
+
+  const range = max - min + 1;
+  const max_range = 256;
+
+  if (byteArr[0] >= Math.floor(max_range / range) * range) {
+    return getRandomInteger(min, max);
+  }
+
+  return min + (byteArr[0] % range);
+};
+
 export const generateRandomPW = (data: FormInput) => {
   const {
     includeLowercase,
@@ -89,7 +111,7 @@ export const generateRandomPW = (data: FormInput) => {
   //* loop as many times as is the value of passwordLength
   for (let i = 0; i < passwordLength; i++) {
     //* get the character code
-    const character = charCodes[Math.floor(Math.random() * charCodes.length)];
+    const character = charCodes[getRandomInteger(0, charCodes.length)];
     //* turn it into a string;
     pwCharacters.push(String.fromCharCode(character));
   }
