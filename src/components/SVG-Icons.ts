@@ -7,3 +7,4 @@ export { ReactComponent as CloseBtn } from "../assets/x-lg.svg";
 export { ReactComponent as Palette } from "../assets/palette-fill.svg";
 export { ReactComponent as CheckCircle } from "../assets/check2-circle.svg";
 export { ReactComponent as Bucket } from "../assets/paint-bucket.svg";
+export { ReactComponent as Translate } from "../assets/translate.svg";

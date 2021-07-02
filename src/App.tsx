@@ -6,6 +6,7 @@ import Output from "views/Output";
 //* Components
 import Footer from "components/Footer";
 import Button from "components/Button";
+import LangSwitcher from "components/LangSwitcher";
 import ThemeSwitcher from "components/ThemeSwitcher";
 //* Translation
 import { useTranslation } from "react-i18next";
@@ -18,7 +19,8 @@ function App() {
 
   return (
     <div className="App container mx-auto">
-      <h1 className="mb-10 text-center">{t("app_title")}</h1>
+      <h1 className="mb-5 text-center">{t("app_title")}</h1>
+      <LangSwitcher />
       <div className="grid grid-cols-2 gap-2">
         <Form />
         <Output />
