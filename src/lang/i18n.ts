@@ -1,24 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-//* langs
-import EN from "./translation/en.json";
-import ES from "./translation/es.json";
-import HI from "./translation/hi.json";
-
-export const resources = {
-  en: {
-    translation: EN,
-  },
-  es: {
-    translation: ES,
-  },
-  hi: {
-    translation: HI,
-  },
-};
-
-const supportedLngs = Object.keys(resources);
+import resources, { supportedLngs } from "./resources";
 
 i18n
   //* detect user language

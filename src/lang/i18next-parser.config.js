@@ -1,3 +1,5 @@
+const { locales } = require("./locales.json");
+
 module.exports = {
   createOldCatalogs: false,
   // Save the \_old files
@@ -21,7 +23,7 @@ module.exports = {
   // lineEnding: 'auto',
   // Control the line ending. See options at https://github.com/ryanve/eol
 
-  locales: ["en", "es", "hi"],
+  locales: locales,
   // An array of the locales in your applications
 
   output: "src/lang/$NAMESPACE/$LOCALE.json",

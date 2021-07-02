@@ -1,8 +1,8 @@
 import "react-i18next";
-import { resources } from "./lang/i18n";
+import { TranslationObj } from "./lang/resources";
 
 declare module "react-i18next" {
   export interface Resources {
-    translation: typeof resources.en.translation;
+    translation: TranslationObj;
   }
 }
