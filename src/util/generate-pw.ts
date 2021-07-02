@@ -1,5 +1,38 @@
 import type { FormInput } from "views/Form/Helper";
 
+/**
+ * uses the more secure `crypto.getRandomValues` to generate a random number with rejection sampling
+ *
+ * @param min minimum number in range (inclusive)
+ * @param max maximum numbrt in range (inclusive)
+ * @returns a random number from the range (min, max)
+ */
+const getRandomInteger = (min: number, max: number): number => {
+  //* Create a single random number
+  const byteArr = new Uint8Array(1);
+  window.crypto.getRandomValues(byteArr);
+
+  const range = max - min + 1;
+  const max_range = 256;
+
+  if (byteArr[0] >= Math.floor(max_range / range) * range) {
+    return getRandomInteger(min, max);
+  }
+
+  return min + (byteArr[0] % range);
+};
+
+/**
+ * Using `high` and `low`, this function generates an array of numbers by
+ * starting at `low`, and iterating until `high` is reached.
+ * The number will increase by one and get pushed into the array with each iteration.
+ *
+ * Used to quickly fill arrays with specific numbers - like unicode numbers
+ *
+ * @param low starting number in array (inclusive)
+ * @param high ending number in array (inclusive)
+ * @returns array of numbers starting starting at `low`, and ending on `high`
+ */
 const arrayFromLowToHigh = (low: number, high: number) => {
   const array = [];
   for (let i = low; i <= high; i++) {
@@ -8,6 +41,16 @@ const arrayFromLowToHigh = (low: number, high: number) => {
   return array;
 };
 
+/**
+ * Filters the contents of one array based on the contents of another.
+ * - This filtering will only happen if a boolean value is false.
+ * - Used to quickly remove specific unicode numbers
+ *
+ * @param baseArr the master / source array
+ * @param similarArr contains elements from `baseArr` which willbe filtered out if `bool` is false
+ * @param bool boolean where if true; the array remains the same, if false, `similarArr`'s elements are filtered out
+ * @returns array of numbers, filtered based on `bool`
+ */
 const removalTest = (
   baseArr: number[],
   similarArr: number[],
@@ -44,27 +87,14 @@ const SYMBOLS = arrayFromLowToHigh(33, 47)
   .concat(arrayFromLowToHigh(123, 126));
 
 /**
- * uses the more secure `crypto.getRandomValues` to generate a random number with rejection sampling
+ * Generates a password string based on form input data.
+ * - uses {@link removalTest} to first check for any character exclusions.
+ * - will then concatenate all of the arrays into one massive one.
+ * - then uses {@link getRandomInteger} in a forloop to generate the password character characters.
  *
- * @param min minimum number in range (inclusive)
- * @param max maximum numbrt in range (inclusive)
- * @returns a random number from the range (min, max)
+ * @param data the values from the submitted form
+ * @returns the generated password, based on the input criteria.
  */
-const getRandomInteger = (min: number, max: number): number => {
-  //* Create a single random number
-  const byteArr = new Uint8Array(1);
-  window.crypto.getRandomValues(byteArr);
-
-  const range = max - min + 1;
-  const max_range = 256;
-
-  if (byteArr[0] >= Math.floor(max_range / range) * range) {
-    return getRandomInteger(min, max);
-  }
-
-  return min + (byteArr[0] % range);
-};
-
 export const generateRandomPW = (data: FormInput) => {
   const {
     includeLowercase,

@@ -9,6 +9,7 @@ import {
   checkStoredValue,
   FormInput,
   GeneratorSettings,
+  handleKeyDown,
   saveFormValues,
 } from "./Helper";
 //* REDUX
@@ -105,6 +106,7 @@ const Form: FC = () => {
               htmlId="maxLengthId"
               max={90}
               min={24}
+              onKeyDown={handleKeyDown}
               {...register("advancedSettings.maxLength", { min: 24, max: 90 })}
             />
           </Card>

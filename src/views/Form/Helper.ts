@@ -1,3 +1,4 @@
+import { KeyboardEvent as ReactKB } from "react";
 import { useForm } from "react-hook-form";
 
 type AdvancedSettings = {
@@ -98,5 +99,15 @@ export const checkStoredValue = (localStorageValue: string): FormInput => {
     console.log("Also Removing Stored Value");
     unSaveFormValues();
     return defaults;
+  }
+};
+
+export const handleKeyDown = (e: ReactKB) => {
+  switch (e.code.toLowerCase()) {
+    case "enter":
+      e.preventDefault();
+      break;
+    default:
+      break;
   }
 };

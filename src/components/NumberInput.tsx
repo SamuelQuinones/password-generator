@@ -1,4 +1,8 @@
-import { forwardRef, ChangeEvent } from "react";
+import {
+  forwardRef,
+  ChangeEvent as ReactCE,
+  KeyboardEvent as ReactKB,
+} from "react";
 import { Minus, Plus } from "./SVG-Icons";
 
 type Props = {
@@ -9,7 +13,8 @@ type Props = {
   label: string;
   leftDisabled?: boolean;
   rightDisabled?: boolean;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => any;
+  onChange: (e: ReactCE<HTMLInputElement>) => any;
+  onKeyDown?: (e: ReactKB<HTMLInputElement>) => any;
 };
 
 const NumberInput = forwardRef<HTMLInputElement, Props>(
@@ -23,6 +28,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
       label,
       rightDisabled = false,
       leftDisabled = false,
+      onKeyDown,
     },
     ref
   ) => {
@@ -60,6 +66,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
             className="num-input-field text-center border-t border-b px-1"
             type="number"
             onChange={onChange}
+            onKeyDown={onKeyDown}
             id={htmlId}
             name={name}
             max={max}

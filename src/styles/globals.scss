@@ -40,7 +40,9 @@ h1 {
   @media (min-width: 481px) {
     @apply text-4xl;
   }
-  @apply md:text-5xl;
+  @media (min-width: 768px) {
+    @apply text-5xl;
+  }
 }
 h2 {
   font-family: "Roboto", sans-serif;
