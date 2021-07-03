@@ -5,6 +5,7 @@ type AdvancedSettings = {
   maxLength: number;
   includeSimilarCharacters: boolean;
   includeAmbiguousSymbols: boolean;
+  useDuplicateCharacters: boolean;
   saveForNextTime: boolean;
 };
 
@@ -20,12 +21,14 @@ class AdvancedSettingsClass implements AdvancedSettings {
   maxLength: number;
   includeSimilarCharacters: boolean;
   includeAmbiguousSymbols: boolean;
+  useDuplicateCharacters: boolean;
   saveForNextTime: boolean;
   constructor(arr?: Record<string, any>) {
     this.maxLength = arr?.maxLength || 24;
     this.includeSimilarCharacters = arr?.includeSimilarCharacters || false;
     this.includeAmbiguousSymbols = arr?.includeAmbiguousSymbols || true;
-    this.saveForNextTime = arr?.saveForNextTime || false;
+    this.useDuplicateCharacters = arr?.useDuplicateCharacters || false;
+    this.saveForNextTime = arr?.saveForNextTime || true;
   }
 }
 
@@ -58,6 +61,7 @@ const defaults = {
     includeSimilarCharacters: false,
     includeAmbiguousSymbols: true,
     saveForNextTime: false,
+    useDuplicateCharacters: true,
   },
 };
 

@@ -106,6 +106,7 @@ export const generateRandomPW = (data: FormInput) => {
   } = data;
 
   let charCodes: number[] = [];
+  let isUniquePossible = true;
   //* First we check to see if we should include similar looking characters or not
   const newLowerCase = removalTest(
     LOWERCASE_LETTERS,
@@ -135,16 +136,43 @@ export const generateRandomPW = (data: FormInput) => {
   if (includeNumbers) charCodes = charCodes.concat(newNumbers);
   if (includeSymbols) charCodes = charCodes.concat(newSymbols);
 
-  //* randomly generated characters will go here
-  const pwCharacters: string[] = [];
-
-  //* loop as many times as is the value of passwordLength
-  for (let i = 0; i < passwordLength; i++) {
-    //* get the character code
-    const character = charCodes[getRandomInteger(0, charCodes.length)];
-    //* turn it into a string;
-    pwCharacters.push(String.fromCharCode(character));
+  if (
+    charCodes.length < passwordLength &&
+    advancedSettings.useDuplicateCharacters
+  ) {
+    isUniquePossible = false;
+    console.error(
+      `A password with ${passwordLength} unique characters can not be generated, the sample pool - ${charCodes.length} - is too small. Unique condition is being ignored.`
+    );
   }
 
-  return pwCharacters.join("");
+  //* Should each character be unique?
+  //* need to be sure we have enough unique characters
+  if (advancedSettings.useDuplicateCharacters && isUniquePossible) {
+    //* randomly generated characters will go here
+    const pwCharactersSet = new Set<string>();
+
+    //* continue adding values until we have a long enough Set
+    while (pwCharactersSet.size < passwordLength) {
+      //* get the character code
+      const character = charCodes[getRandomInteger(0, charCodes.length)];
+      //* turn it into a string;
+      pwCharactersSet.add(String.fromCharCode(character));
+    }
+
+    return Array.from(pwCharactersSet).join("");
+  } else {
+    //* randomly generated characters will go here
+    const pwCharacters: string[] = [];
+
+    //* loop as many times as is the value of passwordLength
+    for (let i = 0; i < passwordLength; i++) {
+      //* get the character code
+      const character = charCodes[getRandomInteger(0, charCodes.length)];
+      //* turn it into a string;
+      pwCharacters.push(String.fromCharCode(character));
+    }
+
+    return pwCharacters.join("");
+  }
 };
