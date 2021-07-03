@@ -1,41 +1,4 @@
-.slide-down-enter {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-.slide-down-enter-active {
-  opacity: 1;
-  transform: translateY(0%);
-  transition: opacity 250ms, transform 250ms;
-}
-.slide-down-exit {
-  opacity: 1;
-  transform: translateY(0%);
-}
-.slide-down-exit-active {
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 250ms, transform 250ms;
-}
-
-.slide-up-enter {
-  opacity: 0;
-  transform: translateY(100%);
-}
-.slide-up-enter-active {
-  opacity: 1;
-  transform: translateY(0%);
-  transition: opacity 250ms, transform 250ms;
-}
-.slide-up-exit {
-  opacity: 1;
-  transform: translateY(0%);
-}
-.slide-up-exit-active {
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: opacity 250ms, transform 250ms;
-}
-
+//* SLIDE RIGHT START
 .slide-right-enter {
   opacity: 0;
   transform: translateX(-100%);
@@ -43,7 +6,6 @@
 .slide-right-enter-active {
   opacity: 1;
   transform: translateX(0%);
-  transition: opacity 250ms, transform 250ms;
 }
 .slide-right-exit {
   opacity: 1;
@@ -52,9 +14,14 @@
 .slide-right-exit-active {
   opacity: 0;
   transform: translateX(100%);
+}
+.slide-right-enter-active,
+.slide-right-exit-active {
   transition: opacity 250ms, transform 250ms;
 }
+//* SLIDE RIGHT END
 
+//* SLIDE LEFT START
 .slide-left-enter {
   opacity: 0;
   transform: translateX(100%);
@@ -62,7 +29,6 @@
 .slide-left-enter-active {
   opacity: 1;
   transform: translateX(0%);
-  transition: opacity 250ms, transform 250ms;
 }
 .slide-left-exit {
   opacity: 1;
@@ -71,6 +37,55 @@
 .slide-left-exit-active {
   opacity: 0;
   transform: translateX(-100%);
+}
+.slide-left-enter-active,
+.slide-left-exit-active {
   transition: opacity 250ms, transform 250ms;
 }
+//* SLIDE LEFT END
 
+//* SLIDE UP START
+.slide-up-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.slide-up-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.slide-up-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.slide-up-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.slide-up-enter-active,
+.slide-up-exit-active {
+  transition: opacity 250ms, transform 250ms;
+}
+//* SLIDE UP END
+
+//* SLIDE DOWN START
+.slide-down-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.slide-down-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.slide-down-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.slide-down-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.slide-down-enter-active,
+.slide-down-exit-active {
+  transition: opacity 250ms, transform 250ms;
+}
+//* SLIDE DOWN END

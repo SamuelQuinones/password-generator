@@ -1,5 +1,5 @@
-export { ReactComponent as CaretRight } from "../assets/caret-right-fill.svg";
-export { ReactComponent as CaretDown } from "../assets/caret-down-fill.svg";
+export { ReactComponent as LeftArrow } from "../assets/arrow-left-circle.svg";
+export { ReactComponent as RightArrow } from "../assets/arrow-right-circle.svg";
 export { ReactComponent as Github } from "../assets/github.svg";
 export { ReactComponent as Minus } from "../assets/dash-lg.svg";
 export { ReactComponent as Plus } from "../assets/plus-lg.svg";

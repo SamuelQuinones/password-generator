@@ -21,19 +21,21 @@
     "how_it_works": "काम कैसे करता है"
   },
   "form": {
+    "advanced_settings": {
+      "title": "एडवांस्ड सेटिंग्स",
+      "max_length": "अधिकतम लंबाई",
+      "similar_symbols": "प्रतीकों की तरह शामिल करें",
+      "ambiguous_symbols": "जटिल सिंबले शामिल करें",
+      "use_duplicates": "एक जैसा सिंबले शामिल करें",
+      "save_for_next_time": "सारे जानकारी शामिल करें"
+    },
     "password_length": "लम्बाई",
     "settings_label": "सेटिंग्स",
     "include_uppercase": "अपरकेस शामिल करें",
     "include_lowercase": "लोअरकेस शामिल करें",
     "include_numbers": "नंबर शामिल करें",
     "include_symbols": "सिंबले शामिल करें",
-    "advanced_settings": {
-      "title": "एडवांस्ड सेटिंग्स",
-      "max_length": "अधिकतम लंबाई",
-      "similar_symbols": "एक जैसा सिंबले शामिल करें",
-      "ambiguous_symbols": "जटिल सिंबले शामिल करें",
-      "save_for_next_time": "सारे जानकारी शामिल करें"
-    }
+    "basic_title": "मानक सेटिंग्स"
   },
   "output": {
     "title": "आपका नय पासवर्ड",

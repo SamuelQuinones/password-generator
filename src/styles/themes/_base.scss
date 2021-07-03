@@ -19,7 +19,7 @@
         @apply bg-#{$color}-500;
       }
       &:focus {
-        &:not(.dropdown-trigger) {
+        &:not(.settings-change) {
           @apply ring-#{$color}-300;
         }
       }
@@ -47,16 +47,16 @@
       }
     }
 
-    .dropdown-trigger {
+    .settings-change {
       color: $dropdownText;
       @apply bg-#{$color}-700;
     }
 
-    .dropdown-trigger.open,
-    .dropdown-trigger:hover,
-    .dropdown-trigger:focus,
-    .dropdown-trigger:focus-within {
-      @apply bg-#{$color}-800;
+    .settings-change.open,
+    .settings-change:hover,
+    .settings-change:focus,
+    .settings-change:focus-within {
+      @apply bg-#{$color}-800 ring-0;
     }
 
     .ReactCollapse--content {
@@ -81,7 +81,7 @@
         > .ReactCollapse--content {
           display: flex;
           flex-direction: row;
-          @apply rounded-tr-none;
+          @apply rounded-tr-none p-3 rounded-md;
           transition: color 0.25s ease-in-out,
             background-color 0.25s ease-in-out, border-color 0.25s ease-in-out,
             box-shadow 0.25s ease-in-out;
