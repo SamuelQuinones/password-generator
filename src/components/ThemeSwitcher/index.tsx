@@ -3,12 +3,8 @@ import { FC, useEffect, useRef, useState } from "react";
 import { UnmountClosed } from "react-collapse";
 import ActiveIcon from "./ActiveIcon";
 import { Bucket } from "components/SVG-Icons";
-import {
-  checkTheme,
-  ThemesArr,
-  changeTheme,
-  doesWrapperHaveFocus,
-} from "./Helper";
+import { checkTheme, ThemesArr, changeTheme } from "./Helper";
+import useOutsideClick from "hooks/useClickOutside";
 //* REDUX
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { getTheme } from "store/selectors";
@@ -30,19 +26,8 @@ const ThemeSwitcher: FC = () => {
   //* Core
   const [showThemeButtons, setShowThemeButtons] = useState(false);
   const wrapper = useRef<HTMLDivElement>(null);
-
-  const handleFocus = (e: MouseEvent) => {
-    const hasFocus = doesWrapperHaveFocus(e, wrapper.current);
-    if (!hasFocus) setShowThemeButtons(false);
-  };
-
-  /** adds event listener to dom, to help collapse on close out */
-  useEffect(() => {
-    document.body.addEventListener("mousedown", handleFocus);
-    return () => {
-      document.body.removeEventListener("mousedown", handleFocus);
-    };
-  }, []);
+  //* Handle clicking outside the switcher
+  useOutsideClick(wrapper, () => setShowThemeButtons(false));
 
   /** Runs on first mount to get the initial theme */
   //? Should this be useLayoutEffect

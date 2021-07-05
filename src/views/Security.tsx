@@ -8,11 +8,6 @@ const SecurityModal: FC = () => {
   const toggleModal = () => setModalOpen(!modalOpen);
   //* Translation
   const { t } = useTranslation();
-  // const commonComponents = {
-  //   strong: <strong />,
-  //   em: <em />,
-  //   code: <code />,
-  // };
   return (
     <div className="inline-block">
       <button className="MyModal__Trigger" onClick={toggleModal}>

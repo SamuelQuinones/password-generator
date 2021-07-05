@@ -65,12 +65,3 @@ export const changeTheme = (
 
   return newTheme;
 };
-
-export const doesWrapperHaveFocus = (
-  ev: MouseEvent,
-  wrapper: HTMLElement | null
-) => {
-  if (!wrapper) return false;
-  const myTarget = ev.target as HTMLElement;
-  return wrapper.contains(myTarget);
-};

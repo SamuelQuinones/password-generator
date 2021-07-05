@@ -1,5 +1,5 @@
 import { ChangeEvent, forwardRef } from "react";
-import { useRenderOnMount } from "util/render-on-mount";
+import useRenderOnMount from "hooks/useRenderOnMount";
 
 type Props = {
   label: string;

@@ -3,7 +3,7 @@ import { FC, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import Card from "components/Card";
 import Button from "components/Button";
-import { useRenderOnMount } from "util/render-on-mount";
+import useRenderOnMount from "hooks/useRenderOnMount";
 //* Translation
 import { useTranslation } from "react-i18next";
 

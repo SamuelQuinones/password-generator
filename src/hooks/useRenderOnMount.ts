@@ -9,12 +9,17 @@ import { useEffect, useState } from "react";
  *
  * @returns is the component mounted
  */
-export const useRenderOnMount = () => {
+function useRenderOnMount() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    return () => {
+      setMounted(false);
+    };
   }, []);
 
   return mounted;
-};
+}
+
+export default useRenderOnMount;
