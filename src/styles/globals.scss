@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+// font face
+@import "font-face";
 // Theme Styles
 @import "themes";
 // Component Styles
 @import "components";
-// font face
-@import "font-face";
 
 .App {
   min-height: 100vh;
