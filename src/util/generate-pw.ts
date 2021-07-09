@@ -1,3 +1,5 @@
+//TODO: Make into a class or separate out to clean up
+
 import type { FormInput } from "views/Form/Helper";
 
 /**
@@ -20,6 +22,36 @@ const getRandomInteger = (min: number, max: number): number => {
   }
 
   return min + (byteArr[0] % range);
+};
+
+const _standardGeneration = (passwordLength: number, charCodes: number[]) => {
+  //* randomly generated characters will go here
+  const pwCharacters: string[] = [];
+
+  //* loop as many times as is the value of passwordLength
+  for (let i = 0; i < passwordLength; i++) {
+    //* get the character code
+    const character = charCodes[getRandomInteger(0, charCodes.length)];
+    //* turn it into a string;
+    pwCharacters.push(String.fromCharCode(character));
+  }
+
+  return pwCharacters.join("");
+};
+
+const _uniqueGeneration = (passwordLength: number, charCodes: number[]) => {
+  //* randomly generated characters will go here
+  const pwCharacters = new Set<string>();
+
+  //* continue adding values until we have a long enough Set
+  while (pwCharacters.size < passwordLength) {
+    //* get the character code
+    const character = charCodes[getRandomInteger(0, charCodes.length)];
+    //* turn it into a string;
+    pwCharacters.add(String.fromCharCode(character));
+  }
+
+  return Array.from(pwCharacters).join("");
 };
 
 /**
@@ -106,7 +138,6 @@ export const generateRandomPW = (data: FormInput) => {
   } = data;
 
   let charCodes: number[] = [];
-  let isUniquePossible = true;
   //* First we check to see if we should include similar looking characters or not
   const newLowerCase = removalTest(
     LOWERCASE_LETTERS,
@@ -136,43 +167,17 @@ export const generateRandomPW = (data: FormInput) => {
   if (includeNumbers) charCodes = charCodes.concat(newNumbers);
   if (includeSymbols) charCodes = charCodes.concat(newSymbols);
 
-  if (
-    charCodes.length < passwordLength &&
-    advancedSettings.useDuplicateCharacters
-  ) {
-    isUniquePossible = false;
+  //* Should each character be unique?
+  if (advancedSettings.useDuplicateCharacters) {
+    return _standardGeneration(passwordLength, charCodes);
+  }
+  //* need to be sure we have enough unique characters
+  if (charCodes.length < passwordLength) {
     console.error(
       `A password with ${passwordLength} unique characters can not be generated, the sample pool - ${charCodes.length} - is too small. Unique condition is being ignored.`
     );
+    return _standardGeneration(passwordLength, charCodes);
   }
-
-  //* Should each character be unique?
-  //* need to be sure we have enough unique characters
-  if (advancedSettings.useDuplicateCharacters && isUniquePossible) {
-    //* randomly generated characters will go here
-    const pwCharactersSet = new Set<string>();
-
-    //* continue adding values until we have a long enough Set
-    while (pwCharactersSet.size < passwordLength) {
-      //* get the character code
-      const character = charCodes[getRandomInteger(0, charCodes.length)];
-      //* turn it into a string;
-      pwCharactersSet.add(String.fromCharCode(character));
-    }
-
-    return Array.from(pwCharactersSet).join("");
-  } else {
-    //* randomly generated characters will go here
-    const pwCharacters: string[] = [];
-
-    //* loop as many times as is the value of passwordLength
-    for (let i = 0; i < passwordLength; i++) {
-      //* get the character code
-      const character = charCodes[getRandomInteger(0, charCodes.length)];
-      //* turn it into a string;
-      pwCharacters.push(String.fromCharCode(character));
-    }
-
-    return pwCharacters.join("");
-  }
+  //* unique IS possible
+  return _uniqueGeneration(passwordLength, charCodes);
 };
