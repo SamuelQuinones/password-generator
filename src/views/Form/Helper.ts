@@ -17,18 +17,28 @@ export type FormInput = {
   includeSymbols: boolean;
   advancedSettings: AdvancedSettings;
 };
+
+/**
+ * Default Value Class Helper
+ * Used to assign default class values because of how boolean compare works.
+ */
+function defVal<T>(defaultValue: T, value?: T) {
+  if (value === undefined) return defaultValue;
+  return value;
+}
+
 class AdvancedSettingsClass implements AdvancedSettings {
   maxLength: number;
   includeSimilarCharacters: boolean;
   includeAmbiguousSymbols: boolean;
   useDuplicateCharacters: boolean;
   saveForNextTime: boolean;
-  constructor(arr?: Record<string, any>) {
-    this.maxLength = arr?.maxLength || 24;
-    this.includeSimilarCharacters = arr?.includeSimilarCharacters || false;
-    this.includeAmbiguousSymbols = arr?.includeAmbiguousSymbols || true;
-    this.useDuplicateCharacters = arr?.useDuplicateCharacters || false;
-    this.saveForNextTime = arr?.saveForNextTime || true;
+  constructor(ac?: Record<string, any>) {
+    this.maxLength = defVal(24, ac?.maxLength);
+    this.includeSimilarCharacters = defVal(false, ac?.includeSimilarCharacters);
+    this.includeAmbiguousSymbols = defVal(true, ac?.includeAmbiguousSymbols);
+    this.useDuplicateCharacters = defVal(false, ac?.useDuplicateCharacters);
+    this.saveForNextTime = defVal(true, ac?.saveForNextTime);
   }
 }
 
@@ -40,13 +50,13 @@ export class FormInputClass implements FormInput {
   includeSymbols: boolean;
   advancedSettings: AdvancedSettingsClass;
 
-  constructor(arr?: Record<string, any>) {
-    this.passwordLength = arr?.passwordLength || 6;
-    this.includeUppercase = arr?.includeUppercase || false;
-    this.includeLowercase = arr?.includeLowercase || true;
-    this.includeNumbers = arr?.includeNumbers || true;
-    this.includeSymbols = arr?.includeSymbols || false;
-    this.advancedSettings = new AdvancedSettingsClass(arr?.advancedSettings);
+  constructor(fc?: Record<string, any>) {
+    this.passwordLength = defVal(6, fc?.passwordLength);
+    this.includeUppercase = defVal(false, fc?.includeUppercase);
+    this.includeLowercase = defVal(true, fc?.includeLowercase);
+    this.includeNumbers = defVal(true, fc?.includeNumbers);
+    this.includeSymbols = defVal(false, fc?.includeSymbols);
+    this.advancedSettings = new AdvancedSettingsClass(fc?.advancedSettings);
   }
 }
 
