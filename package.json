@@ -83,7 +83,7 @@
     ]
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "2.2.4",
+    "@tailwindcss/postcss7-compat": "2.2.7",
     "@types/jest": "26.0.24",
     "@types/node": "16.3.2",
     "@types/react": "17.0.14",
@@ -111,8 +111,7 @@
     "serve": "12.0.0",
     "stylelint": "13.13.1",
     "stylelint-config-recommended": "5.0.0",
-    "stylelint-config-standard": "22.0.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.2.4",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.2.7",
     "typescript": "4.3.5"
   }
 }
