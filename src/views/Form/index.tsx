@@ -58,11 +58,7 @@ const Form: FC = () => {
   );
 
   return (
-    <form
-      id="password-form"
-      className="col-span-2 md:col-span-1"
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form id="password-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="overflow-x-hidden overflow-y-auto">
         <SwitchTransition>
           <CSSTransition

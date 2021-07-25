@@ -21,13 +21,13 @@ function App() {
     <div className="App container mx-auto">
       <h1 className="mb-5 text-center">{t("app_title")}</h1>
       <LangSwitcher />
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         <Form />
         <Output />
         <Button
           form="password-form"
           type="submit"
-          className="mt-3 col-span-2 text-lg"
+          className="mt-3 md:col-span-2 text-lg"
         >
           {t("generate_password")}
         </Button>

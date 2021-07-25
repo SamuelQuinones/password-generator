@@ -33,7 +33,7 @@ const Output: FC = () => {
   };
 
   return (
-    <div className="col-span-2 md:col-span-1 text-center">
+    <div className="text-center">
       <p>{t("output.title")}</p>
       <Card className="my-2">
         <div className="click-gen-header border-2 p-2 rounded-md">
