@@ -31,9 +31,7 @@ const LangSwitcher: FC = () => {
       <div
         className={isOpen ? "dropdown visible" : "dropwdown hidden"}
         role="menu"
-        style={
-          isOpen ? { top: `${buttonProps.ref.current?.offsetHeight}px` } : {}
-        }
+        style={{ top: `${buttonProps.ref.current?.offsetHeight}px` }}
       >
         {langPickerConfig.map(({ key, display }, idx) => (
           <a
