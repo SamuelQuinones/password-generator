@@ -1,5 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+
+//TODO: Look into react-overlays if needing to build more dropdowns
+
 import { FC } from "react";
 import Button from "./Button";
 import { Translate } from "./SVG-Icons";

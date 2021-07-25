@@ -1,6 +1,6 @@
 @mixin OverrideAnchor($theme, $anchorColor) {
   body.#{$theme} {
-    a {
+    a:not(.dropdown-item) {
       font-weight: bold;
       @apply text-#{$anchorColor}-400;
       &:focus,
