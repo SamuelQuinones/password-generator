@@ -1,4 +1,8 @@
 input.pwg-toggle {
+  ~ .dot {
+    z-index: 160;
+    transition: background-color 150ms ease-in-out, transform 150ms ease-in-out;
+  }
   &:focus {
     ~ .sw-line,
     ~ .dot {

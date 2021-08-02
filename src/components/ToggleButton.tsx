@@ -41,13 +41,13 @@ const Togglebutton = forwardRef<HTMLInputElement, Props>(
             <>
               {type === "skinny" ? (
                 <>
-                  <div className="sw-line w-10 h-4 bg-gray-400 rounded-full shadow-inner transition" />
-                  <div className="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition" />
+                  <div className="sw-line w-10 h-4 bg-gray-400 rounded-full shadow-inner" />
+                  <div className="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1" />
                 </>
               ) : (
                 <>
-                  <div className="sw-line block bg-gray-600 w-14 h-8 rounded-full transition" />
-                  <div className="dot absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition" />
+                  <div className="sw-line block bg-gray-600 w-14 h-8 rounded-full" />
+                  <div className="dot absolute left-1 top-1 w-6 h-6 bg-white rounded-full" />
                 </>
               )}
             </>
