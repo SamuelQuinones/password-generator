@@ -9,6 +9,7 @@
     bottom: 0;
   }
   &__Content {
+    z-index: 999999;
     position: absolute;
     inset: 0px;
     max-height: 100%;
