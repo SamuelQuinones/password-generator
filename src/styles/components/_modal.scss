@@ -1,5 +1,6 @@
 .MyModal {
   &__Overlay {
+    z-index: 999999;
     background-color: rgba(0, 0, 0, 0.75);
     position: fixed;
     // inset: 0px; // default
@@ -9,7 +10,6 @@
     bottom: 0;
   }
   &__Content {
-    z-index: 999999;
     position: absolute;
     inset: 0px;
     max-height: 100%;
