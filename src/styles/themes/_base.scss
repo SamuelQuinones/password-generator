@@ -66,7 +66,7 @@
     .theme-toggle-button {
       font-weight: 500;
       transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
-        border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+        border-color 0.25s ease-in-out;
       color: $btnText;
       @apply p-1.5 rounded-md bg-#{$color}-400 shadow-inner;
       &:focus,
@@ -83,8 +83,7 @@
           flex-direction: row;
           @apply rounded-tr-none p-3 rounded-md;
           transition: color 0.25s ease-in-out,
-            background-color 0.25s ease-in-out, border-color 0.25s ease-in-out,
-            box-shadow 0.25s ease-in-out;
+            background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;
         }
       }
     }
@@ -108,7 +107,7 @@
     input.theme-changer-#{$color} {
       ~ .changer-wrapper {
         transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
-          border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+          border-color 0.25s ease-in-out;
         @apply bg-#{$color}-500 border-#{$color}-300 rounded-full mx-1 w-9 h-9 border-2 shadow-lg;
       }
       &:not(:checked) {
