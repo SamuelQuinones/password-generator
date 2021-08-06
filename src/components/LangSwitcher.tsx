@@ -42,7 +42,7 @@ const LangSwitcher: FC = () => {
             key={key}
             onClick={() => toggleItem(key)}
             className={`block dropdown-item ${
-              i18n.language === key ? "active" : ""
+              i18n.languages[0] === key ? "active" : ""
             }`.trim()}
             {...itemProps[idx]}
           >
