@@ -18,8 +18,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App container mx-auto">
-      <h1 className="mb-5 text-center">{t("app_title")}</h1>
+    <div className="App bs-container-md">
+      <h1 className="mb-5 text-center mt-5">{t("app_title")}</h1>
       <LangSwitcher />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         <Form />
