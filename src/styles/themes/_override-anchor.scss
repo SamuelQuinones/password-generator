@@ -10,15 +10,16 @@
         @apply text-#{$anchorColor}-500;
       }
     }
-    .MyModal {
-      &__Trigger {
-        font-weight: bold;
-        @apply text-#{$anchorColor}-400;
-        &:focus,
-        &:focus-within,
-        &:hover,
-        &:active {
-          @apply text-#{$anchorColor}-500 outline-none;
+    @layer components {
+      .MyModal {
+        &__Trigger {
+          @apply text-#{$anchorColor}-400;
+          &:focus,
+          &:focus-within,
+          &:hover,
+          &:active {
+            @apply text-#{$anchorColor}-500;
+          }
         }
       }
     }

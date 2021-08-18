@@ -49,7 +49,7 @@ const Form: FC = () => {
   const makeButton = (text: string, icon: ReactNode) => (
     <Button
       onClick={() => setShowAdvanced(!showAdvanced)}
-      className="flex w-full justify-between items-center settings-change"
+      className="flex w-full justify-between items-center settings-change rounded-md my-2 shadow-md p-3 text-left"
       type="button"
     >
       <div>{text}</div>

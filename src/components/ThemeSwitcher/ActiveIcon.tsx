@@ -18,11 +18,11 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center changer-wrapper text-center overflow-hidden relative">
+    <div className="changer-wrapper flex flex-col items-center justify-center overflow-hidden relative rounded-full mx-1 w-9 h-9 border-2 shadow-lg transition duration-250">
       <CSSTransition nodeRef={check} in={usingTheme} {...commonProps}>
         <div className="absolute" ref={check}>
           <CheckCircle
-            className="bi-no-va"
+            className="inline-block"
             title={`Using ${theme} Theme`}
             width={20}
             height={20}
@@ -32,7 +32,7 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
       <CSSTransition nodeRef={palette} in={!usingTheme} {...commonProps}>
         <div className="absolute" ref={palette}>
           <Palette
-            className="bi-no-va"
+            className="inline-block"
             title={`Switch to ${theme} Theme`}
             width={20}
             height={20}

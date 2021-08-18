@@ -32,7 +32,7 @@ const LangSwitcher: FC = () => {
         <Translate width="1em" height="1em" /> {t("lang_desc")}
       </Button>
       <div
-        className={isOpen ? "dropdown visible" : "dropwdown hidden"}
+        className={isOpen ? "dropdown visible shadow-md" : "dropwdown hidden"}
         role="menu"
         style={{ top: `${buttonProps.ref.current?.offsetHeight}px` }}
       >

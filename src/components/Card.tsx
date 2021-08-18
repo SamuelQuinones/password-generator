@@ -3,14 +3,9 @@ import { forwardRef, ReactNode } from "react";
 type Props = { className?: string; children?: ReactNode };
 
 const Card = forwardRef<HTMLDivElement, Props>(
-  ({ children, className }, ref) => {
+  ({ children, className = "no-cls-card" }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={`${
-          className ? className : ""
-        } card card-theme rounded-md shadow-md p-3`}
-      >
+      <div ref={ref} className={`card card-theme ${className}`}>
         {children}
       </div>
     );

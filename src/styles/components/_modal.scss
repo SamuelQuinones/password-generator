@@ -2,25 +2,14 @@
   &__Overlay {
     z-index: 999999;
     background-color: rgba(0, 0, 0, 0.75);
-    position: fixed;
     // inset: 0px; // default
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    @apply fixed top-0 bottom-0 right-0 left-0;
   }
   &__Content {
-    position: absolute;
+    @apply absolute max-h-full overflow-hidden flex flex-col;
     inset: 0px;
-    max-height: 100%;
-    // border: 1px solid rgb(204, 204, 204);
-    // background: rgb(255, 255, 255);
-    overflow: hidden;
     border-radius: 4px;
     outline: none;
-    // padding: 20px;
-    display: flex;
-    flex-direction: column;
     @media (min-width: 576px) {
       inset: 15px;
     }
@@ -29,22 +18,17 @@
     }
   }
   &__Header {
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 0.5rem;
+    @apply flex-shrink-0 items-center justify-between p-2;
   }
   &__Body {
     @apply py-4 px-4 md:px-8 lg:px-16;
   }
   &__Close {
-    @apply focus:outline-none;
-    position: absolute;
+    @apply absolute focus:outline-none;
     top: calc(0rem + 0.5rem);
     right: calc(0rem + 1rem);
     bottom: calc(0rem + 0.5rem);
     transition: transform 250ms;
-    // padding-top: 1rem;
     &:hover {
       transition: transform 250ms;
       transform: rotate(90deg);
@@ -57,7 +41,7 @@
     &:focus-within,
     &:hover,
     &:active {
-      @apply text-sky-500 outline-none;
+      @apply text-sky-500;
     }
   }
 }

@@ -1,9 +1,0 @@
-.btn {
-  font-weight: 500;
-  &:focus {
-    @apply ring outline-none ring-opacity-60;
-  }
-  &:disabled {
-    @apply opacity-50 cursor-not-allowed;
-  }
-}

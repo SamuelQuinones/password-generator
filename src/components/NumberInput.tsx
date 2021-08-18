@@ -3,6 +3,7 @@ import {
   ChangeEvent as ReactCE,
   KeyboardEvent as ReactKB,
 } from "react";
+import Button from "./Button";
 import { Minus, Plus } from "./SVG-Icons";
 
 type Props = {
@@ -53,14 +54,14 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
       <label className="flex justify-between cursor-pointer" htmlFor={htmlId}>
         {label}
         <div>
-          <button
+          <Button
             disabled={leftDisabled}
             type="button"
-            className="relative num-input-btn rounded-l-md px-1 border btn btn-theme"
+            className="relative num-input-btn rounded-r-none rounded-l-md px-1 border py-0"
             onClick={() => forceChange("stepDown")}
           >
             <Minus height={14} width={14} title="Decrease" />
-          </button>
+          </Button>
           <input
             ref={ref}
             className="num-input-field text-center border-t border-b px-1"
@@ -72,14 +73,14 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
             max={max}
             min={min}
           />
-          <button
+          <Button
             disabled={rightDisabled}
             type="button"
-            className="relative num-input-btn rounded-r-md px-1 border btn btn-theme"
+            className="relative num-input-btn rounded-l-none rounded-r-md px-1 border py-0"
             onClick={() => forceChange("stepUp")}
           >
             <Plus height={14} width={14} title="Increase" />
-          </button>
+          </Button>
         </div>
       </label>
     );

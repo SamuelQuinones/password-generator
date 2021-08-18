@@ -1,9 +1,43 @@
-@import "components/button";
+@import "components/container";
 @import "components/toggle";
 @import "components/number";
-@import "components/collapse";
 @import "components/modal";
 @import "components/fade";
 @import "components/slide";
-@import "components/svg-icons";
 @import "components/dropdown";
+
+//* Smaller one-offs
+
+.btn,
+.card,
+.num-input-field {
+  @apply transition-colors duration-250;
+}
+
+.card {
+  @apply rounded-md shadow-md p-3;
+}
+
+.btn {
+  font-weight: 500;
+  @apply rounded-md p-2;
+  &:focus {
+    @apply ring outline-none ring-opacity-60;
+  }
+  &:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}
+
+.ReactCollapse--collapse {
+  transition: height 300ms, color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+
+svg.bi {
+  display: inline-block;
+  vertical-align: -0.125em;
+  &-no-va {
+    display: inline-block;
+  }
+}

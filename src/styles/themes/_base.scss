@@ -10,6 +10,7 @@
     .click-gen-header {
       @apply border-#{$color}-400;
     }
+
     .btn-theme {
       @apply bg-#{$color}-400;
       color: $btnText;
@@ -47,52 +48,32 @@
       }
     }
 
-    .settings-change {
-      color: $dropdownText;
-      @apply bg-#{$color}-700;
-    }
-
-    .settings-change.open,
-    .settings-change:hover,
-    .settings-change:focus,
-    .settings-change:focus-within {
-      @apply bg-#{$color}-800 ring-0;
-    }
-
     .ReactCollapse--content {
       @apply bg-#{$color}-500;
     }
 
+    .settings-change {
+      color: $dropdownText;
+      @apply bg-#{$color}-700 focus:ring-0 focus-within:ring-0 hover:bg-#{$color}-800 focus:bg-#{$color}-800 focus-within:bg-#{$color}-800;
+    }
+
     .theme-toggle-button {
       font-weight: 500;
-      transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
-        border-color 0.25s ease-in-out;
       color: $btnText;
-      @apply p-1.5 rounded-md bg-#{$color}-400 shadow-inner;
+      @apply bg-#{$color}-400;
       &:focus,
       &:focus-within,
       &:hover {
         @apply ring outline-none ring-opacity-60 bg-#{$color}-500;
       }
       &.open {
-        @apply rounded-b-none bg-#{$color}-500;
-      }
-      ~ .ReactCollapse--collapse {
-        > .ReactCollapse--content {
-          display: flex;
-          flex-direction: row;
-          @apply rounded-tr-none p-3 rounded-md;
-          transition: color 0.25s ease-in-out,
-            background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;
-        }
+        @apply bg-#{$color}-500;
       }
     }
 
-    .MyModal {
-      &__Content {
-        color: $bodyText;
-        @apply border border-#{$color}-800 bg-#{$color}-900;
-      }
+    .MyModal__Content {
+      color: $bodyText;
+      @apply border border-#{$color}-800 bg-#{$color}-900;
     }
 
     code {
@@ -101,14 +82,9 @@
   }
 
   .theme-changer-master {
-    // label {
-    //   display: inline-block;
-    // }
     input.theme-changer-#{$color} {
       ~ .changer-wrapper {
-        transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
-          border-color 0.25s ease-in-out;
-        @apply bg-#{$color}-500 border-#{$color}-300 rounded-full mx-1 w-9 h-9 border-2 shadow-lg;
+        @apply bg-#{$color}-500 border-#{$color}-300;
       }
       &:not(:checked) {
         ~ .changer-wrapper {

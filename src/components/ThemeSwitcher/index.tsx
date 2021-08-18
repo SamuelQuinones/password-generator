@@ -41,8 +41,8 @@ const ThemeSwitcher: FC = () => {
   return (
     <div ref={wrapper} className="fixed right-2 bottom-2 theme-changer-master">
       <button
-        className={`theme-toggle-button block ml-auto ${
-          showThemeButtons ? "open" : "closed"
+        className={`theme-toggle-button block ml-auto p-1.5 rounded-md shadow-inner transition duration-250 ${
+          showThemeButtons ? "open rounded-b-none" : "closed"
         }`}
         onClick={() => setShowThemeButtons(!showThemeButtons)}
       >
@@ -51,7 +51,14 @@ const ThemeSwitcher: FC = () => {
           <Bucket title={t("select_theme")} height={20} width={20} />
         </span>
       </button>
-      <UnmountClosed isOpened={showThemeButtons}>
+      <UnmountClosed
+        theme={{
+          collapse: "ReactCollapse--collapse",
+          content:
+            "ReactCollapse--content flex flex-row p-3 rounded-md rounded-tr-none transition-colors duration-250",
+        }}
+        isOpened={showThemeButtons}
+      >
         {ThemesArr.map((color, idx) => {
           return (
             <label key={idx} htmlFor={`radio-${color}`}>
