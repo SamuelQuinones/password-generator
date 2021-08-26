@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
 //TODO: Look into react-overlays if needing to build more dropdowns
+//TODO: Switch library for dropdown / change active language logic
 
 import { FC } from "react";
 import Button from "./Button";
@@ -31,25 +32,28 @@ const LangSwitcher: FC = () => {
       >
         <Translate width="1em" height="1em" /> {t("lang_desc")}
       </Button>
-      <div
-        className={isOpen ? "dropdown visible shadow-md" : "dropwdown hidden"}
-        role="menu"
-        style={{ top: `${buttonProps.ref.current?.offsetHeight}px` }}
-      >
-        {langPickerConfig.map(({ key, display }, idx) => (
-          <a
-            id={`menu-item-${idx}`}
-            key={key}
-            onClick={() => toggleItem(key)}
-            className={`block dropdown-item ${
-              i18n.languages[0] === key ? "active" : ""
-            }`.trim()}
-            {...itemProps[idx]}
-          >
-            {display}
-          </a>
-        ))}
-      </div>
+      {/* Temporary Fix until I can figure out how to get it working with snap */}
+      {isOpen && (
+        <div
+          className={isOpen ? "dropdown visible shadow-md" : "dropwdown hidden"}
+          role="menu"
+          style={{ top: `${buttonProps.ref.current?.offsetHeight}px` }}
+        >
+          {langPickerConfig.map(({ key, display }, idx) => (
+            <a
+              id={`menu-item-${idx}`}
+              key={key}
+              onClick={() => toggleItem(key)}
+              className={`block dropdown-item ${
+                i18n.languages[0] === key ? "active" : ""
+              }`.trim()}
+              {...itemProps[idx]}
+            >
+              {display}
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
