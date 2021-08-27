@@ -25,7 +25,7 @@ I built this web-app to improve my development skills, and also learn something 
 
 In my opinion, all these things are important skills for a developer to have, and I figured the best way to learn and improve was to make something - so I made this.
 
-The reason I built password generator specifically was also about learning; Security and passwords are a very important aspect of development, and I figured making a password generator would be a good way to learn more about it.
+The reason I built a password generator specifically was also about learning; Security and passwords are a very important aspect of development, and I figured making a password generator would be a good way to learn more about it.
 
 This app is constantly being worked on and I am always open to ideas, suggestions, and collaborations!
 
