@@ -1,5 +1,5 @@
-const { updateLocale } = require("./_create-locale");
-const { updateResource } = require("./_update-resource");
+const updateLocale = require("./_create-locale").updateLocale;
+const updateResource = require("./_update-resource").updateResource;
 
 const lang = process.argv[2];
 
