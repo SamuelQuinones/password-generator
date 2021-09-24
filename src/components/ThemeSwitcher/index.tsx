@@ -5,6 +5,7 @@ import ActiveIcon from "./ActiveIcon";
 import { Bucket } from "components/SVG-Icons";
 import { checkTheme, ThemesArr, changeTheme } from "./Helper";
 import useOutsideClick from "hooks/useClickOutside";
+import classNames from "classnames";
 //* REDUX
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { getTheme } from "store/selectors";
@@ -41,9 +42,10 @@ const ThemeSwitcher: FC = () => {
   return (
     <div ref={wrapper} className="fixed right-2 bottom-2 theme-changer-master">
       <button
-        className={`theme-toggle-button block ml-auto p-1.5 rounded-md shadow-inner transition duration-250 ${
+        className={classNames(
+          "theme-toggle-button block ml-auto p-1.5 rounded-md shadow-inner transition duration-250",
           showThemeButtons ? "open rounded-b-none" : "closed"
-        }`}
+        )}
         onClick={() => setShowThemeButtons(!showThemeButtons)}
       >
         <span className="hidden md:inline-block">{t("select_theme")}</span>

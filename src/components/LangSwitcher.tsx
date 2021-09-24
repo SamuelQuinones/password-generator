@@ -10,6 +10,7 @@ import { Translate } from "./SVG-Icons";
 import { useTranslation } from "react-i18next";
 import { langPickerConfig } from "lang/resources";
 import useDropdownMenu from "react-accessible-dropdown-menu-hook";
+import classNames from "classnames";
 
 const LangSwitcher: FC = () => {
   const { i18n, t } = useTranslation();
@@ -47,9 +48,12 @@ const LangSwitcher: FC = () => {
             id={`menu-item-${idx}`}
             key={key}
             onClick={() => toggleItem(key)}
-            className={`block lang-item dropdown-item ${
-              activeKey === key ? "active" : ""
-            }`.trim()}
+            className={classNames(
+              "block",
+              "lang-item",
+              "dropdown-item",
+              activeKey === key && "active"
+            )}
             {...itemProps[idx]}
           >
             {display}

@@ -1,11 +1,16 @@
-import { forwardRef, ButtonHTMLAttributes } from "react";
+import { forwardRef, ComponentPropsWithoutRef } from "react";
+import classNames from "classnames";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+type ButtonProps = ComponentPropsWithoutRef<"button">;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, className = "no-cls-btn", ...rest }, ref) => {
+  ({ children, className, ...rest }, ref) => {
     return (
-      <button ref={ref} className={`btn btn-theme ${className}`} {...rest}>
+      <button
+        ref={ref}
+        className={classNames("btn", "btn-theme", className)}
+        {...rest}
+      >
         {children}
       </button>
     );

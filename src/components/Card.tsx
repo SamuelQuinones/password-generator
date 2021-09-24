@@ -1,11 +1,12 @@
 import { forwardRef, ReactNode } from "react";
+import classNames from "classnames";
 
 type Props = { className?: string; children?: ReactNode };
 
 const Card = forwardRef<HTMLDivElement, Props>(
-  ({ children, className = "no-cls-card" }, ref) => {
+  ({ children, className }, ref) => {
     return (
-      <div ref={ref} className={`card card-theme ${className}`}>
+      <div ref={ref} className={classNames("card", "card-theme", className)}>
         {children}
       </div>
     );
