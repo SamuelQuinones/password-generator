@@ -32,9 +32,8 @@ function App() {
           {t("generate_password")}
         </Button>
       </div>
-      <ThemeSwitcher />
-
       <Footer />
+      <ThemeSwitcher />
     </div>
   );
 }
