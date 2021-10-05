@@ -40,7 +40,11 @@ const ThemeSwitcher: FC = () => {
   }, [dispatch]);
 
   return (
-    <div ref={wrapper} className="fixed right-2 bottom-2 theme-changer-master">
+    <div
+      style={{ zIndex: 900 }}
+      ref={wrapper}
+      className="fixed right-2 bottom-2 theme-changer-master"
+    >
       <button
         className={classNames(
           "theme-toggle-button block ml-auto p-1.5 rounded-md shadow-inner transition duration-250",
