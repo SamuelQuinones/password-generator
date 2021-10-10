@@ -1,6 +1,6 @@
 input.pwg-toggle {
   ~ .dot {
-    z-index: 160;
+    transform: translateX(0);
   }
   &:focus {
     ~ .sw-line,
