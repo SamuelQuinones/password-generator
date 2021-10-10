@@ -5,12 +5,36 @@
 //TODO: Switch library for dropdown / change active language logic
 
 import { FC, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Button from "./Button";
 import { Translate } from "./SVG-Icons";
 import { useTranslation } from "react-i18next";
 import { langPickerConfig } from "lang/resources";
 import useDropdownMenu from "react-accessible-dropdown-menu-hook";
 import classNames from "classnames";
+
+const slideDownConfig = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.15,
+    },
+    display: "block",
+  },
+  closed: {
+    opacity: 0,
+    y: -10,
+    transition: {
+      duration: 0.15,
+    },
+    transitionEnd: { display: "none" },
+  },
+};
+
+// const slideDownTransition = {
+
+// }
 
 const LangSwitcher: FC = () => {
   const { i18n, t } = useTranslation();
@@ -38,8 +62,11 @@ const LangSwitcher: FC = () => {
       >
         <Translate width="1em" height="1em" /> {t("lang_desc")}
       </Button>
-      <div
-        className={isOpen ? "dropdown visible shadow-md" : "dropwdown hidden"}
+      <motion.div
+        variants={slideDownConfig}
+        initial="closed"
+        animate={isOpen ? "open" : "closed"}
+        className="dropdown shadow-md"
         role="menu"
         style={{ top: `${buttonProps.ref.current?.offsetHeight}px` }}
       >
@@ -59,7 +86,7 @@ const LangSwitcher: FC = () => {
             {display}
           </a>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

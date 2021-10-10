@@ -1,16 +1,17 @@
 //* Core
-import { FC, ReactNode, useEffect, useRef, useState } from "react";
-import { CSSTransition, SwitchTransition } from "react-transition-group";
+import { FC, ReactNode, useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Button from "components/Button";
 import { LeftArrow, RightArrow } from "components/SVG-Icons";
+import BaseSettings from "./_BaseSettings";
+import AdvancedSettings from "./_AdvancedSettings";
 import {
   checkStoredValue,
   FormInput,
   GeneratorSettings,
   saveFormValues,
+  baseVariants,
 } from "./Helper";
-import BaseSettings from "./_BaseSettings";
-import AdvancedSettings from "./_AdvancedSettings";
 //* REDUX
 import { useAppDispatch } from "store/hooks";
 import { userActions } from "store/userSlice";
@@ -21,9 +22,7 @@ import { useTranslation } from "react-i18next";
 
 const Form: FC = () => {
   //* Core
-  const [slideLeft, setSlideLeft] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
-  const wrapper = useRef<HTMLDivElement>(null);
   //* REDUX
   const dispatch = useAppDispatch();
   //* React Hook Form
@@ -60,41 +59,38 @@ const Form: FC = () => {
   return (
     <form id="password-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="overflow-x-hidden overflow-y-auto">
-        <SwitchTransition>
-          <CSSTransition
-            key={String(showAdvanced)}
-            addEndListener={(done) =>
-              wrapper.current?.addEventListener("transitionend", done, false)
-            }
-            classNames={slideLeft ? "slide-left" : "slide-right"}
-            onExited={() => setSlideLeft(true)} //* "swaps" places
-            onEntered={() => setSlideLeft(false)} //* "swaps" places
-            // onExited={() => setSlideLeft(slideLeft)} //* one way out
-            // onEntered={() => setSlideLeft(!slideLeft)} //* one way in
-            timeout={250}
-            nodeRef={wrapper}
-          >
-            <div ref={wrapper}>
-              {showAdvanced ? (
-                <>
-                  <AdvancedSettings watch={watch} register={register} />
-                  {makeButton(
-                    t("form.basic_title"),
-                    <LeftArrow height={20} width={20} />
-                  )}
-                </>
-              ) : (
-                <>
-                  <BaseSettings watch={watch} register={register} />
-                  {makeButton(
-                    t("form.advanced_settings.title"),
-                    <RightArrow height={20} width={20} />
-                  )}
-                </>
+        <AnimatePresence initial={false} exitBeforeEnter={true}>
+          {!showAdvanced && (
+            <motion.section
+              key="base"
+              variants={baseVariants}
+              initial="exit"
+              animate="show"
+              exit="exit"
+            >
+              <BaseSettings watch={watch} register={register} />
+              {makeButton(
+                t("form.advanced_settings.title"),
+                <RightArrow height={20} width={20} />
               )}
-            </div>
-          </CSSTransition>
-        </SwitchTransition>
+            </motion.section>
+          )}
+          {showAdvanced && (
+            <motion.section
+              key="advanced"
+              variants={baseVariants}
+              initial="exit"
+              animate="show"
+              exit="exit"
+            >
+              <AdvancedSettings watch={watch} register={register} />
+              {makeButton(
+                t("form.basic_title"),
+                <LeftArrow height={20} width={20} />
+              )}
+            </motion.section>
+          )}
+        </AnimatePresence>
       </div>
     </form>
   );

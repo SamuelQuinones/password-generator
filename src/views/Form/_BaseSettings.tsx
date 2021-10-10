@@ -1,6 +1,7 @@
 import { FC } from "react";
+import { motion } from "framer-motion";
 import { UseFormRegister, UseFormWatch } from "react-hook-form";
-import { FormInput } from "./Helper";
+import { cardVariants, FormInput, spring, textVariants } from "./Helper";
 import Card from "components/Card";
 import Slider from "components/Slider";
 import Togglebutton from "components/ToggleButton";
@@ -12,17 +13,19 @@ type Props = {
   watch: UseFormWatch<FormInput>;
 };
 
+const MotionCard = motion(Card);
+
 const BaseSettings: FC<Props> = ({ register, watch }) => {
   const { t } = useTranslation();
   const watched = watch(["advancedSettings.maxLength", "passwordLength"]);
 
   return (
-    <div>
+    <>
       {/* Length */}
-      <label htmlFor="characterNum">
+      <motion.label variants={textVariants} htmlFor="characterNum">
         {t("form.password_length")}: {watched[1]}
-      </label>
-      <Card className="my-2">
+      </motion.label>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Slider
           htmlID="characterNum"
           min={6}
@@ -30,38 +33,40 @@ const BaseSettings: FC<Props> = ({ register, watch }) => {
           step={1}
           {...register("passwordLength", { min: 6, max: 90 })}
         />
-      </Card>
+      </MotionCard>
       {/* Additional Settings */}
-      <div>{t("form.settings_label")}</div>
-      <Card className="my-2">
+      <motion.span variants={textVariants}>
+        {t("form.settings_label")}
+      </motion.span>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="uppercase"
           label={t("form.include_uppercase")}
           {...register("includeUppercase")}
         />
-      </Card>
-      <Card className="my-2">
+      </MotionCard>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="lowercase"
           label={t("form.include_lowercase")}
           {...register("includeLowercase")}
         />
-      </Card>
-      <Card className="my-2">
+      </MotionCard>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="numbers"
           label={t("form.include_numbers")}
           {...register("includeNumbers")}
         />
-      </Card>
-      <Card className="my-2">
+      </MotionCard>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="symbols"
           label={t("form.include_symbols")}
           {...register("includeSymbols")}
         />
-      </Card>
-    </div>
+      </MotionCard>
+    </>
   );
 };
 

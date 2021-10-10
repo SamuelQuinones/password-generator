@@ -1,6 +1,13 @@
 import { FC } from "react";
+import { motion } from "framer-motion";
 import { UseFormRegister, UseFormWatch } from "react-hook-form";
-import { FormInput, handleKeyDown } from "./Helper";
+import {
+  cardVariants,
+  FormInput,
+  handleKeyDown,
+  spring,
+  textVariants,
+} from "./Helper";
 import Card from "components/Card";
 import NumberInput from "components/NumberInput";
 import Togglebutton from "components/ToggleButton";
@@ -12,6 +19,8 @@ type Props = {
   watch: UseFormWatch<FormInput>;
 };
 
+const MotionCard = motion(Card);
+
 const AdvancedSettings: FC<Props> = ({ register, watch }) => {
   const watched = watch([
     "advancedSettings.maxLength",
@@ -21,9 +30,11 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <span>{t("form.advanced_settings.title")}</span>
-      <Card className="my-2">
+    <>
+      <motion.span variants={textVariants}>
+        {t("form.advanced_settings.title")}
+      </motion.span>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <NumberInput
           leftDisabled={watched[0].toString() === "24"}
           rightDisabled={watched[0].toString() === "90"}
@@ -34,16 +45,16 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
           onKeyDown={handleKeyDown}
           {...register("advancedSettings.maxLength", { min: 24, max: 90 })}
         />
-      </Card>
-      <Card className="my-2">
+      </MotionCard>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="similarChars"
           label={t("form.advanced_settings.similar_symbols")}
           {...register("advancedSettings.includeSimilarCharacters")}
         />
         <small>( i, l, 1, L, o, 0, O )</small>
-      </Card>
-      <Card className="my-2">
+      </MotionCard>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="ambiguousSymbols"
           label={t("form.advanced_settings.ambiguous_symbols")}
@@ -51,22 +62,22 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
           {...register("advancedSettings.includeAmbiguousSymbols")}
         />
         <small>{"( { } [ ] ( ) / \\ ' \" ` ~ , | ; : . < > )"}</small>
-      </Card>
-      <Card className="my-2">
+      </MotionCard>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="useDuplicateCharacters"
           label={t("form.advanced_settings.use_duplicates")}
           {...register("advancedSettings.useDuplicateCharacters")}
         />
-      </Card>
-      <Card className="my-2">
+      </MotionCard>
+      <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="saveForNextTime"
           label={t("form.advanced_settings.save_for_next_time")}
           {...register("advancedSettings.saveForNextTime")}
         />
-      </Card>
-    </div>
+      </MotionCard>
+    </>
   );
 };
 

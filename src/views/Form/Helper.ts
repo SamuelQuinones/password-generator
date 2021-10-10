@@ -125,3 +125,49 @@ export const handleKeyDown = (e: ReactKB) => {
       break;
   }
 };
+
+export const cardVariants = {
+  exit: {
+    opacity: 0,
+    x: 50,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+  },
+};
+
+export const textVariants = {
+  exit: {
+    opacity: 0,
+    transition: {
+      opacity: { durration: 0.3 },
+    },
+  },
+  show: {
+    opacity: 1,
+  },
+};
+
+export const spring = {
+  X: { type: "spring", stiffness: 700, damping: 50 },
+};
+
+export const baseVariants = {
+  exit: {
+    zIndex: 0,
+    transition: {
+      when: "afterChildren",
+      staggerChildren: 0.09,
+      staggerDirection: 1,
+    },
+  },
+  show: {
+    zIndex: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.09,
+      staggerDirection: -1,
+    },
+  },
+};
