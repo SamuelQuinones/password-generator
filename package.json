@@ -20,6 +20,7 @@
     "@testing-library/react": "12.1.0",
     "@testing-library/user-event": "13.2.1",
     "classnames": "2.3.1",
+    "framer-motion": "4.1.17",
     "i18next": "21.1.0",
     "i18next-browser-languagedetector": "6.1.2",
     "react": "17.0.2",
