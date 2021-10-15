@@ -55,8 +55,7 @@ const LangSwitcher: FC = () => {
   return (
     <div className="mb-5 relative flex justify-center">
       <Button
-        style={{ padding: "0.25rem", borderRadius: 0 }}
-        className="text-lg"
+        className="text-lg p-1 rounded-none"
         onClick={() => setIsOpen(!isOpen)}
         {...buttonProps}
       >
@@ -66,7 +65,7 @@ const LangSwitcher: FC = () => {
         variants={slideDownConfig}
         initial="closed"
         animate={isOpen ? "open" : "closed"}
-        className="dropdown shadow-md"
+        className="dropdown shadow-md rounded-sm"
         role="menu"
         style={{ top: `${buttonProps.ref.current?.offsetHeight}px` }}
       >
