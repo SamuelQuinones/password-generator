@@ -26,7 +26,8 @@ const Form: FC = () => {
   //* REDUX
   const dispatch = useAppDispatch();
   //* React Hook Form
-  const { register, handleSubmit, watch, reset } = GeneratorSettings();
+  const { register, handleSubmit, watch, reset, setValue } =
+    GeneratorSettings();
   //* Translation
   const { t } = useTranslation();
 
@@ -42,6 +43,7 @@ const Form: FC = () => {
     if (data.advancedSettings.saveForNextTime) {
       saveFormValues(data);
       dispatch(userActions.setSettingsSaved(true));
+      setValue("advancedSettings.saveForNextTime", false);
     }
   };
 

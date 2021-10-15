@@ -82,7 +82,7 @@ export const GeneratorSettings = () => {
 };
 
 export const saveFormValues = (values: FormInput) => {
-  const newValues = { ...values };
+  const newValues = JSON.parse(JSON.stringify(values, null, 2));
   newValues.advancedSettings.saveForNextTime = false;
   const s = JSON.stringify(newValues);
   localStorage.setItem("savedSettings", s);
@@ -141,7 +141,7 @@ export const textVariants = {
   exit: {
     opacity: 0,
     transition: {
-      opacity: { durration: 0.3 },
+      opacity: { duration: 0.3 },
     },
   },
   show: {
@@ -149,9 +149,7 @@ export const textVariants = {
   },
 };
 
-export const spring = {
-  X: { type: "spring", stiffness: 700, damping: 50 },
-};
+export const spring = { type: "spring", stiffness: 700, damping: 50 };
 
 export const baseVariants = {
   exit: {
