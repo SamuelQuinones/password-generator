@@ -62,7 +62,23 @@ const AboutModal: FC = () => {
         <h2 className="mb-4">
           <em>{t("about.general_info")}</em>
         </h2>
-        <p className="mb-8">More info coming soon...</p>
+        <p className="mb-4">
+          <Trans i18nKey="about.p_5" />
+        </p>
+        <p className="mb-3">{t("about.p_6")}</p>
+        <ul className="mb-4 list-disc list-inside">
+          {t("about.i_learned", { returnObjects: true }).map((_, index) => (
+            <li className="list-item mb-1" key={index}>
+              <Trans
+                //@ts-ignore this key WILL exist
+                i18nKey={`about.i_learned.${index}`}
+              />
+            </li>
+          ))}
+        </ul>
+        <p className="mb-4">{t("about.p_7")}</p>
+        <p className="mb-4">{t("about.p_8")}</p>
+        <p className="mb-8">{t("about.p_9")}</p>
         {/* How It works */}
         <h2 className="mb-4">
           <em>{t("about.how_it_works")}</em>

@@ -18,6 +18,21 @@
     "p_3": "For information about contributing to this project, please visit <a>the project's GitHub</a> and view <strong>CONTRIBUTING.md</strong>",
     "p_4": "The logo / icon was made by Emily from <a>Em's Enchanted Emporium</a>",
     "general_info": "General Info",
+    "p_5": "'Secure Password Generator' is a web-app bootstrapped with <code>create-react-app</code> and <code>Typescript</code>. All styling / appearance is done using the <code>tailwindcss</code> utility framework as a base.",
+    "p_6": "I built this web-app to improve my development skills, and also learn something new:",
+    "i_learned": [
+      "More advanced <code>ReactJS</code> code and design principles",
+      "How to use a global state manager like <code>Redux</code>",
+      "How to create and style my own components - as a challenge to myself, I am using as little component libraries as I can",
+      "Making a Progressive Web App or 'PWA' to allow for offline use, and a downloadable experience",
+      "Using a development pipeline - continuous integration and continuous deployment or 'CI/CD' using Github workflows",
+      "Bug and Issue management for a project",
+      "Working with an Open-source project and getting assistance from a community",
+      "Translating a project in an efficient way"
+    ],
+    "p_7": "In my opinion, all these things are important skills for a developer to have, and I figured the best way to learn and improve was to make something",
+    "p_8": "The reason I built a password generator specifically was also about learning; Security and passwords are a very important aspect of development, and I figured making a password generator would be a good way to learn more about it.",
+    "p_9": "This app is constantly being worked on and I am always open to ideas, suggestions, and collaborations!",
     "how_it_works": "How It Works"
   },
   "form": {

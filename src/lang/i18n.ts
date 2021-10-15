@@ -16,6 +16,7 @@ i18n
       transKeepBasicHtmlNodesFor: ["em", "u", "strong", "code"],
     },
     debug: process.env.NODE_ENV !== "production",
+    returnEmptyString: false,
     fallbackLng: "en",
     load: "languageOnly",
     supportedLngs,
