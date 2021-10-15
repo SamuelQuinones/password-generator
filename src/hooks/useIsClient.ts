@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
  *
  * @returns is the component mounted
  */
-function useRenderOnMount() {
+function useIsClient() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -22,4 +22,4 @@ function useRenderOnMount() {
   return mounted;
 }
 
-export default useRenderOnMount;
+export default useIsClient;

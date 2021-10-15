@@ -1,5 +1,5 @@
 import { ChangeEvent, forwardRef } from "react";
-import useRenderOnMount from "hooks/useRenderOnMount";
+import useIsClient from "hooks/useIsClient";
 
 type Props = {
   label: string;
@@ -16,7 +16,7 @@ const Togglebutton = forwardRef<HTMLInputElement, Props>(
     { label, htmlId, type = "skinny", name, disabled = false, value, onChange },
     ref
   ) => {
-    const mounted = useRenderOnMount();
+    const mounted = useIsClient();
     return (
       // <div className="flex items-center justify-between my-1">
       <label
