@@ -1,0 +1,16 @@
+{
+  "click_trigger": "here",
+  "content_label": "Security and This App",
+  "modal_title": "About Security",
+  "p_1": "Everything about this app happens localized in your browser, on your device, during that session.",
+  "p_2": "None of passwords generated are transmitted any way. None of the <a>settings</a> with which you use to generate passwords are transmitted in any way. The color theme you use is not transmitted in any way.",
+  "p_3": "None of the passwords generated are saved in any way, to the device, to the browser, or otherwise.",
+  "p_4": "The <a>settings</a> you use to generate a password <strong><em>CAN</em></strong> be saved to the browser's <code>localStorage</code> <strong><em>PROVIDED THE USER OPTS IN TO THAT BEHAVIOR</em></strong> and <strong><em>CAN BE RESET / REMOVED AT ANY TIME</em></strong>",
+  "p_5": "This app uses different colored themes to make the experience more 'fun' and customizable. In order to remember the theme chosen by the user the value of the theme is stored in the browser's <code>localStorage</code>.",
+  "p_6": "This app's code is <strong><em>Open Source</em></strong>, meaning it is available for anyone to see, contribute to, and somewhat unfortunately directly steal or copy.",
+  "p_7": "<strong>Please note that the only official version of this app will only ever be hosted at <u>passwordgenerator.samtheq.com</u> OR <u>samuelquinones.github.io/password-generator</u></strong>",
+  "p_8": "The above claims only hold true for the <strong>official version</strong> and I can not make the same claims for those who steal the code and redistribute it without my knowledge.",
+  "p_9": "If you do see that someone is hosting this app on another domain, please open an issue and let me know so that it can be dealt with.",
+  "settings": "Settings",
+  "clarify": "Settings refers to the configurable options on the app; which types of characters to include, password length, etc."
+}

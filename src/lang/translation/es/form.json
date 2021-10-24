@@ -1,0 +1,17 @@
+{
+  "advanced_settings": {
+    "title": "",
+    "max_length": "",
+    "similar_symbols": "",
+    "ambiguous_symbols": "",
+    "use_duplicates": "",
+    "save_for_next_time": ""
+  },
+  "password_length": "",
+  "settings_label": "",
+  "include_uppercase": "",
+  "include_lowercase": "",
+  "include_numbers": "",
+  "include_symbols": "",
+  "basic_title": ""
+}

@@ -1,0 +1,15 @@
+{
+  "app_title": "Generador de contraseñas seguras",
+  "generate_password": "Creas Contraseña",
+  "lang_desc": "Español",
+  "select_theme": "Elegiste Color",
+  "output": {
+    "title": "Tu Nueva Contraseña",
+    "click_prompt": "Haga clic en Crear",
+    "copy_to_clipboard": "Copiar al Portapapeles",
+    "copied": "Esta Copiado",
+    "reset_prompt": "Restablecer la Contraseña",
+    "saved_settings": "Usando la configuración guardada"
+  },
+  "reset": "Reiniciar"
+}

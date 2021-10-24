@@ -3,9 +3,7 @@ import { TranslationObj } from "./lang/resources";
 
 declare module "react-i18next" {
   interface CustomTypeOptions {
-    defaultNS: "translation";
-    resources: {
-      translation: TranslationObj;
-    };
+    defaultNS: "main";
+    resources: TranslationObj;
   }
 }

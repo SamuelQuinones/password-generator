@@ -1,0 +1,15 @@
+{
+  "app_title": "Secure Password Generator",
+  "generate_password": "Generate Password",
+  "lang_desc": "English",
+  "select_theme": "Select Theme",
+  "output": {
+    "title": "Your New Password",
+    "click_prompt": "Click Generate",
+    "copy_to_clipboard": "Copy to Clipboard",
+    "copied": "Copied",
+    "reset_prompt": "Reset Password",
+    "saved_settings": "Using Saved Settings"
+  },
+  "reset": "Reset"
+}

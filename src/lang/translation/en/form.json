@@ -1,0 +1,17 @@
+{
+  "advanced_settings": {
+    "title": "Advanced Settings",
+    "max_length": "Max Length",
+    "similar_symbols": "Include Similar Characters",
+    "ambiguous_symbols": "Include Ambiguous Symbols",
+    "use_duplicates": "Use Duplicate Characters",
+    "save_for_next_time": "Save All Settings"
+  },
+  "password_length": "Length",
+  "settings_label": "Settings",
+  "include_uppercase": "Include Uppercase",
+  "include_lowercase": "Include Lowercase",
+  "include_numbers": "Include Numbers",
+  "include_symbols": "Include Symbols",
+  "basic_title": "Basic Settings"
+}
