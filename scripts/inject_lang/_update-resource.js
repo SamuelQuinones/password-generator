@@ -12,7 +12,7 @@ function updateResource(lang) {
   //* Step 2a - update imports
   const short_lang = lang.substring(0, 2);
 
-  const import_statement = `import ${short_lang.toUpperCase()} from "./translation/${short_lang.toLowerCase()}.json";`;
+  const import_statement = `import ${short_lang.toLowerCase()} from "./translation/${short_lang.toLowerCase()}";`;
 
   if (new RegExp(import_statement, "gm").test(imports)) {
     throw new Error(`Language "${short_lang} - ${lang}" might already exist`);
@@ -25,7 +25,7 @@ function updateResource(lang) {
   //* Step 2b - update the lang object
   const newCode =
     code.trim() +
-    `\n${short_lang.toLowerCase()}: {\ntranslation: ${short_lang.toUpperCase()},\n},\n// new langs go above this line`;
+    `\n${short_lang.toLowerCase()},\n// new langs go above this line`;
 
   const new_resource_data = prettier.format(newImports + newCode + tail, {
     parser: "typescript",

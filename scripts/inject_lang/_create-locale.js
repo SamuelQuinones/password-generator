@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const prettier = require("prettier");
-const data = require("../locales.json");
+const data = require("../src/lang/locales.json");
 
 function updateLocale(lang) {
   //* Step 1 - update the parser config

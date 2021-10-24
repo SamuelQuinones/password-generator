@@ -3,7 +3,7 @@ const { locales } = require("./locales.json");
 module.exports = {
   createOldCatalogs: false,
   // Save the \_old files
-  defaultNamespace: "translation",
+  defaultNamespace: "main",
 
   indentation: 2,
   // Indentation of the catalog files
@@ -26,7 +26,7 @@ module.exports = {
   locales: locales,
   // An array of the locales in your applications
 
-  output: "src/lang/$NAMESPACE/$LOCALE.json",
+  output: "src/lang/translation/$LOCALE/$NAMESPACE.json",
   // Supports $LOCALE and $NAMESPACE injection
   // Supports JSON (.json) and YAML (.yml) file formats
   // Where to write the locale files relative to process.cwd()
