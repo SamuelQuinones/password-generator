@@ -13,25 +13,24 @@ const AboutModal: FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const toggleModal = () => setModalOpen(!modalOpen);
   //* Translation
-  const { t } = useTranslation();
+  const { t } = useTranslation("about");
   return (
     <div>
       <button className="MyModal__Trigger" onClick={toggleModal}>
-        {t("about.click_trigger")}
+        {t("click_trigger")}
       </button>
       <Modal
-        contentLabel={t("about.modal_title")}
+        contentLabel={t("modal_title")}
         onRequestClose={toggleModal}
         isOpen={modalOpen}
-        header={
-          <h2 className="text-center w-full">{t("about.modal_title")}</h2>
-        }
+        header={<h2 className="text-center w-full">{t("modal_title")}</h2>}
       >
-        <p className="mb-4">{t("about.p_1")}</p>
-        <p className="mb-4">{t("about.p_2")}</p>
+        <p className="mb-4">{t("p_1")}</p>
+        <p className="mb-4">{t("p_2")}</p>
         <p className="mb-4">
           <Trans
-            i18nKey="about.p_3"
+            ns="about"
+            i18nKey="p_3"
             components={{
               a: (
                 // eslint-disable-next-line jsx-a11y/anchor-has-content
@@ -46,7 +45,8 @@ const AboutModal: FC = () => {
 
         <p className="mb-8">
           <Trans
-            i18nKey="about.p_4"
+            ns="about"
+            i18nKey="p_4"
             components={{
               a: (
                 // eslint-disable-next-line jsx-a11y/anchor-has-content
@@ -60,28 +60,29 @@ const AboutModal: FC = () => {
         </p>
         {/* General Info */}
         <h2 className="mb-4">
-          <em>{t("about.general_info")}</em>
+          <em>{t("general_info")}</em>
         </h2>
         <p className="mb-4">
-          <Trans i18nKey="about.p_5" />
+          <Trans ns="about" i18nKey="p_5" />
         </p>
-        <p className="mb-3">{t("about.p_6")}</p>
+        <p className="mb-3">{t("p_6")}</p>
         <ul className="mb-4 list-disc list-inside">
-          {t("about.i_learned", { returnObjects: true }).map((_, index) => (
+          {t("i_learned", { returnObjects: true }).map((_, index) => (
             <li className="list-item mb-1" key={index}>
               <Trans
+                ns="about"
                 //@ts-ignore this key WILL exist
-                i18nKey={`about.i_learned.${index}`}
+                i18nKey={`i_learned.${index}`}
               />
             </li>
           ))}
         </ul>
-        <p className="mb-4">{t("about.p_7")}</p>
-        <p className="mb-4">{t("about.p_8")}</p>
-        <p className="mb-8">{t("about.p_9")}</p>
+        <p className="mb-4">{t("p_7")}</p>
+        <p className="mb-4">{t("p_8")}</p>
+        <p className="mb-8">{t("p_9")}</p>
         {/* How It works */}
         <h2 className="mb-4">
-          <em>{t("about.how_it_works")}</em>
+          <em>{t("how_it_works")}</em>
         </h2>
         <p className="mb-4">More info coming soon...</p>
       </Modal>

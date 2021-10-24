@@ -20,6 +20,8 @@ i18n
     fallbackLng: "en",
     load: "languageOnly",
     supportedLngs,
+    ns: Object.keys(resources.en),
+    defaultNS: "main",
     nonExplicitSupportedLngs: true,
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default

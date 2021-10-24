@@ -16,14 +16,14 @@ type Props = {
 const MotionCard = motion(Card);
 
 const BaseSettings: FC<Props> = ({ register, watch }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("form");
   const watched = watch(["advancedSettings.maxLength", "passwordLength"]);
 
   return (
     <>
       {/* Length */}
       <motion.label variants={textVariants} htmlFor="characterNum">
-        {t("form.password_length")}: {watched[1]}
+        {t("password_length")}: {watched[1]}
       </motion.label>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Slider
@@ -35,34 +35,32 @@ const BaseSettings: FC<Props> = ({ register, watch }) => {
         />
       </MotionCard>
       {/* Additional Settings */}
-      <motion.span variants={textVariants}>
-        {t("form.settings_label")}
-      </motion.span>
+      <motion.span variants={textVariants}>{t("settings_label")}</motion.span>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="uppercase"
-          label={t("form.include_uppercase")}
+          label={t("include_uppercase")}
           {...register("includeUppercase")}
         />
       </MotionCard>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="lowercase"
-          label={t("form.include_lowercase")}
+          label={t("include_lowercase")}
           {...register("includeLowercase")}
         />
       </MotionCard>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="numbers"
-          label={t("form.include_numbers")}
+          label={t("include_numbers")}
           {...register("includeNumbers")}
         />
       </MotionCard>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="symbols"
-          label={t("form.include_symbols")}
+          label={t("include_symbols")}
           {...register("includeSymbols")}
         />
       </MotionCard>

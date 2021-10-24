@@ -27,18 +27,18 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
     "passwordLength",
     "includeSymbols",
   ]);
-  const { t } = useTranslation();
+  const { t } = useTranslation("form");
 
   return (
     <>
       <motion.span variants={textVariants}>
-        {t("form.advanced_settings.title")}
+        {t("advanced_settings.title")}
       </motion.span>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <NumberInput
           leftDisabled={watched[0].toString() === "24"}
           rightDisabled={watched[0].toString() === "90"}
-          label={t("form.advanced_settings.max_length")}
+          label={t("advanced_settings.max_length")}
           htmlId="maxLengthId"
           max={90}
           min={24}
@@ -49,7 +49,7 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="similarChars"
-          label={t("form.advanced_settings.similar_symbols")}
+          label={t("advanced_settings.similar_symbols")}
           {...register("advancedSettings.includeSimilarCharacters")}
         />
         <small>( i, l, 1, L, o, 0, O )</small>
@@ -57,7 +57,7 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="ambiguousSymbols"
-          label={t("form.advanced_settings.ambiguous_symbols")}
+          label={t("advanced_settings.ambiguous_symbols")}
           disabled={!watched[2]}
           {...register("advancedSettings.includeAmbiguousSymbols")}
         />
@@ -66,14 +66,14 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="useDuplicateCharacters"
-          label={t("form.advanced_settings.use_duplicates")}
+          label={t("advanced_settings.use_duplicates")}
           {...register("advancedSettings.useDuplicateCharacters")}
         />
       </MotionCard>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="saveForNextTime"
-          label={t("form.advanced_settings.save_for_next_time")}
+          label={t("advanced_settings.save_for_next_time")}
           {...register("advancedSettings.saveForNextTime")}
         />
       </MotionCard>

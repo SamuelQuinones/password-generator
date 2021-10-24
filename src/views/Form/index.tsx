@@ -29,7 +29,7 @@ const Form: FC = () => {
   const { register, handleSubmit, watch, reset, setValue } =
     GeneratorSettings();
   //* Translation
-  const { t } = useTranslation();
+  const { t } = useTranslation("form");
 
   useEffect(() => {
     const savedSettings = localStorage.getItem("savedSettings");
@@ -72,7 +72,7 @@ const Form: FC = () => {
             >
               <BaseSettings watch={watch} register={register} />
               {makeButton(
-                t("form.advanced_settings.title"),
+                t("advanced_settings.title"),
                 <RightArrow height={20} width={20} />
               )}
             </motion.section>
@@ -87,7 +87,7 @@ const Form: FC = () => {
             >
               <AdvancedSettings watch={watch} register={register} />
               {makeButton(
-                t("form.basic_title"),
+                t("basic_title"),
                 <LeftArrow height={20} width={20} />
               )}
             </motion.section>

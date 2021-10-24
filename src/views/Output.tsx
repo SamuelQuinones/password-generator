@@ -91,12 +91,12 @@ const Output: FC = () => {
               exit="exit"
               className="flex justify-between items-center"
             >
-              <h3>{t("output.saved_settings_card.heading")}</h3>
+              <h3>{t("output.saved_settings")}</h3>
               <Button
                 className="ml-1 w-24 lg:w-48"
                 onClick={() => resetSavedSettings()}
               >
-                {t("output.saved_settings_card.reset")}
+                {t("reset")}
               </Button>
             </MotionCard>
           )}
