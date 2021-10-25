@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.c5b6eedd.chunk.css",
-    "main.js": "/static/js/main.55e6d723.chunk.js",
-    "runtime-main.js": "/static/js/runtime-main.6b2d81c4.js",
-    "static/js/2.392fc439.chunk.js": "/static/js/2.392fc439.chunk.js",
-    "static/js/3.7c12aa91.chunk.js": "/static/js/3.7c12aa91.chunk.js",
+    "main.css": "/static/css/main.18d91674.chunk.css",
+    "main.js": "/static/js/main.7ad27deb.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.3842ff9a.js",
+    "static/js/2.2755d7dd.chunk.js": "/static/js/2.2755d7dd.chunk.js",
+    "static/js/3.2159e16b.chunk.js": "/static/js/3.2159e16b.chunk.js",
     "index.html": "/index.html",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.392fc439.chunk.js.LICENSE.txt": "/static/js/2.392fc439.chunk.js.LICENSE.txt",
+    "static/js/2.2755d7dd.chunk.js.LICENSE.txt": "/static/js/2.2755d7dd.chunk.js.LICENSE.txt",
     "static/media/globals.scss": "/static/media/Roboto-Regular.03523cf5.ttf",
     "static/media/arrow-left-circle.01a9bdf0.svg": "/static/media/arrow-left-circle.01a9bdf0.svg",
     "static/media/arrow-right-circle.e2e9c73b.svg": "/static/media/arrow-right-circle.e2e9c73b.svg",
@@ -21,9 +21,9 @@
     "static/media/x-lg.3ad82eb6.svg": "/static/media/x-lg.3ad82eb6.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6b2d81c4.js",
-    "static/js/2.392fc439.chunk.js",
-    "static/css/main.c5b6eedd.chunk.css",
-    "static/js/main.55e6d723.chunk.js"
+    "static/js/runtime-main.3842ff9a.js",
+    "static/js/2.2755d7dd.chunk.js",
+    "static/css/main.18d91674.chunk.css",
+    "static/js/main.7ad27deb.chunk.js"
   ]
 }
