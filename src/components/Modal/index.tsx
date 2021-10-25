@@ -24,8 +24,16 @@ const Modal: FC<ModalProps> = ({
       overlayRef={overlayRef}
       contentRef={contentRef}
       onRequestClose={onRequestClose}
-      overlayClassName="MyModal__Overlay"
-      className="MyModal__Content"
+      overlayClassName={{
+        base: "MyModal__Overlay",
+        afterOpen: "MyModal__Overlay--after-open",
+        beforeClose: "MyModal__Overlay--before-close",
+      }}
+      className={{
+        base: "MyModal__Content",
+        afterOpen: "MyModal__Content--after-open",
+        beforeClose: "MyModal__Content--before-close",
+      }}
       closeTimeoutMS={250}
     >
       <div className="flex MyModal__Header relative">

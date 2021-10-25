@@ -50,6 +50,8 @@ export const useMaintainScrollbarWidth = (isOpen: boolean) => {
     } else {
       removeOverlayStyles();
     }
-    return () => removeOverlayStyles();
+    return () => {
+      removeOverlayStyles();
+    };
   }, [isOpen]);
 };
