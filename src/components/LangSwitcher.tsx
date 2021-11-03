@@ -39,9 +39,8 @@ const slideDownConfig = {
 const LangSwitcher: FC = () => {
   const { i18n, t } = useTranslation();
   const [activeKey, setActiveKey] = useState("");
-  const { buttonProps, itemProps, isOpen, setIsOpen } = useDropdownMenu(
-    langPickerConfig.length
-  );
+  const { buttonProps, itemProps, isOpen, setIsOpen, moveFocus } =
+    useDropdownMenu(langPickerConfig.length);
 
   useEffect(() => {
     setActiveKey(i18n.languages[0]);
@@ -56,7 +55,7 @@ const LangSwitcher: FC = () => {
     <div className="mb-5 relative flex justify-center">
       <Button
         className="text-lg p-1 rounded-none"
-        onClick={() => setIsOpen(!isOpen)}
+        // onClick={() => setIsOpen(!isOpen)}
         {...buttonProps}
       >
         <Translate width="1em" height="1em" /> {t("lang_desc")}
@@ -67,6 +66,7 @@ const LangSwitcher: FC = () => {
         animate={isOpen ? "open" : "closed"}
         className="dropdown shadow-md rounded-sm"
         role="menu"
+        onAnimationComplete={() => isOpen && moveFocus(0)}
         style={{ top: `${buttonProps.ref.current?.offsetHeight}px` }}
       >
         {langPickerConfig.map(({ key, display }, idx) => (
