@@ -45,7 +45,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
      */
     const forceChange = (input: "stepUp" | "stepDown") => {
       const el = document.querySelector<HTMLInputElement>(`#${htmlId}`);
-      const ev = new Event("change", { bubbles: true });
+      const ev = new Event("input", { bubbles: true });
       el?.[input]();
       el?.dispatchEvent(ev);
     };
