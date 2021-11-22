@@ -1,4 +1,12 @@
+<div align="center">
+
 # Secure Password Generator
+
+![App Logo](/public/logo192.png)
+
+[![Build Status](https://img.shields.io/github/workflow/status/SamuelQuinones/password-generator/Deploy?logo=github&style=for-the-badge)](https://github.com/SamuelQuinones/password-generator/blob/main/.github/workflows/deploy_to_gh_pages.yml) [![App Version](https://img.shields.io/github/package-json/v/SamuelQuinones/password-generator/main?label=Version&style=for-the-badge)](https://github.com/SamuelQuinones/password-generator/blob/main/package.json#L4) [![License](https://img.shields.io/github/license/SamuelQuinones/password-generator?style=for-the-badge)](https://github.com/SamuelQuinones/password-generator/blob/main/LICENSE)
+
+</div>
 
 With the click of a button you can generate complex, secure, near impossible to guess passwords!
 
