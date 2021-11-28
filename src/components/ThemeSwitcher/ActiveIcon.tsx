@@ -36,7 +36,7 @@ const transition = {
 
 const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
   return (
-    <div className="changer-wrapper flex flex-col items-center justify-center overflow-hidden relative rounded-full mx-1 w-9 h-9 border-2 shadow-lg">
+    <div className="transition duration-250 changer-wrapper flex flex-col items-center justify-center overflow-hidden relative rounded-full mx-1 w-9 h-9 border-2 shadow-lg">
       <AnimatePresence initial={false}>
         {usingTheme && (
           <motion.div

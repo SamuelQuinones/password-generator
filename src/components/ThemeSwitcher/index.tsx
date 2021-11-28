@@ -57,7 +57,7 @@ const ThemeSwitcher: FC = () => {
         theme={{
           collapse: "ReactCollapse--collapse",
           content:
-            "ReactCollapse--content flex flex-row p-3 rounded-md rounded-tr-none transition-colors duration-250",
+            "ReactCollapse--content flex flex-row p-3 rounded-md rounded-tr-none", //* used to include "transition-colors duration-250"
         }}
         isOpened={showThemeButtons}
       >
