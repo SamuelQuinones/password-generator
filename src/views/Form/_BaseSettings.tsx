@@ -31,7 +31,11 @@ const BaseSettings: FC<Props> = ({ register, watch }) => {
           min={6}
           max={watched[0]}
           step={1}
-          {...register("passwordLength", { min: 6, max: 90 })}
+          {...register("passwordLength", {
+            min: 6,
+            max: 90,
+            valueAsNumber: true,
+          })}
         />
       </MotionCard>
       {/* Additional Settings */}

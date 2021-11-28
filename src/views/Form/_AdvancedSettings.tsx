@@ -36,14 +36,18 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
       </motion.span>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <NumberInput
-          leftDisabled={watched[0].toString() === "24"}
-          rightDisabled={watched[0].toString() === "90"}
+          leftDisabled={watched[0] === 24}
+          rightDisabled={watched[0] === 90}
           label={t("advanced_settings.max_length")}
           htmlId="maxLengthId"
           max={90}
           min={24}
           onKeyDown={handleKeyDown}
-          {...register("advancedSettings.maxLength", { min: 24, max: 90 })}
+          {...register("advancedSettings.maxLength", {
+            min: 24,
+            max: 90,
+            valueAsNumber: true,
+          })}
         />
       </MotionCard>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
