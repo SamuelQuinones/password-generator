@@ -65,11 +65,13 @@ const Output: FC = () => {
           )}
         </div>
         <CopyToClipboard onCopy={() => onCopyText()} text={generatedPW || ""}>
-          <Button disabled={generatedPW ? false : true} className="mt-4 w-full">
+          <Button disabled={!!!generatedPW} className="mt-4 w-full">
             {t("output.copy_to_clipboard")}
           </Button>
         </CopyToClipboard>
-        <div>{copied ? t("output.copied") : ""}&nbsp;</div>
+        <span className={copied ? "block" : "invisible"}>
+          {t("output.copied")}
+        </span>
         <Button
           onClick={(e) => {
             dispatch(userActions.resetGeneratedPW());

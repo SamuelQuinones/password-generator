@@ -11,7 +11,7 @@ type Props = {
   name?: string;
   min: number;
   max: number;
-  label: string;
+  wrapperClass?: string;
   leftDisabled?: boolean;
   rightDisabled?: boolean;
   onChange: (e: ReactCE<HTMLInputElement>) => any;
@@ -26,7 +26,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
       max,
       min,
       onChange,
-      label,
+      wrapperClass = "num-wrapper",
       rightDisabled = false,
       leftDisabled = false,
       onKeyDown,
@@ -51,38 +51,35 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
     };
 
     return (
-      <label className="flex justify-between cursor-pointer" htmlFor={htmlId}>
-        {label}
-        <div>
-          <Button
-            disabled={leftDisabled}
-            type="button"
-            className="relative num-input-btn rounded-r-none rounded-l-md px-1 border py-0"
-            onClick={() => forceChange("stepDown")}
-          >
-            <Minus height={14} width={14} title="Decrease" />
-          </Button>
-          <input
-            ref={ref}
-            className="num-input-field text-center border-t border-b px-1"
-            type="number"
-            onChange={onChange}
-            onKeyDown={onKeyDown}
-            id={htmlId}
-            name={name}
-            max={max}
-            min={min}
-          />
-          <Button
-            disabled={rightDisabled}
-            type="button"
-            className="relative num-input-btn rounded-l-none rounded-r-md px-1 border py-0"
-            onClick={() => forceChange("stepUp")}
-          >
-            <Plus height={14} width={14} title="Increase" />
-          </Button>
-        </div>
-      </label>
+      <div className={wrapperClass}>
+        <Button
+          disabled={leftDisabled}
+          type="button"
+          className="relative num-input-btn rounded-r-none rounded-l-md px-1 border py-0"
+          onClick={() => forceChange("stepDown")}
+        >
+          <Minus height={14} width={14} title="Decrease" />
+        </Button>
+        <input
+          ref={ref}
+          className="num-input-field text-center border-t border-b px-1"
+          type="number"
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          id={htmlId}
+          name={name}
+          max={max}
+          min={min}
+        />
+        <Button
+          disabled={rightDisabled}
+          type="button"
+          className="relative num-input-btn rounded-l-none rounded-r-md px-1 border py-0"
+          onClick={() => forceChange("stepUp")}
+        >
+          <Plus height={14} width={14} title="Increase" />
+        </Button>
+      </div>
     );
   }
 );

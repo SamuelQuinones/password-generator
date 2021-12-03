@@ -15,7 +15,7 @@ const AboutModal: FC = () => {
   //* Translation
   const { t } = useTranslation("about");
   return (
-    <div>
+    <section>
       <button className="MyModal__Trigger" onClick={toggleModal}>
         {t("click_trigger")}
       </button>
@@ -86,7 +86,7 @@ const AboutModal: FC = () => {
         </h2>
         <p className="mb-4">More info coming soon...</p>
       </Modal>
-    </div>
+    </section>
   );
 };
 

@@ -58,12 +58,13 @@ const Form: FC = () => {
     </Button>
   );
 
+  //TODO: see if this parent div can be removed
   return (
     <form id="password-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="overflow-x-hidden overflow-y-auto">
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {!showAdvanced && (
-            <motion.section
+            <motion.fieldset
               key="base"
               variants={baseVariants}
               initial="exit"
@@ -75,10 +76,10 @@ const Form: FC = () => {
                 t("advanced_settings.title"),
                 <RightArrow height={20} width={20} />
               )}
-            </motion.section>
+            </motion.fieldset>
           )}
           {showAdvanced && (
-            <motion.section
+            <motion.fieldset
               key="advanced"
               variants={baseVariants}
               initial="exit"
@@ -90,7 +91,7 @@ const Form: FC = () => {
                 t("basic_title"),
                 <LeftArrow height={20} width={20} />
               )}
-            </motion.section>
+            </motion.fieldset>
           )}
         </AnimatePresence>
       </div>

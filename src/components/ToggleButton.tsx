@@ -25,7 +25,7 @@ const Togglebutton = forwardRef<HTMLInputElement, Props>(
           disabled ? "cursor-not-allowed" : "cursor-pointer"
         }`}
       >
-        <div>{label}</div>
+        <span>{label}</span>
         <div className="relative flex items-center">
           <input
             disabled={disabled}

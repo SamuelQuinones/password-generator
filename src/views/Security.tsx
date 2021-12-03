@@ -9,7 +9,7 @@ const SecurityModal: FC = () => {
   //* Translation
   const { t } = useTranslation("security");
   return (
-    <div className="inline-block">
+    <>
       <button className="MyModal__Trigger" onClick={toggleModal}>
         {t("click_trigger")}
       </button>
@@ -66,7 +66,7 @@ const SecurityModal: FC = () => {
         </h2>
         <p>{t("clarify")}</p>
       </Modal>
-    </div>
+    </>
   );
 };
 

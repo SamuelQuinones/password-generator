@@ -34,11 +34,17 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
       <motion.span variants={textVariants}>
         {t("advanced_settings.title")}
       </motion.span>
-      <MotionCard variants={cardVariants} transition={spring} className="my-2">
+      <MotionCard
+        variants={cardVariants}
+        transition={spring}
+        className="my-2 flex"
+      >
+        <label htmlFor="maxLengthId" className="flex-grow cursor-pointer">
+          {t("advanced_settings.max_length")}
+        </label>
         <NumberInput
           leftDisabled={watched[0] === 24}
           rightDisabled={watched[0] === 90}
-          label={t("advanced_settings.max_length")}
           htmlId="maxLengthId"
           max={90}
           min={24}

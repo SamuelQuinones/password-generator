@@ -27,6 +27,13 @@
   }
 }
 
+.dropdown-item {
+  &:focus,
+  &:focus-visible {
+    @apply outline-none ring-2 ring-black;
+  }
+}
+
 .ReactCollapse--collapse {
   transition: height 300ms, color 0.25s ease-in-out,
     background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;

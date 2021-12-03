@@ -3,6 +3,7 @@
 
 //TODO: Look into react-overlays if needing to build more dropdowns
 //TODO: Switch library for dropdown / change active language logic
+//TODO: fix focus shift when using keyboard to select
 
 import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -52,7 +53,7 @@ const LangSwitcher: FC = () => {
   };
 
   return (
-    <div className="mb-5 relative flex justify-center">
+    <section className="mb-5 relative flex justify-center flex-shrink-0">
       <Button
         className="text-lg p-1 rounded-none"
         // onClick={() => setIsOpen(!isOpen)}
@@ -86,7 +87,7 @@ const LangSwitcher: FC = () => {
           </a>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };
 
