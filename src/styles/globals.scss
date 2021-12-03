@@ -1,5 +1,4 @@
 @tailwind base;
-// @tailwind components; currently the only component in tailwind is a container, which i am not using
 @import "components";
 @tailwind utilities;
 
@@ -7,9 +6,14 @@
 // Theme Styles
 @import "themes";
 
+html,
+body,
+#root {
+  height: 100%;
+}
 
 .App {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex !important;
   flex-direction: column !important;
 }

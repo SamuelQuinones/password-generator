@@ -19,19 +19,23 @@ function App() {
 
   return (
     <div className="App bs-container">
-      <h1 className="mb-5 text-center mt-5">{t("app_title")}</h1>
-      <LangSwitcher />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        <Form />
-        <Output />
+      <header className="flex-shrink-0">
+        <h1 className="mb-5 text-center mt-5">{t("app_title")}</h1>
+        <LangSwitcher />
+      </header>
+      <main className="flex-grow">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <Form />
+          <Output />
+        </div>
         <Button
           form="password-form"
           type="submit"
-          className="mt-3 md:col-span-2 text-lg"
+          className="mt-5 w-full text-lg"
         >
           {t("generate_password")}
         </Button>
-      </div>
+      </main>
       <Footer />
       <ThemeSwitcher />
     </div>
