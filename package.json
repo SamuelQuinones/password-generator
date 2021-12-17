@@ -1,7 +1,7 @@
 {
   "name": "password-generator",
   "homepage": "https://passwordgenerator.samtheq.com",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "Samuel Quiñones",
   "description": "Generate secure, hard to guess passwords with the click of a button!",
   "license": "GPL-3.0",
