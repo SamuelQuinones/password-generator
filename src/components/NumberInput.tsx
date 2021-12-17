@@ -9,8 +9,8 @@ import { Minus, Plus } from "./SVG-Icons";
 type Props = {
   htmlId: string;
   name?: string;
-  min: number;
-  max: number;
+  min: number | string;
+  max: number | string;
   wrapperClass?: string;
   leftDisabled?: boolean;
   rightDisabled?: boolean;

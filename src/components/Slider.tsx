@@ -1,8 +1,8 @@
 import { forwardRef, ChangeEvent } from "react";
 
 type SliderProps = {
-  min: number;
-  max: number;
+  min: number | string;
+  max: number | string;
   step: number;
   htmlID: string;
   name?: string;

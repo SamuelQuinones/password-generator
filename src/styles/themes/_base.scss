@@ -7,6 +7,7 @@
   body.#{$color} {
     color: $bodyText;
     @apply bg-#{$color}-900;
+
     .click-gen-header {
       @apply border-#{$color}-400;
     }
