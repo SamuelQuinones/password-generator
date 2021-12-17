@@ -3,6 +3,6 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.enable": true,
-  "tailwindCSS.emmetCompletions": true
+  "stylelint.validate": ["css", "scss"],
+  "tailwindCSS.emmetCompletions": true,
 }
