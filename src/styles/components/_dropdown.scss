@@ -1,21 +1,20 @@
 .dropdown {
-  position: absolute;
-  background-color: white;
   margin-top: 0.35rem;
   min-width: 7rem;
   z-index: 99999;
+  @apply absolute bg-white;
 
   &-item {
-    cursor: pointer;
-    width: 100%;
-    font-weight: 400;
-    color: black;
-    padding: 0.25rem 0.5rem;
+    @apply cursor-pointer w-full font-normal text-black py-1 px-2;
     &:focus,
     &:hover {
       border-radius: inherit;
       background-color: #e9ecef;
       color: #1e2125;
+    }
+    &:focus,
+    &:focus-visible {
+      @apply outline-none ring ring-black;
     }
     &.active {
       border-radius: inherit;
