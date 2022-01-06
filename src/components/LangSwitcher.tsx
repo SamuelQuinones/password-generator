@@ -45,11 +45,13 @@ const LangSwitcher: FC = () => {
 
   useEffect(() => {
     setActiveKey(i18n.languages[0]);
+    document.documentElement.setAttribute("lang", i18n.languages[0]);
   }, [i18n.languages]);
 
   const toggleItem = (lang: string) => {
     setIsOpen(false);
     i18n.changeLanguage(lang);
+    document.documentElement.setAttribute("lang", lang);
   };
 
   return (
@@ -74,6 +76,7 @@ const LangSwitcher: FC = () => {
           <a
             id={`menu-item-${idx}`}
             key={key}
+            lang={key}
             onClick={() => toggleItem(key)}
             className={classNames(
               "block",
