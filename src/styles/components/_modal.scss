@@ -15,9 +15,9 @@
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
-    border-radius: 4px;
+    // border-radius: 4px;
     outline: none;
-    @apply absolute max-h-full overflow-hidden flex flex-col inset-0 sm:inset-4 md:inset-10;
+    @apply absolute max-h-full overflow-hidden flex flex-col rounded inset-0 sm:inset-4 md:inset-10;
     &--after-open {
       opacity: 1;
       transform: translateX(0);

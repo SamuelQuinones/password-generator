@@ -14,7 +14,7 @@
     }
     &:focus,
     &:focus-visible {
-      @apply outline-none ring ring-black;
+      @apply outline-none ring-2 ring-black;
     }
     &.active {
       border-radius: inherit;
