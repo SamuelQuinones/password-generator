@@ -8,6 +8,7 @@ import { Trans, useTranslation } from "react-i18next";
 const Footer: FC = () => {
   //* Translation
   const { t } = useTranslation("footer");
+  const year = new Date().getFullYear();
   return (
     <footer className="footer p-3 text-center text-sm flex-grow-0">
       <div className="grid grid-cols-1 md:grid-cols-3 mb-2">
@@ -26,7 +27,7 @@ const Footer: FC = () => {
         <AboutModal />
       </div>
       <p className="mb-1">
-        {t("copyright_1")} &copy; <Trans ns="footer" i18nKey="copyright_2" />
+        <Trans ns="footer" i18nKey="copyright" values={{ year }} />
       </p>
       <p>
         {t("more_security")} <SecurityModal />.
