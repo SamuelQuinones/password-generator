@@ -18,15 +18,6 @@ export type FormInput = {
   advancedSettings: AdvancedSettings;
 };
 
-/**
- * Default Value Class Helper
- * Used to assign default class values because of how boolean compare works.
- */
-function defVal<T>(defaultValue: T, value?: T) {
-  if (value === undefined) return defaultValue;
-  return value;
-}
-
 class AdvancedSettingsClass implements AdvancedSettings {
   maxLength: number;
   includeSimilarCharacters: boolean;
@@ -34,11 +25,11 @@ class AdvancedSettingsClass implements AdvancedSettings {
   useDuplicateCharacters: boolean;
   saveForNextTime: boolean;
   constructor(ac?: Record<string, any>) {
-    this.maxLength = defVal(24, ac?.maxLength);
-    this.includeSimilarCharacters = defVal(false, ac?.includeSimilarCharacters);
-    this.includeAmbiguousSymbols = defVal(true, ac?.includeAmbiguousSymbols);
-    this.useDuplicateCharacters = defVal(false, ac?.useDuplicateCharacters);
-    this.saveForNextTime = defVal(true, ac?.saveForNextTime);
+    this.maxLength = ac?.maxLength ?? 24;
+    this.includeSimilarCharacters = ac?.includeSimilarCharacters ?? false;
+    this.includeAmbiguousSymbols = ac?.includeAmbiguousSymbols ?? true;
+    this.useDuplicateCharacters = ac?.useDuplicateCharacters ?? false;
+    this.saveForNextTime = ac?.saveForNextTime ?? true;
   }
 }
 
@@ -51,11 +42,11 @@ export class FormInputClass implements FormInput {
   advancedSettings: AdvancedSettingsClass;
 
   constructor(fc?: Record<string, any>) {
-    this.passwordLength = defVal(6, fc?.passwordLength);
-    this.includeUppercase = defVal(false, fc?.includeUppercase);
-    this.includeLowercase = defVal(true, fc?.includeLowercase);
-    this.includeNumbers = defVal(true, fc?.includeNumbers);
-    this.includeSymbols = defVal(false, fc?.includeSymbols);
+    this.passwordLength = fc?.passwordLength ?? 6;
+    this.includeUppercase = fc?.includeUppercase ?? false;
+    this.includeLowercase = fc?.includeLowercase ?? true;
+    this.includeNumbers = fc?.includeNumbers ?? true;
+    this.includeSymbols = fc?.includeSymbols ?? false;
     this.advancedSettings = new AdvancedSettingsClass(fc?.advancedSettings);
   }
 }
@@ -108,9 +99,9 @@ export const checkStoredValue = (localStorageValue: string): FormInput => {
     const settingsObject = JSON.parse(localStorageValue);
     return new FormInputClass(settingsObject);
   } catch (error) {
-    console.log("Stored Value was not an object");
-    console.log("Loading default values");
-    console.log("Also Removing Stored Value");
+    console.warn("Stored Value was not an object");
+    console.warn("Loading default values");
+    console.warn("Also Removing Stored Value");
     unSaveFormValues();
     return defaults;
   }
