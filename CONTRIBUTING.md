@@ -1,3 +1,3 @@
 # Contributing
 
-More Info Coming soon ... very soon
+More Info Coming soon ...
