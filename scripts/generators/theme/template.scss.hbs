@@ -1,0 +1,146 @@
+body.{{ lowerCase tailwindColor }} {
+  @apply {{ lowerCase bodyTextClass }} bg-{{ lowerCase tailwindColor }}-900;
+
+  {{#if overrideToggle}}
+  @layer components {
+    input.pwg-toggle {
+      &:checked {
+        ~ .dot {
+          transform: translateX(100%);
+          @apply bg-{{ lowerCase overrideToggle }}-500;
+        }
+        ~ .sw-line {
+          @apply bg-{{ lowerCase overrideToggle }}-300;
+        }
+      }
+      &:disabled {
+        &:checked {
+          ~ .dot {
+            @apply bg-{{ lowerCase overrideToggle }}-700;
+          }
+        }
+      }
+    }
+  }
+  {{/if}}
+  
+  {{#if overrideAnchor}}
+  a:not(.dropdown-item) {
+    font-weight: bold;
+    @apply text-{{ lowerCase overrideAnchor }}-400;
+    &:focus,
+    &:focus-within,
+    &:hover,
+    &:active {
+      @apply text-{{ lowerCase overrideAnchor }}-500;
+    }
+  }
+  @layer components {
+    .MyModal {
+      &__Trigger {
+        @apply text-{{ lowerCase overrideAnchor }}-400;
+        &:focus,
+        &:focus-within,
+        &:hover,
+        &:active {
+          @apply text-{{ lowerCase overrideAnchor }}-500;
+        }
+      }
+    }
+  }
+  {{/if}}
+
+  .click-gen-header {
+    @apply border-{{ lowerCase tailwindColor }}-400;
+  }
+
+  .btn-theme {
+    @apply {{ lowerCase btnTextClass }} bg-{{ lowerCase tailwindColor }}-400;
+    &:focus,
+    &:focus-within,
+    &:hover {
+      @apply bg-{{ lowerCase tailwindColor }}-500;
+    }
+    &:focus {
+      &:not(.settings-change) {
+        @apply ring-{{ lowerCase tailwindColor }}-300;
+      }
+    }
+    &:disabled {
+      @apply bg-{{ lowerCase tailwindColor }}-400;
+    }
+  }
+
+  .card-theme {
+    @apply bg-{{ lowerCase tailwindColor }}-700;
+  }
+
+  .num-input {
+    &-btn,
+    &-field {
+      @apply {{ lowerCase btnTextClass }} bg-{{ lowerCase tailwindColor }}-400;
+    }
+    &-field {
+      &:focus,
+      &:focus-within,
+      &:active {
+        @apply bg-{{ lowerCase tailwindColor }}-500 ring-{{ lowerCase tailwindColor }}-300;
+      }
+    }
+  }
+
+  .ReactCollapse--content {
+    @apply bg-{{ lowerCase tailwindColor }}-500;
+  }
+
+  .settings-change {
+    @apply {{ lowerCase dropdownTextClass }} bg-{{ lowerCase tailwindColor }}-700 focus:ring-0 focus-within:ring-0 hover:bg-{{ lowerCase tailwindColor }}-800 focus:bg-{{ lowerCase tailwindColor }}-800 focus-within:bg-{{ lowerCase tailwindColor }}-800;
+  }
+
+  .theme-toggle-button {
+    font-weight: 500;
+    @apply {{ lowerCase btnTextClass }} bg-{{ lowerCase tailwindColor }}-400;
+    &:focus,
+    &:focus-within,
+    &:hover {
+      @apply ring outline-none ring-opacity-60 bg-{{ lowerCase tailwindColor }}-500;
+    }
+    &.open {
+      @apply bg-{{ lowerCase tailwindColor }}-500;
+    }
+  }
+
+  .MyModal__Content {
+    @apply {{ lowerCase bodyTextClass }} border border-{{ lowerCase tailwindColor }}-800 bg-{{ lowerCase tailwindColor }}-900;
+  }
+
+  code {
+    @apply bg-{{ lowerCase tailwindColor }}-600;
+  }
+}
+
+.theme-changer-master {
+  input.theme-changer-{{ lowerCase tailwindColor }} {
+    ~ .changer-wrapper {
+      @apply bg-{{ lowerCase tailwindColor }}-500 border-{{ lowerCase tailwindColor }}-300;
+    }
+    &:not(:checked) {
+      ~ .changer-wrapper {
+        cursor: pointer;
+      }
+    }
+    &:hover,
+    &:focus,
+    &:focus-within {
+      ~ .changer-wrapper {
+        @apply bg-{{ lowerCase tailwindColor }}-600 ring ring-opacity-60;
+        outline: none;
+      }
+    }
+    &:checked {
+      ~ .changer-wrapper {
+        @apply bg-{{ lowerCase tailwindColor }}-700;
+      }
+    }
+  }
+}
