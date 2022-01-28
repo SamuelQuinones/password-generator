@@ -54,6 +54,7 @@ body.{{ lowerCase tailwindColor }} {
     @apply border-{{ lowerCase tailwindColor }}-400;
   }
 
+  // layer wrapper Originally not here
   @layer components {
     .btn-theme {
       @apply {{ lowerCase btnTextClass }} bg-{{ lowerCase tailwindColor }}-400;
@@ -99,23 +100,21 @@ body.{{ lowerCase tailwindColor }} {
     @apply {{ lowerCase dropdownTextClass }} bg-{{ lowerCase tailwindColor }}-700 focus:ring-0 focus-within:ring-0 hover:bg-{{ lowerCase tailwindColor }}-800 focus:bg-{{ lowerCase tailwindColor }}-800 focus-within:bg-{{ lowerCase tailwindColor }}-800;
   }
 
-  @layer components {
-    .theme-toggle-button {
-      font-weight: 500;
-      @apply {{ lowerCase btnTextClass }} bg-{{ lowerCase tailwindColor }}-400;
-      &:focus,
-      &:focus-within,
-      &:hover {
-        @apply ring outline-none ring-opacity-60 bg-{{ lowerCase tailwindColor }}-500;
-      }
-      &.open {
-        @apply bg-{{ lowerCase tailwindColor }}-500;
-      }
+  .theme-toggle-button {
+    font-weight: 500;
+    @apply {{ lowerCase btnTextClass }} bg-{{ lowerCase tailwindColor }}-400;
+    &:focus,
+    &:focus-within,
+    &:hover {
+      @apply ring outline-none ring-opacity-60 bg-{{ lowerCase tailwindColor }}-500;
     }
+    &.open {
+      @apply bg-{{ lowerCase tailwindColor }}-500;
+    }
+  }
 
-    .MyModal__Content {
-      @apply {{ lowerCase bodyTextClass }} border border-{{ lowerCase tailwindColor }}-800 bg-{{ lowerCase tailwindColor }}-900;
-    }
+  .MyModal__Content {
+    @apply {{ lowerCase bodyTextClass }} border border-{{ lowerCase tailwindColor }}-800 bg-{{ lowerCase tailwindColor }}-900;
   }
 
   code {
@@ -123,29 +122,27 @@ body.{{ lowerCase tailwindColor }} {
   }
 }
 
-@layer components {
-  .theme-changer-master {
-    input.theme-changer-{{ lowerCase tailwindColor }} {
+.theme-changer-master {
+  input.theme-changer-{{ lowerCase tailwindColor }} {
+    ~ .changer-wrapper {
+      @apply bg-{{ lowerCase tailwindColor }}-500 border-{{ lowerCase tailwindColor }}-300;
+    }
+    &:not(:checked) {
       ~ .changer-wrapper {
-        @apply bg-{{ lowerCase tailwindColor }}-500 border-{{ lowerCase tailwindColor }}-300;
+        cursor: pointer;
       }
-      &:not(:checked) {
-        ~ .changer-wrapper {
-          cursor: pointer;
-        }
+    }
+    &:hover,
+    &:focus,
+    &:focus-within {
+      ~ .changer-wrapper {
+        @apply bg-{{ lowerCase tailwindColor }}-600 ring ring-opacity-60;
+        outline: none;
       }
-      &:hover,
-      &:focus,
-      &:focus-within {
-        ~ .changer-wrapper {
-          @apply bg-{{ lowerCase tailwindColor }}-600 ring ring-opacity-60;
-          outline: none;
-        }
-      }
-      &:checked {
-        ~ .changer-wrapper {
-          @apply bg-{{ lowerCase tailwindColor }}-700;
-        }
+    }
+    &:checked {
+      ~ .changer-wrapper {
+        @apply bg-{{ lowerCase tailwindColor }}-700;
       }
     }
   }

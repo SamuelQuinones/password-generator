@@ -150,15 +150,15 @@ export const themeGenerator: PlopGeneratorConfig = {
       transform: (data) => {
         let newData = data;
         const typeReg = new RegExp(
-          `export type Themes =[\\s\\S]+?((?:\\s*?\\|?\\s?"${answers.tailwindColor}"[\\s\\S]+?)+);\n\\/\\/ THEME TYPE END`,
+          `export type Themes =[\\s\\S]+?((?:\\s*?\\|?\\s?"${answers.tailwindColor}"[\\s\\S]*?)+);\n\\/\\/ THEME TYPE END`,
           "gm"
         );
         const arrReg = new RegExp(
-          `export const ThemesArr: Themes\\[\\] = \\[[\\s\\S]?((?:"${answers.tailwindColor}",?[\\s\\S]+?)+)\\];\n\\/\\/ THEME ARR END`,
+          `export const ThemesArr: Themes\\[\\] = \\[[\\s\\S]*?((?:"${answers.tailwindColor}",?[\\s\\S]*?)+)\\];\n\\/\\/ THEME ARR END`,
           "gm"
         );
         const funcReg = new RegExp(
-          `switch \\(input\\) \\{[\\S\\s]+case "${answers.tailwindColor}":\n\\s+return "${answers.tailwindColor}}";|default:\n\\s+return "${answers.tailwindColor}";`,
+          `switch \\(input\\) \\{[\\S\\s]+case "${answers.tailwindColor}":\n\\s+return "${answers.tailwindColor}";|default:\n\\s+return "${answers.tailwindColor}";`,
           "gm"
         );
         //* array
