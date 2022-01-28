@@ -1,0 +1,124 @@
+body.blue {
+  @apply text-white bg-blue-900;
+
+  a:not(.dropdown-item) {
+    font-weight: bold;
+    @apply text-emerald-400;
+    &:focus,
+    &:focus-within,
+    &:hover,
+    &:active {
+      @apply text-emerald-500;
+    }
+  }
+  @layer components {
+    .MyModal {
+      &__Trigger {
+        @apply text-emerald-400;
+        &:focus,
+        &:focus-within,
+        &:hover,
+        &:active {
+          @apply text-emerald-500;
+        }
+      }
+    }
+  }
+
+  .click-gen-header {
+    @apply border-blue-400;
+  }
+
+  // layer wrapper Originally not here
+  @layer components {
+    .btn-theme {
+      @apply text-white bg-blue-400;
+      &:focus,
+      &:focus-within,
+      &:hover {
+        @apply bg-blue-500;
+      }
+      &:focus {
+        &:not(.settings-change) {
+          @apply ring-blue-300;
+        }
+      }
+      &:disabled {
+        @apply bg-blue-400;
+      }
+    }
+
+    .card-theme {
+      @apply bg-blue-700;
+    }
+
+    .num-input {
+      &-btn,
+      &-field {
+        @apply text-white bg-blue-400;
+      }
+      &-field {
+        &:focus,
+        &:focus-within,
+        &:active {
+          @apply bg-blue-500 ring-blue-300;
+        }
+      }
+    }
+
+    .ReactCollapse--content {
+      @apply bg-blue-500;
+    }
+  }
+
+  .settings-change {
+    @apply text-white bg-blue-700 focus:ring-0 focus-within:ring-0 hover:bg-blue-800 focus:bg-blue-800 focus-within:bg-blue-800;
+  }
+
+  .theme-toggle-button {
+    font-weight: 500;
+    @apply text-white bg-blue-400;
+    &:focus,
+    &:focus-within,
+    &:hover {
+      @apply ring outline-none ring-opacity-60 bg-blue-500;
+    }
+    &.open {
+      @apply bg-blue-500;
+    }
+  }
+
+  .MyModal__Content {
+    @apply text-white border border-blue-800 bg-blue-900;
+  }
+
+  code {
+    @apply bg-blue-600;
+  }
+}
+
+.theme-changer-master {
+  input.theme-changer-blue {
+    ~ .changer-wrapper {
+      @apply bg-blue-500 border-blue-300;
+    }
+    &:not(:checked) {
+      ~ .changer-wrapper {
+        cursor: pointer;
+      }
+    }
+    &:hover,
+    &:focus,
+    &:focus-within {
+      ~ .changer-wrapper {
+        @apply bg-blue-600 ring ring-opacity-60;
+        outline: none;
+      }
+    }
+    &:checked {
+      ~ .changer-wrapper {
+        @apply bg-blue-700;
+      }
+    }
+  }
+}
