@@ -20,6 +20,8 @@
   "include": ["src"],
   "ts-node": {
     "compilerOptions": {
+      "noImplicitAny": false,
+      "isolatedModules": false,
       "esModuleInterop": true,
       "module": "commonjs",
       "moduleResolution": "node",

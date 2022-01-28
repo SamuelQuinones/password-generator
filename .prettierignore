@@ -5,3 +5,4 @@ build/
 logs/
 http/
 certs/
+scripts/**/*.hbs

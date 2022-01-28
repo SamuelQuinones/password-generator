@@ -4,5 +4,5 @@
   "less.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],
-  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.emmetCompletions": true
 }
