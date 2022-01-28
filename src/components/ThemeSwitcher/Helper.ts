@@ -6,11 +6,13 @@ import { ChangeEvent } from "react";
  * Currently designed to use / implement tailwind base colors
  */
 export type Themes = "red" | "pink" | "blue" | "teal" | "cyan";
+// THEME TYPE END
 
 /**
  * Available Theme Colors as an array
  */
 export const ThemesArr: Themes[] = ["pink", "red", "blue", "teal", "cyan"];
+// THEME ARR END
 
 /**
  * returns one of the available themes - which will be added to the dom classlist

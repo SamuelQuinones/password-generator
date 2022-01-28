@@ -63,11 +63,13 @@
     "lint:fix": "npm run eslint -- --fix src npm && run stylelint -- --fix",
     "pretty:check": "prettier --check .",
     "pretty:fix": "prettier --write .",
+    "pretty:theme": "prettier --write \"(src/(styles/**/*.{css,scss}|components/ThemeSwitcher/**/*.{ts,tsx})|scripts/generators/**/*.{ts,js})\"",
     "predeploy": "npm run build:snap",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate": "plop --plopfile scripts/generators/plopfile.ts"
+    "generate:theme": "plop --plopfile scripts/generators/plopfile.ts theme -- --overrideExisting N && npm run pretty:theme",
+    "regenerate:theme": "rimraf src/styles/themes/* && ts-node scripts/generators/theme/regenerate.ts && npm run pretty:theme"
   },
   "browserslist": {
     "production": [
