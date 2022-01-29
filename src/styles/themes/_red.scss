@@ -1,5 +1,5 @@
 body.red {
-  @apply text-white bg-red-900;
+  @apply bg-red-900 text-white;
 
   .click-gen-header {
     @apply border-red-400;
@@ -8,7 +8,7 @@ body.red {
   // layer wrapper Originally not here
   @layer components {
     .btn-theme {
-      @apply text-white bg-red-400;
+      @apply bg-red-400 text-white;
       &:focus,
       &:focus-within,
       &:hover {
@@ -31,7 +31,7 @@ body.red {
     .num-input {
       &-btn,
       &-field {
-        @apply text-white bg-red-400;
+        @apply bg-red-400 text-white;
       }
       &-field {
         &:focus,
@@ -48,16 +48,16 @@ body.red {
   }
 
   .settings-change {
-    @apply text-white bg-red-700 focus:ring-0 focus-within:ring-0 hover:bg-red-800 focus:bg-red-800 focus-within:bg-red-800;
+    @apply bg-red-700 text-white focus-within:bg-red-800 focus-within:ring-0 hover:bg-red-800 focus:bg-red-800 focus:ring-0;
   }
 
   .theme-toggle-button {
     font-weight: 500;
-    @apply text-white bg-red-400;
+    @apply bg-red-400 text-white;
     &:focus,
     &:focus-within,
     &:hover {
-      @apply ring outline-none ring-opacity-60 bg-red-500;
+      @apply bg-red-500 outline-none ring ring-opacity-60;
     }
     &.open {
       @apply bg-red-500;
@@ -65,7 +65,7 @@ body.red {
   }
 
   .MyModal__Content {
-    @apply text-white border border-red-800 bg-red-900;
+    @apply border border-red-800 bg-red-900 text-white;
   }
 
   code {
@@ -76,7 +76,7 @@ body.red {
 .theme-changer-master {
   input.theme-changer-red {
     ~ .changer-wrapper {
-      @apply bg-red-500 border-red-300;
+      @apply border-red-300 bg-red-500;
     }
     &:not(:checked) {
       ~ .changer-wrapper {

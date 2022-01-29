@@ -1,5 +1,5 @@
 body.{{ lowerCase tailwindColor }} {
-  @apply {{ lowerCase bodyTextClass }} bg-{{ lowerCase tailwindColor }}-900;
+  @apply bg-{{ lowerCase tailwindColor }}-900 {{ lowerCase bodyTextClass }};
 
   {{#if overrideToggle}}
   @layer components {
@@ -57,7 +57,7 @@ body.{{ lowerCase tailwindColor }} {
   // layer wrapper Originally not here
   @layer components {
     .btn-theme {
-      @apply {{ lowerCase btnTextClass }} bg-{{ lowerCase tailwindColor }}-400;
+      @apply bg-{{ lowerCase tailwindColor }}-400 {{ lowerCase btnTextClass }};
       &:focus,
       &:focus-within,
       &:hover {
@@ -80,7 +80,7 @@ body.{{ lowerCase tailwindColor }} {
     .num-input {
       &-btn,
       &-field {
-        @apply {{ lowerCase btnTextClass }} bg-{{ lowerCase tailwindColor }}-400;
+        @apply bg-{{ lowerCase tailwindColor }}-400 {{ lowerCase btnTextClass }};
       }
       &-field {
         &:focus,
@@ -97,16 +97,16 @@ body.{{ lowerCase tailwindColor }} {
   }
 
   .settings-change {
-    @apply {{ lowerCase dropdownTextClass }} bg-{{ lowerCase tailwindColor }}-700 focus:ring-0 focus-within:ring-0 hover:bg-{{ lowerCase tailwindColor }}-800 focus:bg-{{ lowerCase tailwindColor }}-800 focus-within:bg-{{ lowerCase tailwindColor }}-800;
+    @apply bg-{{ lowerCase tailwindColor }}-700 {{ lowerCase dropdownTextClass }} focus-within:bg-{{ lowerCase tailwindColor }}-800 focus-within:ring-0 hover:bg-{{ lowerCase tailwindColor }}-800 focus:bg-{{ lowerCase tailwindColor }}-800 focus:ring-0;
   }
 
   .theme-toggle-button {
     font-weight: 500;
-    @apply {{ lowerCase btnTextClass }} bg-{{ lowerCase tailwindColor }}-400;
+    @apply bg-{{ lowerCase tailwindColor }}-400 {{ lowerCase btnTextClass }};
     &:focus,
     &:focus-within,
     &:hover {
-      @apply ring outline-none ring-opacity-60 bg-{{ lowerCase tailwindColor }}-500;
+      @apply bg-{{ lowerCase tailwindColor }}-500 outline-none ring ring-opacity-60;
     }
     &.open {
       @apply bg-{{ lowerCase tailwindColor }}-500;
@@ -114,7 +114,7 @@ body.{{ lowerCase tailwindColor }} {
   }
 
   .MyModal__Content {
-    @apply {{ lowerCase bodyTextClass }} border border-{{ lowerCase tailwindColor }}-800 bg-{{ lowerCase tailwindColor }}-900;
+    @apply border border-{{ lowerCase tailwindColor }}-800 bg-{{ lowerCase tailwindColor }}-900 {{ lowerCase bodyTextClass }};
   }
 
   code {
@@ -125,7 +125,7 @@ body.{{ lowerCase tailwindColor }} {
 .theme-changer-master {
   input.theme-changer-{{ lowerCase tailwindColor }} {
     ~ .changer-wrapper {
-      @apply bg-{{ lowerCase tailwindColor }}-500 border-{{ lowerCase tailwindColor }}-300;
+      @apply border-{{ lowerCase tailwindColor }}-300 bg-{{ lowerCase tailwindColor }}-500;
     }
     &:not(:checked) {
       ~ .changer-wrapper {

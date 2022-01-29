@@ -1,5 +1,5 @@
 body.pink {
-  @apply text-white bg-pink-900;
+  @apply bg-pink-900 text-white;
 
   .click-gen-header {
     @apply border-pink-400;
@@ -8,7 +8,7 @@ body.pink {
   // layer wrapper Originally not here
   @layer components {
     .btn-theme {
-      @apply text-white bg-pink-400;
+      @apply bg-pink-400 text-white;
       &:focus,
       &:focus-within,
       &:hover {
@@ -31,7 +31,7 @@ body.pink {
     .num-input {
       &-btn,
       &-field {
-        @apply text-white bg-pink-400;
+        @apply bg-pink-400 text-white;
       }
       &-field {
         &:focus,
@@ -48,16 +48,16 @@ body.pink {
   }
 
   .settings-change {
-    @apply text-white bg-pink-700 focus:ring-0 focus-within:ring-0 hover:bg-pink-800 focus:bg-pink-800 focus-within:bg-pink-800;
+    @apply bg-pink-700 text-white focus-within:bg-pink-800 focus-within:ring-0 hover:bg-pink-800 focus:bg-pink-800 focus:ring-0;
   }
 
   .theme-toggle-button {
     font-weight: 500;
-    @apply text-white bg-pink-400;
+    @apply bg-pink-400 text-white;
     &:focus,
     &:focus-within,
     &:hover {
-      @apply ring outline-none ring-opacity-60 bg-pink-500;
+      @apply bg-pink-500 outline-none ring ring-opacity-60;
     }
     &.open {
       @apply bg-pink-500;
@@ -65,7 +65,7 @@ body.pink {
   }
 
   .MyModal__Content {
-    @apply text-white border border-pink-800 bg-pink-900;
+    @apply border border-pink-800 bg-pink-900 text-white;
   }
 
   code {
@@ -76,7 +76,7 @@ body.pink {
 .theme-changer-master {
   input.theme-changer-pink {
     ~ .changer-wrapper {
-      @apply bg-pink-500 border-pink-300;
+      @apply border-pink-300 bg-pink-500;
     }
     &:not(:checked) {
       ~ .changer-wrapper {
