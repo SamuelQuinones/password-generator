@@ -1,11 +1,5 @@
-const colors = require("tailwindcss/colors");
-//* warn - As of Tailwind CSS v2.2, `lightBlue` has been renamed to `sky`.
-//* warn - Please update your color palette to eliminate this warning.
-delete colors.lightBlue;
-
 module.exports = {
-  purge: ["./src/**/*.tsx", "./public/index.html"],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       transitionDuration: {
@@ -16,7 +10,6 @@ module.exports = {
           "background-color, border-color, color, fill, stroke, transform",
       },
     },
-    colors: colors,
   },
   variants: {
     extend: {},

@@ -57,7 +57,7 @@ const Output: FC = () => {
     <div className="text-center">
       <p>{t("output.title")}</p>
       <Card className="my-2">
-        <div className="click-gen-header border-2 p-2 rounded-md">
+        <div className="click-gen-header rounded-md border-2 p-2">
           {generatedPW ? (
             <p>{generatedPW}</p>
           ) : (
@@ -91,7 +91,7 @@ const Output: FC = () => {
               initial="exit"
               animate="enter"
               exit="exit"
-              className="flex justify-between items-center"
+              className="flex items-center justify-between"
             >
               <h3>{t("output.saved_settings")}</h3>
               <Button

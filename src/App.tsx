@@ -19,12 +19,12 @@ function App() {
 
   return (
     <div className="App bs-container">
-      <header className="flex-shrink-0">
-        <h1 className="mb-5 text-center mt-5">{t("app_title")}</h1>
+      <header className="shrink-0">
+        <h1 className="mb-5 mt-5 text-center">{t("app_title")}</h1>
         <LangSwitcher />
       </header>
-      <main className="flex-grow">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <main className="grow">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           <Form />
           <Output />
         </div>

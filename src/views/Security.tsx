@@ -18,7 +18,7 @@ const SecurityModal: FC = () => {
         contentLabel={t("content_label")}
         onRequestClose={toggleModal}
         isOpen={modalOpen}
-        header={<h2 className="text-center w-full">{t("modal_title")}</h2>}
+        header={<h2 className="w-full text-center">{t("modal_title")}</h2>}
       >
         <p className="mb-4">{t("p_1")}</p>
         <p className="mb-4">

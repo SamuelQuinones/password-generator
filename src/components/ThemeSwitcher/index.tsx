@@ -40,10 +40,10 @@ const ThemeSwitcher: FC = () => {
   }, [dispatch]);
 
   return (
-    <div ref={wrapper} className="fixed right-2 bottom-2 theme-changer-master">
+    <div ref={wrapper} className="theme-changer-master fixed right-2 bottom-2">
       <button
         className={classNames(
-          "theme-toggle-button block ml-auto p-1.5 rounded-md shadow-inner transition duration-250",
+          "theme-toggle-button ml-auto block rounded-md p-1.5 shadow-inner transition duration-250",
           showThemeButtons ? "open rounded-b-none" : "closed"
         )}
         onClick={() => setShowThemeButtons(!showThemeButtons)}

@@ -23,7 +23,7 @@ const AboutModal: FC = () => {
         contentLabel={t("modal_title")}
         onRequestClose={toggleModal}
         isOpen={modalOpen}
-        header={<h2 className="text-center w-full">{t("modal_title")}</h2>}
+        header={<h2 className="w-full text-center">{t("modal_title")}</h2>}
       >
         <p className="mb-4">{t("p_1")}</p>
         <p className="mb-4">{t("p_2")}</p>
@@ -66,9 +66,9 @@ const AboutModal: FC = () => {
           <Trans ns="about" i18nKey="p_5" />
         </p>
         <p className="mb-3">{t("p_6")}</p>
-        <ul className="mb-4 list-disc list-inside">
+        <ul className="mb-4 list-inside list-disc">
           {t("i_learned", { returnObjects: true }).map((_, index) => (
-            <li className="list-item mb-1" key={index}>
+            <li className="mb-1 list-item" key={index}>
               <Trans
                 ns="about"
                 //@ts-ignore this key WILL exist

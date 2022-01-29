@@ -13,10 +13,10 @@ const Slider = forwardRef<HTMLInputElement, SliderProps>(
   ({ min, max, step, htmlID, name, onChange }, ref) => {
     return (
       <div className="flex">
-        <span className="flex-grow-0 pr-2">{min}</span>
+        <span className="grow-0 pr-2">{min}</span>
         <input
           ref={ref}
-          className="flex-grow focus:outline-none"
+          className="grow focus:outline-none"
           onChange={onChange}
           type="range"
           name={name}
@@ -25,7 +25,7 @@ const Slider = forwardRef<HTMLInputElement, SliderProps>(
           max={max}
           step={step}
         />
-        <span className="flex-grow-0 pl-2">{max}</span>
+        <span className="grow-0 pl-2">{max}</span>
       </div>
     );
   }

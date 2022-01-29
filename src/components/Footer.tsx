@@ -10,8 +10,8 @@ const Footer: FC = () => {
   const { t } = useTranslation("footer");
   const year = new Date().getFullYear();
   return (
-    <footer className="footer p-3 text-center text-sm flex-grow-0">
-      <div className="grid grid-cols-1 md:grid-cols-3 mb-2">
+    <footer className="footer grow-0 p-3 text-center text-sm">
+      <div className="mb-2 grid grid-cols-1 md:grid-cols-3">
         <section>
           {t("version")} <strong>{process.env.REACT_APP_VERSION}</strong>
         </section>

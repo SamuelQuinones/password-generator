@@ -50,7 +50,7 @@ const Form: FC = () => {
   const makeButton = (text: string, icon: ReactNode) => (
     <Button
       onClick={() => setShowAdvanced(!showAdvanced)}
-      className="flex w-full justify-between items-center settings-change rounded-md my-2 shadow-md p-3 text-left"
+      className="settings-change my-2 flex w-full items-center justify-between rounded-md p-3 text-left shadow-md"
       type="button"
     >
       <div>{text}</div>
@@ -61,7 +61,7 @@ const Form: FC = () => {
   //TODO: see if this parent div can be removed
   return (
     <form id="password-form" onSubmit={handleSubmit(onSubmit)}>
-      <div className="overflow-x-hidden overflow-y-auto">
+      <div className="overflow-y-auto overflow-x-hidden">
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {!showAdvanced && (
             <motion.fieldset

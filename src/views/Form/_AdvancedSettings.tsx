@@ -39,7 +39,7 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
         transition={spring}
         className="my-2 flex"
       >
-        <label htmlFor="maxLengthId" className="flex-grow cursor-pointer">
+        <label htmlFor="maxLengthId" className="grow cursor-pointer">
           {t("advanced_settings.max_length")}
         </label>
         <NumberInput

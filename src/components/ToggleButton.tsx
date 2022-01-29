@@ -21,7 +21,7 @@ const Togglebutton = forwardRef<HTMLInputElement, Props>(
       // <div className="flex items-center justify-between my-1">
       <label
         htmlFor={htmlId}
-        className={`flex justify-between items-center ${
+        className={`flex items-center justify-between ${
           disabled ? "cursor-not-allowed" : "cursor-pointer"
         }`}
       >
@@ -33,7 +33,7 @@ const Togglebutton = forwardRef<HTMLInputElement, Props>(
             type="checkbox"
             name={name}
             id={htmlId}
-            className="sr-only pwg-toggle"
+            className="pwg-toggle sr-only"
             value={value}
             onChange={onChange}
           />
@@ -41,13 +41,13 @@ const Togglebutton = forwardRef<HTMLInputElement, Props>(
             <>
               {type === "skinny" ? (
                 <>
-                  <div className="sw-line w-10 h-4 bg-gray-400 rounded-full shadow-inner ease-in-out transition-colors" />
-                  <div className="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 ease-in-out transition-custom" />
+                  <div className="sw-line h-4 w-10 rounded-full bg-gray-400 shadow-inner transition-colors ease-in-out" />
+                  <div className="dot absolute -left-1 -top-1 h-6 w-6 rounded-full bg-white shadow transition-custom ease-in-out" />
                 </>
               ) : (
                 <>
-                  <div className="sw-line block bg-gray-600 w-14 h-8 rounded-full ease-in-out transition-colors" />
-                  <div className="dot absolute left-1 top-1 w-6 h-6 bg-white rounded-full ease-in-out transition-custom" />
+                  <div className="sw-line block h-8 w-14 rounded-full bg-gray-600 transition-colors ease-in-out" />
+                  <div className="dot absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition-custom ease-in-out" />
                 </>
               )}
             </>

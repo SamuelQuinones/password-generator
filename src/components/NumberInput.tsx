@@ -55,14 +55,14 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
         <Button
           disabled={leftDisabled}
           type="button"
-          className="relative num-input-btn rounded-r-none rounded-l-md px-1 border py-0"
+          className="num-input-btn relative rounded-r-none rounded-l-md border px-1 py-0"
           onClick={() => forceChange("stepDown")}
         >
           <Minus height={14} width={14} title="Decrease" />
         </Button>
         <input
           ref={ref}
-          className="num-input-field text-center border-t border-b px-1"
+          className="num-input-field border-t border-b px-1 text-center"
           type="number"
           onChange={onChange}
           onKeyDown={onKeyDown}
@@ -74,7 +74,7 @@ const NumberInput = forwardRef<HTMLInputElement, Props>(
         <Button
           disabled={rightDisabled}
           type="button"
-          className="relative num-input-btn rounded-l-none rounded-r-md px-1 border py-0"
+          className="num-input-btn relative rounded-l-none rounded-r-md border px-1 py-0"
           onClick={() => forceChange("stepUp")}
         >
           <Plus height={14} width={14} title="Increase" />
