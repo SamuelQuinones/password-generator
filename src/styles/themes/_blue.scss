@@ -1,5 +1,5 @@
 body.blue {
-  @apply text-white bg-blue-900;
+  @apply bg-blue-900 text-white;
 
   a:not(.dropdown-item) {
     font-weight: bold;
@@ -32,7 +32,7 @@ body.blue {
   // layer wrapper Originally not here
   @layer components {
     .btn-theme {
-      @apply text-white bg-blue-400;
+      @apply bg-blue-400 text-white;
       &:focus,
       &:focus-within,
       &:hover {
@@ -55,7 +55,7 @@ body.blue {
     .num-input {
       &-btn,
       &-field {
-        @apply text-white bg-blue-400;
+        @apply bg-blue-400 text-white;
       }
       &-field {
         &:focus,
@@ -72,16 +72,16 @@ body.blue {
   }
 
   .settings-change {
-    @apply text-white bg-blue-700 focus:ring-0 focus-within:ring-0 hover:bg-blue-800 focus:bg-blue-800 focus-within:bg-blue-800;
+    @apply bg-blue-700 text-white focus-within:bg-blue-800 focus-within:ring-0 hover:bg-blue-800 focus:bg-blue-800 focus:ring-0;
   }
 
   .theme-toggle-button {
     font-weight: 500;
-    @apply text-white bg-blue-400;
+    @apply bg-blue-400 text-white;
     &:focus,
     &:focus-within,
     &:hover {
-      @apply ring outline-none ring-opacity-60 bg-blue-500;
+      @apply bg-blue-500 outline-none ring ring-opacity-60;
     }
     &.open {
       @apply bg-blue-500;
@@ -89,7 +89,7 @@ body.blue {
   }
 
   .MyModal__Content {
-    @apply text-white border border-blue-800 bg-blue-900;
+    @apply border border-blue-800 bg-blue-900 text-white;
   }
 
   code {
@@ -100,7 +100,7 @@ body.blue {
 .theme-changer-master {
   input.theme-changer-blue {
     ~ .changer-wrapper {
-      @apply bg-blue-500 border-blue-300;
+      @apply border-blue-300 bg-blue-500;
     }
     &:not(:checked) {
       ~ .changer-wrapper {
