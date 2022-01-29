@@ -17,7 +17,7 @@
     transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
     // border-radius: 4px;
     outline: none;
-    @apply absolute max-h-full overflow-hidden flex flex-col rounded inset-0 sm:inset-4 md:inset-10;
+    @apply absolute inset-0 flex max-h-full flex-col overflow-hidden rounded sm:inset-4 md:inset-10;
     &--after-open {
       opacity: 1;
       transform: translateX(0);
@@ -28,7 +28,7 @@
     }
   }
   &__Header {
-    @apply flex-shrink-0 items-center justify-between p-2;
+    @apply shrink-0 items-center justify-between p-2;
   }
   &__Body {
     @apply py-4 px-4 md:px-8 lg:px-16;
@@ -45,7 +45,7 @@
     }
   }
   &__Trigger {
-    @apply text-sky-400 font-bold;
+    @apply font-bold text-sky-400;
     &:focus,
     &:focus-within,
     &:hover,

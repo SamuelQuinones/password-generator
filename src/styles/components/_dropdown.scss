@@ -5,7 +5,7 @@
   @apply absolute bg-white;
 
   &-item {
-    @apply cursor-pointer w-full font-normal text-black py-1 px-2;
+    @apply w-full cursor-pointer py-1 px-2 font-normal text-black;
     &:focus,
     &:hover {
       border-radius: inherit;

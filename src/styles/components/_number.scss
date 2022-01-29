@@ -2,7 +2,7 @@ input[type="number"].num-input-field {
   &:focus,
   &:focus-within,
   &:active {
-    @apply ring outline-none ring-opacity-60;
+    @apply outline-none ring ring-opacity-60;
   }
   border-radius: 0; //* fix for mobile devices
   &::-webkit-inner-spin-button,
