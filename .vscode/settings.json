@@ -1,8 +1,5 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
-  "stylelint.validate": ["css", "scss"],
+  "css.customData": [".vscode/css_custom_data.json"],
   "tailwindCSS.emmetCompletions": true
 }

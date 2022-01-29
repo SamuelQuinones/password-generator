@@ -1,7 +1,3 @@
 {
-  "recommendations": [
-    "bradlc.vscode-tailwindcss",
-    "stylelint.vscode-stylelint",
-    "aaron-bond.better-comments"
-  ]
+  "recommendations": ["bradlc.vscode-tailwindcss", "aaron-bond.better-comments"]
 }
