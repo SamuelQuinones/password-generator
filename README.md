@@ -40,3 +40,7 @@ This app is constantly being worked on and I am always open to ideas, suggestion
 ## How It Works
 
 more info coming soon ...
+
+## Stats
+
+![Alt](https://repobeats.axiom.co/api/embed/cf8af38d881ae5b4ddb2d4ea5b0e13901c1970e6.svg "Repobeats analytics image")
