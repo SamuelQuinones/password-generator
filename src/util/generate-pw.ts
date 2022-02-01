@@ -9,7 +9,7 @@ import type { FormInput } from "views/Form/Helper";
  * @param max maximum numbrt in range (inclusive)
  * @returns a random number from the range (min, max)
  */
-const getRandomInteger = (min: number, max: number): number => {
+const getRandomIntegerOld = (min: number, max: number): number => {
   //* Create a single random number
   const byteArr = new Uint8Array(1);
   window.crypto.getRandomValues(byteArr);
@@ -18,10 +18,49 @@ const getRandomInteger = (min: number, max: number): number => {
   const max_range = 256;
 
   if (byteArr[0] >= Math.floor(max_range / range) * range) {
-    return getRandomInteger(min, max);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return getRandomIntegerOld(min, max);
   }
 
   return min + (byteArr[0] % range);
+};
+
+/**
+ * uses the more secure `crypto.getRandomValues` to generate a random number with rejection sampling
+ *
+ * @param min minimum number in range (inclusive)
+ * @param max maximum numbrt in range (inclusive)
+ * @returns a random number from the range (min, max)
+ */
+const getRandomInteger = (min: number, max: number) => {
+  //* check for window.crypto
+  if (!window.crypto) {
+    throw new Error("window.crypto is indefined");
+  }
+  const range = max - min + 1;
+  //* check range is valid
+  if (range <= 0) {
+    throw new Error("max must be larger than min");
+  }
+  const requestBytes = Math.ceil(Math.log2(range) / 8);
+  if (!requestBytes) {
+    //* No randomness required
+    return min;
+  }
+  const maxNum = Math.pow(256, requestBytes);
+  const ar = new Uint8Array(requestBytes);
+  while (true) {
+    window.crypto.getRandomValues(ar);
+
+    let val = 0;
+    for (let i = 0; i < requestBytes; i++) {
+      val = (val << 8) + ar[i];
+    }
+
+    if (val < maxNum - (maxNum % range)) {
+      return min + (val % range);
+    }
+  }
 };
 
 const _standardGeneration = (passwordLength: number, charCodes: number[]) => {
@@ -31,7 +70,7 @@ const _standardGeneration = (passwordLength: number, charCodes: number[]) => {
   //* loop as many times as is the value of passwordLength
   for (let i = 0; i < passwordLength; i++) {
     //* get the character code
-    const character = charCodes[getRandomInteger(0, charCodes.length)];
+    const character = charCodes[getRandomInteger(0, charCodes.length - 1)];
     //* turn it into a string;
     pwCharacters.push(String.fromCharCode(character));
   }
@@ -46,7 +85,7 @@ const _uniqueGeneration = (passwordLength: number, charCodes: number[]) => {
   //* continue adding values until we have a long enough Set
   while (pwCharacters.size < passwordLength) {
     //* get the character code
-    const character = charCodes[getRandomInteger(0, charCodes.length)];
+    const character = charCodes[getRandomInteger(0, charCodes.length - 1)];
     //* turn it into a string;
     pwCharacters.add(String.fromCharCode(character));
   }
