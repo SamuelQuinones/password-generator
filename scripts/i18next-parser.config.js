@@ -1,4 +1,4 @@
-const { locales } = require("./locales.json");
+const { locales } = require("../src/lang/locales.json");
 
 module.exports = {
   createOldCatalogs: false,

@@ -1,13 +1,15 @@
 import { Themes } from "./current";
-import nodePlop from "node-plop";
-import * as path from "path";
+import type { NodePlopAPI } from "node-plop";
 
-(async () => {
-  const plopFile = path.join(process.cwd(), "scripts/generators");
-  const plop = await nodePlop(`${plopFile}/plopfile.ts`);
+async function main(plop: NodePlopAPI) {
   const themer = plop.getGenerator("theme");
-
   for (const theme of Themes) {
-    await themer.runActions({ overrideExisting: true, ...theme });
+    await themer
+      .runActions({ overrideExisting: true, ...theme })
+      .then((results) => {
+        console.log(results);
+      });
   }
-})();
+}
+
+export default main;

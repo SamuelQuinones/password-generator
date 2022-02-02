@@ -149,19 +149,11 @@ export const themeGenerator: PlopGeneratorConfig = {
       )}`,
       transform: (data) => {
         let newData = data;
-        const typeReg = new RegExp(
-          `export type Themes =[\\s\\S]+?((?:\\s*?\\|?\\s?"${answers.tailwindColor}"[\\s\\S]*?)+);\n\\/\\/ THEME TYPE END`,
-          "gm"
-        );
+        //* array
         const arrReg = new RegExp(
           `export const ThemesArr: Themes\\[\\] = \\[[\\s\\S]*?((?:"${answers.tailwindColor}",?[\\s\\S]*?)+)\\];\n\\/\\/ THEME ARR END`,
           "gm"
         );
-        const funcReg = new RegExp(
-          `switch \\(input\\) \\{[\\S\\s]+case "${answers.tailwindColor}":\n\\s+return "${answers.tailwindColor}";|default:\n\\s+return "${answers.tailwindColor}";`,
-          "gm"
-        );
-        //* array
         if (!arrReg.test(newData)) {
           newData = newData.replace(
             /export const ThemesArr: Themes\[\] = \[[\s\S]?((?:"[a-z]+",?[\s\S]?)+)\];\n\/\/ THEME ARR END/gm,
@@ -169,6 +161,10 @@ export const themeGenerator: PlopGeneratorConfig = {
           );
         }
         //* type
+        const typeReg = new RegExp(
+          `export type Themes =[\\s\\S]+?((?:\\s*?\\|?\\s?"${answers.tailwindColor}"[\\s\\S]*?)+);\n\\/\\/ THEME TYPE END`,
+          "gm"
+        );
         if (!typeReg.test(newData)) {
           newData = newData.replace(
             /(export type Themes =[\s\S]+?)((?:\s*?\|?\s?"[a-z]+"[\s\S]?)+);\n\/\/ THEME TYPE END$/gm,
@@ -176,6 +172,10 @@ export const themeGenerator: PlopGeneratorConfig = {
           );
         }
         //* function
+        const funcReg = new RegExp(
+          `switch \\(input\\) \\{[\\S\\s]+case "${answers.tailwindColor}":\n\\s+return "${answers.tailwindColor}";|default:\n\\s+return "${answers.tailwindColor}";`,
+          "gm"
+        );
         if (!funcReg.test(newData)) {
           newData = newData.replace(
             /switch \(input\) \{((?:\n\s+case "([a-z]+)":\n\s+return "\2";)+\n\s+default:\n\s+return "[a-z]+";)/gm,
@@ -185,12 +185,19 @@ export const themeGenerator: PlopGeneratorConfig = {
         return newData;
       },
     });
-    //* modify the import file
+    //* modify the import SCSS file
     actions.push({
       type: "append",
       path: `${stylesDirectory}/_themes.scss`,
       pattern: /(\/\/ APPEND HERE\s)/g,
       template: `@import "themes/{{lowerCase ${ThemePromptNames.tailwindColor}}}";`,
+    });
+    //* prettify files
+    actions.push({
+      type: "prettify",
+      data: {
+        path: `"${themeDir}/current.ts" "${stylesDirectory}/themes/_${answers.tailwindColor}.scss" "src/components/ThemeSwitcher/**/*.{ts,tsx}"`,
+      },
     });
     return actions;
   },
