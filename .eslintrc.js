@@ -57,7 +57,10 @@ module.exports = {
         "no-unused-vars": "off",
 
         // Why would you want unused vars?
-        "@typescript-eslint/no-unused-vars": ["warn"],
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          { varsIgnorePattern: "_" },
+        ],
       },
     },
   ],
