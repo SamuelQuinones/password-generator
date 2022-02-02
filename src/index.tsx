@@ -1,6 +1,6 @@
 //* Core
 import React from "react"; //? is this import still needed?
-import { render, hydrate } from "react-dom";
+import { render } from "react-dom";
 import "./styles/globals.scss";
 import App from "./App";
 //* PWA
@@ -22,20 +22,7 @@ const MyApp = (
   </Provider>
 );
 
-//* https://github.com/stereobooster/react-snap#basic-usage-with-create-react-app
-if (rootElement.hasChildNodes()) {
-  hydrate(MyApp, rootElement);
-} else {
-  render(MyApp, rootElement);
-}
-
-//* Old code pre react-snap install
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
+render(MyApp, rootElement);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
