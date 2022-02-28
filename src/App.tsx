@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App bs-container">
-      <header className="shrink-0">
+      <header className="grow-0">
         <h1 className="mb-5 mt-5 text-center">{t("app_title")}</h1>
         <LangSwitcher />
       </header>
