@@ -91,7 +91,7 @@ export const themeGenerator: PlopGeneratorConfig = {
     },
     {
       type: "input",
-      name: "anchorColor",
+      name: ThemePromptNames.anchorColor,
       message: "please type a tailwind color",
       validate: (input) => Boolean(input.trim()),
       when: (response) => {
