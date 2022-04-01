@@ -1,6 +1,6 @@
 //* Core
 import React from "react"; //? is this import still needed?
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import "./styles/globals.scss";
 import App from "./App";
 //* PWA
@@ -12,17 +12,18 @@ import { store } from "store";
 //* Translation
 import "./lang/i18n";
 
-const rootElement = document.getElementById("root") as HTMLElement;
+const container = document.getElementById("root") as HTMLElement;
+const root = createRoot(container);
 
 const MyApp = (
-  <Provider store={store}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
       <App />
-    </React.StrictMode>
-  </Provider>
+    </Provider>
+  </React.StrictMode>
 );
 
-render(MyApp, rootElement);
+root.render(MyApp);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
