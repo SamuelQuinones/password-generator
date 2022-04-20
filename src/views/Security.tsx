@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import Modal from "components/Modal";
 //* Translation
 import { Trans, useTranslation } from "react-i18next";
 
-const SecurityModal: FC = () => {
+const SecurityModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const toggleModal = () => setModalOpen(!modalOpen);
   //* Translation

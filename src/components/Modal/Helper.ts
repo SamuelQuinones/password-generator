@@ -11,6 +11,7 @@ import {
 } from "util/dom-helper";
 
 export type ModalProps = {
+  children?: ReactNode;
   isOpen: boolean;
   contentLabel?: string;
   header?: ReactNode;

@@ -1,11 +1,10 @@
-import { FC } from "react";
 import AboutModal from "views/About";
 import SecurityModal from "views/Security";
 import { Github } from "./SVG-Icons";
 //* Translation
 import { Trans, useTranslation } from "react-i18next";
 
-const Footer: FC = () => {
+const Footer = () => {
   //* Translation
   const { t } = useTranslation("footer");
   const year = new Date().getFullYear();

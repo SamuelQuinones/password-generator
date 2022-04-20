@@ -1,5 +1,5 @@
 //* Core
-import { FC, ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "components/Button";
 import { LeftArrow, RightArrow } from "components/SVG-Icons";
@@ -20,7 +20,7 @@ import { generateRandomPW } from "util/generate-pw";
 //* Translation
 import { useTranslation } from "react-i18next";
 
-const Form: FC = () => {
+const Form = () => {
   //* Core
   const [showAdvanced, setShowAdvanced] = useState(false);
   //* REDUX

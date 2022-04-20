@@ -1,5 +1,5 @@
 //* Core
-import { FC, useState } from "react";
+import { useState } from "react";
 import useIsClient from "hooks/useIsClient";
 import { motion, AnimatePresence } from "framer-motion";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -32,7 +32,7 @@ const variants = {
   },
 };
 
-const Output: FC = () => {
+const Output = () => {
   //* Core
   const [copied, setCopied] = useState(false);
   const isClient = useIsClient();

@@ -1,6 +1,6 @@
 //* Core
-import { FC, useEffect, useRef, useState } from "react";
-import { UnmountClosed } from "react-collapse";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ActiveIcon from "./ActiveIcon";
 import { Bucket } from "components/SVG-Icons";
 import { checkTheme, ThemesArr, changeTheme } from "./Helper";
@@ -18,7 +18,7 @@ import { useTranslation } from "react-i18next";
  *
  * Buttons are circular, and stick to the bottom right
  */
-const ThemeSwitcher: FC = () => {
+const ThemeSwitcher = () => {
   //* REDUX
   const dispatch = useAppDispatch();
   const theme = useAppSelector(getTheme);
@@ -46,42 +46,50 @@ const ThemeSwitcher: FC = () => {
           "theme-toggle-button ml-auto block rounded-md p-1.5 shadow-inner transition duration-250",
           showThemeButtons ? "open rounded-b-none" : "closed"
         )}
-        onClick={() => setShowThemeButtons(!showThemeButtons)}
+        onClick={() => setShowThemeButtons((current) => !current)}
       >
         <span className="hidden md:inline-block">{t("select_theme")}</span>
         <span className="inline-block md:hidden">
           <Bucket title={t("select_theme")} height={20} width={20} />
         </span>
       </button>
-      <UnmountClosed
-        theme={{
-          collapse: "ReactCollapse--collapse",
-          content:
-            "ReactCollapse--content flex flex-row p-3 rounded-md rounded-tr-none transition-colors duration-250", //* used to include "transition-colors duration-250"
-        }}
-        isOpened={showThemeButtons}
-      >
-        {ThemesArr.map((color, idx) => {
-          return (
-            <label key={idx} htmlFor={`radio-${color}`}>
-              <input
-                className={`theme-changer-${color} sr-only`}
-                id={`radio-${color}`}
-                name="theme"
-                type="radio"
-                value={color}
-                onChange={(e) => {
-                  const newTheme = changeTheme(e, theme);
-                  dispatch(userActions.setTheme(newTheme));
-                }}
-                checked={theme === color}
-              />
+      <AnimatePresence initial={false}>
+        {showThemeButtons && (
+          <motion.div
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: "auto" },
+              collapsed: { opacity: 0, height: 0 },
+            }}
+            transition={{ duration: 0.25 }}
+          >
+            <div className="theme-changer-body flex flex-row rounded-md rounded-tr-none p-3 transition-colors duration-250">
+              {ThemesArr.map((color, idx) => {
+                return (
+                  <label key={idx} htmlFor={`radio-${color}`}>
+                    <input
+                      className={`theme-changer-${color} sr-only`}
+                      id={`radio-${color}`}
+                      name="theme"
+                      type="radio"
+                      value={color}
+                      onChange={(e) => {
+                        const newTheme = changeTheme(e, theme);
+                        dispatch(userActions.setTheme(newTheme));
+                      }}
+                      checked={theme === color}
+                    />
 
-              <ActiveIcon theme={color} usingTheme={theme === color} />
-            </label>
-          );
-        })}
-      </UnmountClosed>
+                    <ActiveIcon theme={color} usingTheme={theme === color} />
+                  </label>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

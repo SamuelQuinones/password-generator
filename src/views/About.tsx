@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import Modal from "components/Modal";
 //* Translation
 import { useTranslation, Trans } from "react-i18next";
 
-const AboutModal: FC = () => {
+const AboutModal = () => {
   const relTarget = {
     target: "_blank",
     rel: "noopener noreferrer",

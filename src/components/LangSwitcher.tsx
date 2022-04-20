@@ -5,7 +5,7 @@
 //TODO: Switch library for dropdown / change active language logic
 //TODO: fix focus shift when using keyboard to select
 
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Button from "./Button";
 import { Translate } from "./SVG-Icons";
@@ -37,7 +37,7 @@ const slideDownConfig = {
 
 // }
 
-const LangSwitcher: FC = () => {
+const LangSwitcher = () => {
   const { i18n, t } = useTranslation();
   const [activeKey, setActiveKey] = useState("");
   const { buttonProps, itemProps, isOpen, setIsOpen, moveFocus } =
