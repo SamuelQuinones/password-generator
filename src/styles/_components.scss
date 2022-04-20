@@ -26,9 +26,8 @@
   }
 }
 
-.ReactCollapse--collapse {
-  transition: height 300ms, color 0.25s ease-in-out,
-    background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+.theme-changer-body {
+  transition: background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;
 }
 
 svg.bi {
