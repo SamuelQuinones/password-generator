@@ -1,6 +1,6 @@
 //* Core
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import ActiveIcon from "./ActiveIcon";
 import { Bucket } from "components/SVG-Icons";
 import { checkTheme, ThemesArr, changeTheme } from "./Helper";
@@ -55,7 +55,7 @@ const ThemeSwitcher = () => {
       </button>
       <AnimatePresence initial={false}>
         {showThemeButtons && (
-          <motion.div
+          <m.div
             initial="collapsed"
             animate="open"
             exit="collapsed"
@@ -87,7 +87,7 @@ const ThemeSwitcher = () => {
                 );
               })}
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { Palette, CheckCircle } from "components/SVG-Icons";
 
 type ActiveIconProps = {
@@ -39,7 +39,7 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
     <div className="changer-wrapper relative mx-1 flex h-9 w-9 flex-col items-center justify-center overflow-hidden rounded-full border-2 shadow-lg transition duration-250">
       <AnimatePresence initial={false}>
         {usingTheme && (
-          <motion.div
+          <m.div
             key="using"
             variants={check}
             transition={transition}
@@ -54,10 +54,10 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
               width={20}
               height={20}
             />
-          </motion.div>
+          </m.div>
         )}
         {!usingTheme && (
-          <motion.div
+          <m.div
             key="switch"
             variants={palette}
             transition={transition}
@@ -72,7 +72,7 @@ const ActiveIcon: FC<ActiveIconProps> = ({ usingTheme, theme }) => {
               width={20}
               height={20}
             />
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

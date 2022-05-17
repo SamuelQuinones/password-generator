@@ -1,7 +1,7 @@
 //* Core
 import { useState } from "react";
 import useIsClient from "hooks/useIsClient";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Card from "components/Card";
 import Button from "components/Button";
@@ -13,7 +13,7 @@ import { userActions } from "store/userSlice";
 //* Translation
 import { useTranslation } from "react-i18next";
 
-const MotionCard = motion(Card);
+const MotionCard = m(Card);
 
 const variants = {
   enter: {

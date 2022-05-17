@@ -6,7 +6,7 @@
 //TODO: fix focus shift when using keyboard to select
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Button from "./Button";
 import { Translate } from "./SVG-Icons";
 import { useTranslation } from "react-i18next";
@@ -63,7 +63,7 @@ const LangSwitcher = () => {
       >
         <Translate width="1em" height="1em" /> {t("lang_desc")}
       </Button>
-      <motion.div
+      <m.div
         variants={slideDownConfig}
         initial="closed"
         animate={isOpen ? "open" : "closed"}
@@ -89,7 +89,7 @@ const LangSwitcher = () => {
             {display}
           </a>
         ))}
-      </motion.div>
+      </m.div>
     </section>
   );
 };

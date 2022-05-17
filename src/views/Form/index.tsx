@@ -1,6 +1,6 @@
 //* Core
 import { ReactNode, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import Button from "components/Button";
 import { LeftArrow, RightArrow } from "components/SVG-Icons";
 import BaseSettings from "./_BaseSettings";
@@ -64,7 +64,7 @@ const Form = () => {
       <div className="overflow-y-auto overflow-x-hidden">
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           {!showAdvanced && (
-            <motion.fieldset
+            <m.fieldset
               key="base"
               variants={baseVariants}
               initial="exit"
@@ -76,10 +76,10 @@ const Form = () => {
                 t("advanced_settings.title"),
                 <RightArrow height={20} width={20} />
               )}
-            </motion.fieldset>
+            </m.fieldset>
           )}
           {showAdvanced && (
-            <motion.fieldset
+            <m.fieldset
               key="advanced"
               variants={baseVariants}
               initial="exit"
@@ -91,7 +91,7 @@ const Form = () => {
                 t("basic_title"),
                 <LeftArrow height={20} width={20} />
               )}
-            </motion.fieldset>
+            </m.fieldset>
           )}
         </AnimatePresence>
       </div>

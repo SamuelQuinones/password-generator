@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { UseFormRegister, UseFormWatch } from "react-hook-form";
 import { cardVariants, FormInput, spring, textVariants } from "./Helper";
 import Card from "components/Card";
@@ -13,7 +13,7 @@ type Props = {
   watch: UseFormWatch<FormInput>;
 };
 
-const MotionCard = motion(Card);
+const MotionCard = m(Card);
 
 const BaseSettings: FC<Props> = ({ register, watch }) => {
   const { t } = useTranslation("form");
@@ -22,9 +22,9 @@ const BaseSettings: FC<Props> = ({ register, watch }) => {
   return (
     <>
       {/* Length */}
-      <motion.label variants={textVariants} htmlFor="characterNum">
+      <m.label variants={textVariants} htmlFor="characterNum">
         {t("password_length")}: {watched[1]}
-      </motion.label>
+      </m.label>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Slider
           htmlID="characterNum"
@@ -39,7 +39,7 @@ const BaseSettings: FC<Props> = ({ register, watch }) => {
         />
       </MotionCard>
       {/* Additional Settings */}
-      <motion.span variants={textVariants}>{t("settings_label")}</motion.span>
+      <m.span variants={textVariants}>{t("settings_label")}</m.span>
       <MotionCard variants={cardVariants} transition={spring} className="my-2">
         <Togglebutton
           htmlId="uppercase"

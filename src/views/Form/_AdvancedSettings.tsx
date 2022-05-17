@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { UseFormRegister, UseFormWatch } from "react-hook-form";
 import {
   cardVariants,
@@ -19,7 +19,7 @@ type Props = {
   watch: UseFormWatch<FormInput>;
 };
 
-const MotionCard = motion(Card);
+const MotionCard = m(Card);
 
 const AdvancedSettings: FC<Props> = ({ register, watch }) => {
   const watched = watch([
@@ -31,9 +31,7 @@ const AdvancedSettings: FC<Props> = ({ register, watch }) => {
 
   return (
     <>
-      <motion.span variants={textVariants}>
-        {t("advanced_settings.title")}
-      </motion.span>
+      <m.span variants={textVariants}>{t("advanced_settings.title")}</m.span>
       <MotionCard
         variants={cardVariants}
         transition={spring}
