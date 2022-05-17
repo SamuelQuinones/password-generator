@@ -156,7 +156,7 @@ export const themeGenerator: PlopGeneratorConfig = {
         );
         if (!arrReg.test(newData)) {
           newData = newData.replace(
-            /export const ThemesArr: Themes\[\] = \[[\s\S]?((?:"[a-z]+",?[\s\S]?)+)\];\n\/\/ THEME ARR END/gm,
+            /export const ThemesArr: Themes\[\] = \[[\s\S]*?((?:"[a-z]+",?[\s\S]*?)+)\];\n\/\/ THEME ARR END/gm,
             `export const ThemesArr: Themes[] = [$1, "${answers.tailwindColor}"];\n// THEME ARR END`
           );
         }

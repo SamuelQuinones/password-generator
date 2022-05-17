@@ -17,5 +17,16 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "ts-node": {
+    "compilerOptions": {
+      "noImplicitAny": false,
+      "isolatedModules": false,
+      "esModuleInterop": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noEmit": true,
+      "allowSyntheticDefaultImports": true
+    }
+  }
 }
