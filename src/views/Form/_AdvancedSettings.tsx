@@ -1,6 +1,5 @@
-import { FC } from "react";
 import { m } from "framer-motion";
-import { UseFormRegister, UseFormWatch } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import {
   cardVariants,
   FormInput,
@@ -14,14 +13,10 @@ import Togglebutton from "components/ToggleButton";
 //* Translation
 import { useTranslation } from "react-i18next";
 
-type Props = {
-  register: UseFormRegister<FormInput>;
-  watch: UseFormWatch<FormInput>;
-};
-
 const MotionCard = m(Card);
 
-const AdvancedSettings: FC<Props> = ({ register, watch }) => {
+const AdvancedSettings = () => {
+  const { register, watch } = useFormContext<FormInput>();
   const watched = watch([
     "advancedSettings.maxLength",
     "passwordLength",

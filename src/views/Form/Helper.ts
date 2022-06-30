@@ -66,7 +66,7 @@ const defaults = {
   },
 };
 
-export const GeneratorSettings = () => {
+export const useGeneratorSettings = () => {
   return useForm<FormInput>({
     defaultValues: defaults,
   });
