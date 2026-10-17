@@ -39,7 +39,10 @@ export default function Output() {
       <h2>Your new password</h2>
       <Card className="[--card-spacing:--spacing(2)]">
         <CardContent>
-          <div data-has-pw={!!password} className="border bg-muted p-2 text-center data-[has-pw=true]:select-all">
+          <div
+            data-has-pw={!!password}
+            className="border bg-muted p-2 text-center data-[has-pw=true]:select-all"
+          >
             {password ? password : "Click generate"}
           </div>
         </CardContent>
