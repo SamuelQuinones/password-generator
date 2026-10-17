@@ -20,6 +20,7 @@ jobs:
         id: deployment
         with:
           path: dist/
+          retention-days: 1
         
   deploy:
     needs: build
