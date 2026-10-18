@@ -6,7 +6,43 @@ on:
   workflow_dispatch:
 
 jobs:
+  code-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pnpm/setup@v3
+        with:
+          cache: true
+          runtime: node@24
+      - name: run prettier
+        run: pnpm run format
+      - name: run eslint
+        run: pnpm run lint
+      - name: Check git tree
+        id: git-porcelain
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "dirty=true" >> $GITHUB_OUTPUT
+          else
+            echo "dirty=false" >> $GITHUB_OUTPUT
+          fi
+      - if: ${{ steps.git-porcelain.outputs.dirty == 'true' }}
+        run: |
+          git status --porcelain -z | while IFS= read -r -d '' record; do
+            echo "::error::Dirty files"
+            echo "::error file=${record:3}::"
+          done   
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pnpm/setup@v3
+        with:
+          cache: true
+          runtime: node@24
+      - name: typecheck
+        run: pnpm run typecheck
+
   build:
+    needs: [code-format, typecheck]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -21,7 +57,7 @@ jobs:
         with:
           path: dist/
           retention-days: 1
-        
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
