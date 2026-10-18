@@ -7,6 +7,7 @@ on:
 
 jobs:
   code-format:
+    name: "Check code meets formatting standards"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -33,6 +34,7 @@ jobs:
             echo "::error file=${record:3}::"
           done   
   typecheck:
+    name: Run typescript check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
