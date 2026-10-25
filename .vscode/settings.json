@@ -1,0 +1,5 @@
+{
+  "tailwindCSS.classAttributes": ["class", "className", "class:list"],
+  "tailwindCSS.classFunctions": ["cva", "cn"],
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
+}
