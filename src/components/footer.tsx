@@ -28,9 +28,19 @@ function ChangeLog() {
             What's new in this version of Secure Password Generator
           </DrawerDescription>
         </DrawerHeader>
-        <div className="flex-1 overflow-y-auto p-4 max-w-sm self-center w-full">
+        <div className="w-full max-w-md flex-1 self-center overflow-y-auto p-4">
           <ul className="list-inside list-disc">
-            <li></li>
+            <li>Switched from create-react-app to vite</li>
+            <li>Added shadcn (base-ui)</li>
+            <li>Removed multi-color themes in favor of dark/light mode</li>
+            <li>Upgraded to react 19</li>
+            <li>
+              Added PWA popups
+              <ul className="ms-4 list-disc list-inside">
+                <li>Offline mode available</li>
+                <li>New version available</li>
+              </ul>
+            </li>
           </ul>
         </div>
         <DrawerFooter>
