@@ -23,7 +23,7 @@ export function App() {
       </main>
       <Footer />
       <div className="fixed right-2 bottom-2">
-        <Button variant="secondary" onClick={toggleTheme} size="icon">
+        <Button variant="secondary" className="shadow dark:shadow-foreground/15" onClick={toggleTheme} size="icon">
           <ContrastIcon className="size-4" />
         </Button>
       </div>
