@@ -129,7 +129,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply flex min-h-full flex-col bg-background text-foreground;
+    @apply flex min-h-full flex-col bg-background text-foreground relative;
   }
   html {
     @apply h-full font-sans;
